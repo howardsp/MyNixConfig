@@ -50,10 +50,18 @@
         # using Media/(Photos, Video & Music) instead
         # to help decluter the home directory.
 
-        rmdir ~/Photos  
-        rmdir ~/Video    
-        rmdir ~/Music
+        if test -d /home/${mysettings.username}/Photos;  then 
+          rmdir /home/${mysettings.username}/Photos  
+        fi
 
+        if test -d /home/${mysettings.username}/Music;  then 
+          rmdir /home/${mysettings.username}/Music
+        fi
+
+        if test -d /home/${mysettings.username}/Video;  then 
+          rmdir /home/${mysettings.username}/Video
+        fi
+        
         '';
 
   
