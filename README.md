@@ -2,6 +2,8 @@
 
 These files are my personal nixos setup it manages my home directory setup with home-manager (as a nixos module) and provides a setup that is the bulk of my desired system configuration allowing me to have the same setup across multiple machines with ease.  
 
+I'm sharing these to help others,  please only use it for educational purposes!
+
 ## Configuration Overview
 
 System specific configuration entries that drive this setup are placed 
@@ -36,6 +38,7 @@ Below is a basic overview of how to get this system up and running
   - change to the new configuration directory 
   - ```cd profile``` then rename or copy the ```template``` to your hostname. 
   - ```cp /etc/nixos/hardware-configuration.nix <your new template folder> ```
+  - ***NOTE***  - Check your ```/etc/nixos/configuration.nix``` file from the install as there may be items there you'll need to update in the system specific profile or the common ```configuration.nix``` file.
   - ```cd ..\.. ```  - back to your config folder
   - Create and fill in a file called  ```system-specific-settings.nix``` using the code below:   
     
@@ -71,6 +74,7 @@ Below is a basic overview of how to get this system up and running
   ## Step 3 - Build Your System
 
   - Set the an environment variable to enable experimental features for the first build.  
+  - ```rm -rf .git```  - remove the reference to my repo 
   -  ```export NIX_CONFIG="experimental-features = nix-command flakes"```
  - Run  ```'sudo nixos-rebuild --flake .#system'``` to Update the system and home-Manager now and anytime you edit your .nix files. 
   
