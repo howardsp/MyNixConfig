@@ -1,4 +1,4 @@
-# NixOS configuration entrypoint
+# NixOS configuration entrypoint for all of my machines. 
 #
 # Run the following form your Flake Directory. 
 # Update System + Home-Manager 'sudo nixos-rebuild --flake .#system'
