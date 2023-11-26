@@ -15,7 +15,7 @@ You notice that the ```flake.nix``` calls into the ```hostname``` folder for the
 
 Separately there's a ```settings``` folder that contains some of the shared settings that have been pulled out into their own files for ease of maintenance. 
 
-My primary environment is X currently, but this setup supports switching to Wayland with a simple configuration change.
+My primary environment uses X currently, but this setup supports switching to Wayland with a simple configuration change.
 
 Below is a basic overview of how to get this system up and running
 
@@ -27,12 +27,16 @@ Below is a basic overview of how to get this system up and running
 
 ## Step 2 - Configure Your System
   - Open a Shell in your Home directory 
-  - ```mkdir <your config folder name> ``` and change to it.
-  - ```nix-shell -p git, vim```  to opens a shell with git & vim installed. 
-  - TODO: put in git commands
+  - Add Home-Manager Channel 
+    - ```nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager```
+    - ```nix-channel --update```
+  - ```nix-shell -p git vim```  - opens a shell with git & vim installed. 
+  - ```git clone https://github.com/howardsp/MyNixConfig```
+  - optional - Rename the MyNixConfig directory to match your preferences 
+  - change to the new configuration directory 
   - ```cd profile``` then rename or copy the ```template``` to your hostname. 
   - ```cp /etc/nixos/hardware-configuration.nix <your new template folder> ```
-  - ```cd .. ```  - back to your config folder
+  - ```cd ..\.. ```  - back to your config folder
   - Create and fill in a file called  ```system-specific-settings.nix``` using the code below:   
     
   ```python
@@ -62,6 +66,7 @@ Below is a basic overview of how to get this system up and running
     }
   ```
   - make sure your ```hostname``` matches the directory your created above
+  - ```exit```  **you must exit the temporary shell before continuing***
   
   ## Step 3 - Build Your System
 
