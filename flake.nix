@@ -16,7 +16,7 @@
   
   outputs = { self, nixpkgs, home-manager, ... }@inputs: 
     let
-      mysettings = (import ./system-specific-settings.nix);
+      mysettings = (import "~/.system-specific-settings.nix");
             
       system = mysettings.system;
 
