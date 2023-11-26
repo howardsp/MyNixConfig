@@ -1,0 +1,4 @@
+# igore local system settings
+**/*.elc
+/system-specific-settings.nix
+
