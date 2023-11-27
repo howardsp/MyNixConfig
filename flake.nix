@@ -24,13 +24,15 @@
         display-server = "x";   #   x = xserver / w = wayland        
         hostname = "virtualnix";  #  virtualnix = my NixOS VM..   flakebook = mylaptop 
       };
-      
-      pkgs = (import nixpkgs { system = "x86_64-linux"; });
+      system = "x86_64-linux";
+
+      pkgs = (import nixpkgs { inherit system;});
       
       # shared system configuration that embeds home-manager.  each host requires an 
       # entry in the profiles directory which can be as simple as the template one provided
       # or it can add system specific configurations.
       the-system = nixpkgs.lib.nixosSystem {             
+          inherit system;
           modules = [
               (./. + "/profiles"+("/"+mysettings.hostname)+"/configuration.nix")
               home-manager.nixosModules.home-manager 
