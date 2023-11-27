@@ -37,7 +37,7 @@ Below is a basic overview of how to get this system up and running
   - ```cp /etc/nixos/hardware-configuration.nix <your new template folder> ```
   - ***NOTE***  - Check your ```/etc/nixos/configuration.nix``` file from the install as there may be items there you'll need to update in the system specific profile or the common ```configuration.nix``` file.
   - ```cd ..\.. ```  - back to your config folder.
-  - edit ```flake.nix``` using vi or nano. making sure your ```hostname``` matches the directory your created above for the following:
+  - edit ```flake.nix``` using vi or nano. making sure your ```hostname``` matches the directory your created above for the following
   
      ```
           hostname = <your host name> #see the mysettings block in the "let" section.  
