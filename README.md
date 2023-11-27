@@ -36,9 +36,9 @@ Below is a basic overview of how to get this system up and running
   - ```cd profile``` then rename or copy the ```template``` to your hostname. 
   - ```cp /etc/nixos/hardware-configuration.nix <your new template folder> ```
   - ***NOTE***  - Check your ```/etc/nixos/configuration.nix``` file from the install as there may be items there you'll need to update in the system specific profile or the common ```configuration.nix``` file.
-  - ```cd ..\.. ```  - back to your config folder
-  - edit flake.nix (using vi or nano). making sure your ```hostname``` matches the directory your created above for the following:
-    - 
+  - ```cd ..\.. ```  - back to your config folder.
+  - edit ```flake.nix``` using vi or nano. making sure your ```hostname``` matches the directory your created above for the following:
+  
      ```
           hostname = <your host name> #see the mysettings block in the "let" section.  
 
@@ -55,4 +55,3 @@ Below is a basic overview of how to get this system up and running
   
   ## Step 4 - Reboot and Enjoy
   - ```sudo reboot now```  
-  - 
