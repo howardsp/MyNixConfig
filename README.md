@@ -39,9 +39,11 @@ Below is a basic overview of how to get this system up and running
   - edit ```flake.nix``` using vi or nano. making sure your ```hostname``` matches the directory you created above for the following
   
      ```
-          hostname = <your host name> #see the mysettings block in the "let" section.  
+          #see the mysettings block in the "let" section.  
+          hostname = <your host name> 
 
-          nixosConfigurations = { <your host name> = the-system; }; # copy a line or add this at the bottom of the file. 
+          #copy a line or add this at the bottom of the file.
+          nixosConfigurations = { <your host name> = the-system; };  
     ```
   - save those changes.
   - now ```exit``` the nix-shell **you must exit the temporary shell before continuing***
