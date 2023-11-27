@@ -1,2 +1,3 @@
 #! /bin/sh
-echo building system: [`uname -n`]1
+echo building system: [`uname -n`]
+sudo nixos-rebuild switch --flake .#`uname -n` 
