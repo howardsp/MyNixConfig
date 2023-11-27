@@ -22,7 +22,7 @@
         username = "howardsp";
         name = "Howard Spector";        
         display-server = "x";   #   x = xserver / w = wayland        
-        hostname = "virtualnix"  #  virtualnix = my NixOS VM..   flakebook = mylaptop 
+        hostname = "virtualnix";  #  virtualnix = my NixOS VM..   flakebook = mylaptop 
       };
       
       pkgs = (import nixpkgs { system = "x86_64-linux"; });
@@ -49,8 +49,9 @@
     # each system defined needs an entry point and in this flake that is simply the 
     # hostname set = to the-system as shown below from my personal machines. 
     in {   
-        nixosConfigurations = { virtualnix = the-system; };
-        nixosConfigurations = { flakebook = the-system; };
+        nixosConfigurations = { virtualnix = the-system; };  #my vm for testing config items. 
+        nixosConfigurations = { flakebook = the-system; };   #my laptop
+        nixosConfigurations = { snowbound = the-system; };   #my desktop
       };      
 
 }

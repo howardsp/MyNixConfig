@@ -7,13 +7,10 @@ I'm sharing these to help others,  please only use it for educational purposes!
 ## Configuration Overview
 
 System specific configuration entries that drive this setup are placed 
-in a file called ```system-specific-settings.nix``` that is local to each
-machine I run NixOS on. This file is also not checked in so a sample
-version is provided below for your reference. 
+in the ```mysettings``` attribute set.  I usually only need to change the hostname 
+to match the machine it is running on (in the future I'd like to eliminate that step) 
 
-```hostname``` is a critical entry as it not only sets your system hostname it is used by the nix code to define the entry point into the system build.   The entry point is where host specific settings are done at the system and home-manager level for each machine. The machines generated hardware nix file is also placed here. 
-
-You notice that the ```flake.nix``` calls into the ```hostname``` folder for the configuration.nix and home.nix, however there isn't much in them as they all call into the common profile to bring all of the standard install elements together. 
+You notice that the ```flake.nix``` calls into the ```hostname``` folder (in the profile directory) for the configuration.nix and home.nix, however there isn't much in those files as they call the common profile to bring all of the standard install elements together.  Any local machine customizations can be done in the machine specific profile folder. 
 
 Separately there's a ```settings``` folder that contains some of the shared settings that have been pulled out into their own files for ease of maintenance. 
 
@@ -40,43 +37,21 @@ Below is a basic overview of how to get this system up and running
   - ```cp /etc/nixos/hardware-configuration.nix <your new template folder> ```
   - ***NOTE***  - Check your ```/etc/nixos/configuration.nix``` file from the install as there may be items there you'll need to update in the system specific profile or the common ```configuration.nix``` file.
   - ```cd ..\.. ```  - back to your config folder
-  - Create and fill in a file called  ```system-specific-settings.nix``` using the code below:   
-    
-  ```python
-  {
-        # ------------------------------------------------------
-        # Do not upload the filled out system-specific-settings to git 
-        # this file is meant to drive the conf of each local machine 
-        # --------------------------------------------------------
-        username = "**replace with your username**";
-        name = "**replace with your name**";
-        email = "**your email**";
-        dotfilesDir = "~/.dotfiles";
-        
-        display-server = "x";   # x = xserver / w = wayland
-        
-        # ----------------------------------------------------------
-        # Change these to match your systems architecture 
-        # ----------------------------------------------------------
-        system = "x86_64-linux"; # system architecture      
+  - edit flake.nix (using vi or nano). making sure your ```hostname``` matches the directory your created above for the following:
+    - 
+     ```
+          hostname = <your host name> #see the mysettings block in the "let" section.  
 
-        # ----------------------------------------------------------
-        # Set to your desired hostname this should match a directory
-        # in your profile folder.   
-        #    mine: virtualnix, flakebook (laptop), snowbank (desktop)
-        # ----------------------------------------------------------
-        hostname = "**Your desired hostname**";  
-    }
-  ```
-  - make sure your ```hostname``` matches the directory your created above
-  - ```exit```  **you must exit the temporary shell before continuing***
+          nixosConfigurations = { <your host name> = the-system; }; # at the bottom of the file. 
+    ```
+  - save those changes.
+  - now ```exit``` the nix-shell **you must exit the temporary shell before continuing***
   
   ## Step 3 - Build Your System
-
-  - Set the an environment variable to enable experimental features for the first build.  
   - ```rm -rf .git```  - remove the reference to my repo 
+  - set the an environment variable to enable experimental features for the first build.  
   -  ```export NIX_CONFIG="experimental-features = nix-command flakes"```
- - Run  ```'sudo nixos-rebuild --flake .#system'``` to Update the system and home-Manager now and anytime you edit your .nix files. 
+ - Run  ```'sudo nixos-rebuild --flake .#<your host name>'``` to Update the system and home-Manager now and anytime you edit your .nix files. 
   
   ## Step 4 - Reboot and Enjoy
   - ```sudo reboot now```  
