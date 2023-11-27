@@ -32,17 +32,16 @@ Below is a basic overview of how to get this system up and running
   - ```nix-shell -p git vim```  - opens a shell with git & vim installed. 
   - ```git clone https://github.com/howardsp/MyNixConfig```
   - optional - Rename the MyNixConfig directory to match your preferences 
-  - change to the new configuration directory 
-  - ```cd profile``` then rename or copy the ```template``` to your hostname. 
+  - change to the new configuration directory then ```cd profile``` and rename or copy the ```template``` to your hostname. 
   - ```cp /etc/nixos/hardware-configuration.nix <your new template folder> ```
   - ***NOTE***  - Check your ```/etc/nixos/configuration.nix``` file from the install as there may be items there you'll need to update in the system specific profile or the common ```configuration.nix``` file.
   - ```cd ..\.. ```  - back to your config folder.
-  - edit ```flake.nix``` using vi or nano. making sure your ```hostname``` matches the directory your created above for the following
+  - edit ```flake.nix``` using vi or nano. making sure your ```hostname``` matches the directory you created above for the following
   
      ```
           hostname = <your host name> #see the mysettings block in the "let" section.  
 
-          nixosConfigurations = { <your host name> = the-system; }; # at the bottom of the file. 
+          nixosConfigurations = { <your host name> = the-system; }; # copy a line or add this at the bottom of the file. 
     ```
   - save those changes.
   - now ```exit``` the nix-shell **you must exit the temporary shell before continuing***
