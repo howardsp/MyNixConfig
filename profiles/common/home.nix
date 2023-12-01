@@ -1,4 +1,4 @@
-{ config, lib, pkgs, mysettings, ... }:
+{ config, lib, pkgs,  ... }:
 
 {
   imports = [
@@ -9,8 +9,8 @@
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = mysettings.username;
-  home.homeDirectory = "/home/" +mysettings.username;
+  home.username = "howardsp";
+  home.homeDirectory = "/home/howardsp" ;
   home.stateVersion = "23.11"; 
   programs.home-manager.enable = true;
 

@@ -1,9 +1,11 @@
-{ config, lib, pkgs, mysettings,  ... }:
+{ config, lib, pkgs,   ... }:
 {
   imports = [
     ../common/configuration.nix
     ./hardware-configuration.nix
   ];
+
+  networking.hostName = "virtualnix"; # Define your hostname.
 
   services.spice-vdagentd.enable = true;
 

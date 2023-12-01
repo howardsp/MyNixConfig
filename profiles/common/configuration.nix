@@ -1,10 +1,10 @@
-{ config, lib, pkgs, mysettings, ... }:
+{ config, lib, pkgs, ... }:
 {
   imports = [
     ./system_packages.nix
-    #./gnome_with_x.nix
     ./gnome_common.nix
-    (./. + ("/gnome_with_"+mysettings.display-server)+".nix")
+    ./gnome_with_x.nix    # X SERVER
+    #./gnome_with_x.nix    # WAYLAND
     ../../settings/sound.nix
     ../../settings/timezone.nix
     ../../settings/fonts.nix
@@ -19,7 +19,6 @@
 
 
   # Networking
-  networking.hostName = mysettings.hostname; # Define your hostname.
   networking.networkmanager.enable = true; # Use networkmanager
   # networking.wireless.enable = true;  # Enables wireless MOVE to Laptop
 
@@ -35,9 +34,9 @@
 
   
   # User account
-  users.users.${mysettings.username} = {
+  users.users.howardsp = {
     isNormalUser = true;
-    description = mysettings.name;
+    description = "Howard Spector";
     extraGroups = [ "networkmanager" "wheel" "video" "media" ];
     packages = with pkgs; [];
   };
@@ -50,16 +49,16 @@
         # using Media/(Photos, Video & Music) instead
         # to help decluter the home directory.
 
-        if test -d /home/${mysettings.username}/Photos;  then 
-          rmdir /home/${mysettings.username}/Photos  
+        if test -d /home/howardsp/Photos;  then 
+          rmdir /home/howardsp/Photos  
         fi
 
-        if test -d /home/${mysettings.username}/Music;  then 
-          rmdir /home/${mysettings.username}/Music
+        if test -d /home/howardsp/Music;  then 
+          rmdir /home/howardsp/Music
         fi
 
-        if test -d /home/${mysettings.username}/Video;  then 
-          rmdir /home/${mysettings.username}/Video
+        if test -d /home/howardsp/Video;  then 
+          rmdir /home/howardsp/Video
         fi
         
         '';
