@@ -17,5 +17,7 @@
   environment.systemPackages = with pkgs; [
     xorg.xrandr
     xorg.xkill
+    xdotool
+    xclip
   ];
 }

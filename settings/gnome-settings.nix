@@ -35,14 +35,14 @@
     
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom100" = {
       name = "Send Control-Alt-Delete-to-Active-Window";
-      binding = "<Control><Alt>End";
+      binding = "<Ctrl><Alt>End";
       command = "xdotool keyup ctrl+alt+end sleep 0.1 key ctrl+alt+Delete";      
     };
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom101" = {
       name = "Remote Paste";
-      binding = "<Shift><Control><Super>V";
-      command = "sh -c sleep 0.5; stty -echo; ydotool type `wl-paste`; stty echo ";      
+      binding = "<Shift><Ctrl><Alt>V";
+      command = "xdotool keyup shift+alt+ctrl sleep .1 type `xclip -o`";      
     };
    
     
