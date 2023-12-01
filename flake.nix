@@ -20,10 +20,10 @@
       pkgs = (import nixpkgs { inherit system;});
       
     in {   
+
         nixosConfigurations = {             
             virtualnix = nixpkgs.lib.nixosSystem {             
-              inherit system;          
-              
+            inherit system;                        
               modules = [
                 (./profiles/virtualnix/configuration.nix)
                 home-manager.nixosModules.home-manager {
@@ -31,29 +31,25 @@
                   home-manager.useGlobalPkgs = true;              
                   home-manager.users.howardsp = (./profiles/virtualnix/home.nix);
                 }
-              ]; 
-            #specialArgs = {inherit mysettings;};
+              ];             
             };
         };
 
         nixosConfigurations = { 
             flakebook = nixpkgs.lib.nixosSystem {             
-              inherit system;
-              
+            inherit system;              
               modules = [
                 (./profiles/flakebook/configuration.nix)
                 home-manager.nixosModules.home-manager {
                   home-manager.useUserPackages = true;  
                   home-manager.useGlobalPkgs = true;              
-                  home-manager.users.howardsp = (./profiles/flakebook/home.nix);
-                  #home-manager.extraSpecialArgs = { inherit mysettings;};
+                  home-manager.users.howardsp = (./profiles/flakebook/home.nix);                  
                 }
               ]; 
-            #specialArgs = {inherit mysettings;};
             };
         };
 
-        #my desktop - TBD
+        #my desktop - TODO
       };      
 
 }
