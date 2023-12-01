@@ -6,17 +6,13 @@ I'm sharing these to help others,  please only use it for educational purposes!
 
 ## Configuration Overview
 
-System specific configuration entries that drive this setup are placed 
-in the ```mysettings``` attribute set.  I usually only need to change the hostname 
-to match the machine it is running on (in the future I'd like to eliminate that step) 
-
 You notice that the ```flake.nix``` calls into the ```hostname``` folder (in the profile directory) for the configuration.nix and home.nix, however there isn't much in those files as they call the common profile to bring all of the standard install elements together.  Any local machine customizations can be done in the machine specific profile folder. 
 
 Separately there's a ```settings``` folder that contains some of the shared settings that have been pulled out into their own files for ease of maintenance. 
 
-My primary environment uses X currently, but this setup supports switching to Wayland with a simple configuration change.
+My primary environment uses X currently, but this setup supports switching to Wayland with a simple import change.
 
-Below is a basic overview of how to get this system up and running
+Below is a basic overview of how to get this system up and running in a VM if you like.
 
 ## Step 1 - Install NixOS
   - Boot your target system using the NixOS ISO 
@@ -36,23 +32,14 @@ Below is a basic overview of how to get this system up and running
   - ```cp /etc/nixos/hardware-configuration.nix <your new template folder> ```
   - ***NOTE***  - Check your ```/etc/nixos/configuration.nix``` file from the install as there may be items there you'll need to update in the system specific profile or the common ```configuration.nix``` file.
   - ```cd ..\.. ```  - back to your config folder.
-  - edit ```flake.nix``` using vi or nano. making sure your ```hostname``` matches the directory you created above for the following
-  
-     ```
-          #see the mysettings block in the "let" section.  
-          hostname = <your host name> 
-
-          #copy a line or add this at the bottom of the file.
-          nixosConfigurations = { <your host name> = the-system; };  
-    ```
-  - save those changes.
-  - now ```exit``` the nix-shell **you must exit the temporary shell before continuing***
   
   ## Step 3 - Build Your System
-  - ```rm -rf .git```  - remove the reference to my repo 
+  - ```rm -rf .git```  - remove the reference to my repo.
   - set the an environment variable to enable experimental features for the first build.  
   -  ```export NIX_CONFIG="experimental-features = nix-command flakes"```
- - Run  ```'sudo nixos-rebuild --flake .#<your host name>'``` to Update the system and home-Manager now and anytime you edit your .nix files. 
+ - Run  ```'sudo nixos-rebuild --flake .#virtualnix'``` to Update the system and home-Manager assuming your testing in a VM.
   
   ## Step 4 - Reboot and Enjoy
+  
   - ```sudo reboot now```  
+  
