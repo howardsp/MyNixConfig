@@ -32,17 +32,23 @@
       ];
     };
     
+    "org/gnome/settings-daemon/plugins/media-keys" = {
+      custom-keybindings= [        
+        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+      ];
+    };
     
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom100" = {
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       name = "Send Control-Alt-Delete-to-Active-Window";
       binding = "<Ctrl><Alt>End";
       command = "xdotool keyup ctrl+alt+end sleep 0.1 key ctrl+alt+Delete";      
     };
 
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom101" = {
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
       name = "Remote Paste";
       binding = "<Shift><Ctrl><Alt>V";
-      command = "xdotool keyup shift+alt+ctrl sleep .1 type `xclip -o`";      
+      command = "xdotool keyup shift+alt+ctrl sleep 0.1 type `xclip -o`";      
     };
    
     
@@ -62,16 +68,16 @@
 
    
     # arc-menu settings
-    "org/gnome/shell/extensions/arcmenu" = {
-      menu-button-icon = "Distro_Icon";
-      distro-icon = 0;
-      menu-button-postion-offset = 2; 
-      menu-layout = "Whisker";
-      menu-button-appearance = "Icon";
-      activate-on-hover = true;
-      menu-hotkey = "Super_L";
-      menu-height = 575;
-    };
+    #"org/gnome/shell/extensions/arcmenu" = {
+    #  menu-button-icon = "Distro_Icon";
+    #  distro-icon = 0;
+    #  menu-button-postion-offset = 2; 
+    #  menu-layout = "Whisker";
+    #  menu-button-appearance = "Icon";
+    #  activate-on-hover = true;
+    #  menu-hotkey = "Super_L";
+    #  menu-height = 575;
+    #};
 
     # just perfection 
     "org/gnome/shell/extensions/just-perfection" = {
