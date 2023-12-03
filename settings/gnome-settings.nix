@@ -35,7 +35,7 @@
 
     "org/gnome/mutter" = {
         edge-tiling = true;
-    }
+    };
 
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings= [        
