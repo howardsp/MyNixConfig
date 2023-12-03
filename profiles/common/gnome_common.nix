@@ -39,6 +39,8 @@
     gnomeExtensions.just-perfection
     gnomeExtensions.appindicator
     gnomeExtensions.vitals
+    gnomeExtensions.transparent-window-moving
+    gnomeExtensions.pop-shell
     wl-clipboard
     wl-clipboard-x11
     ydotool

@@ -14,7 +14,7 @@
       "google-chrome.desktop"
       "microsoft-edge.desktop"
       ];
-      
+
       # gnome-extensions list` for a list
       # app menu enabled until the other extensions catch up to the latest gnome
       enabled-extensions = [
@@ -29,29 +29,49 @@
         "just-perfection-desktop@just-perfection"
         "Vitals@CoreCoding.com"
         "apps-menu@gnome-shell-extensions.gcampax.github.com"
+        "transparent-window-moving@noobsai.github.com"        
       ];
     };
-    
+
+    "org/gnome/mutter" = {
+        edge-tiling = true;
+    }
+
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings= [        
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
       ];
     };
     
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       name = "Send Control-Alt-Delete-to-Active-Window";
-      binding = "<Ctrl><Alt>End";
-      command = "xdotool keyup ctrl+alt+end sleep 0.1 key ctrl+alt+Delete";      
+      binding = "<Super><Ctrl><Alt>X";
+      command = "xkill";      
     };
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
       name = "Remote Paste";
-      binding = "<Shift><Ctrl><Alt>V";
-      command = "xdotool keyup shift+alt+ctrl sleep 0.1 type \"`xclip -o`\"";      
+      binding = "<Super><Ctrl><Alt>V";
+      command = "sh -c 'sleep 0.5; xdotool keyup super+alt+ctrl type \"$(xclip -o -selection clipboard)\"'";
     };
    
-    
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
+      name = "Citrix Control Alt Delete";
+      binding = "<Ctrl><Alt>End";
+      command = "xdotool search --any --name-- \"Citrix\" key ctrl-alt-delete";
+    };
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" = {
+      name = "Close Tabe - Delete";
+      binding = "<<Ctrl><Alt>Delete";
+      command = "xdotool key ctrl+w";
+    };
+
+
+
     "org/gtk/settings/file-chooser" = {
       sort-directories-first = true;
     };
@@ -84,6 +104,7 @@
       startup-status = 0;
     };
     
+
     #date menu formater
     "org/gnome/shell/extensions/date-menu-formatter" = {
       pattern = "EEEE, MMMM d h:mm aaa";
