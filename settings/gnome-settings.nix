@@ -43,11 +43,13 @@
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/"
       ];
     };
     
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-      name = "Send Control-Alt-Delete-to-Active-Window";
+      name = "Launch xkill";
       binding = "<Super><Ctrl><Alt>X";
       command = "xkill";      
     };
@@ -59,17 +61,31 @@
     };
    
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
+      name = "Close Tab - Delete";
+      binding = "<<Ctrl><Alt>Delete";
+      command = "xdotool key ctrl+w";
+    };
+
+    ##
+    ## Citrix Keyboard Tweaks
+    ##
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" = {
       name = "Citrix Control Alt Delete";
       binding = "<Ctrl><Alt>End";
       command = "xdotool search --any --name-- \"Citrix\" key ctrl-alt-delete";
     };
 
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" = {
-      name = "Close Tabe - Delete";
-      binding = "<<Ctrl><Alt>Delete";
-      command = "xdotool key ctrl+w";
-    };
 
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4" = {
+      name = "Citrix - Super Left";
+      binding = "<<Ctrl><Super><Alt>Left";
+      command = "xdotool search --any --name-- \"Citrix\" key super+left";
+    };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5" = {
+      name = "Citrix - Super Right";
+      binding = "<<Ctrl><Super><Alt>Right";
+      command = "xdotool search --any --name-- \"Citrix\" key super-right";
+    };
 
 
     "org/gtk/settings/file-chooser" = {

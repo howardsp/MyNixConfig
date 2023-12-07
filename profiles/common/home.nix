@@ -33,12 +33,12 @@
 
     #commercial packages
     # ---------------------------------------------------------------------------------
-    google-chrome
-    microsoft-edge
-    insync
-    teamviewer
+    google-chrome           #Browser
+    microsoft-edge          #Browser
+    insync                  #Sync Drive and others. 
+    teamviewer              #Control remove machines 
     zoom-us
-    synergy
+    synergy                 #Shared keyboard / mounse across machines 
     dropbox
     
     # development tools
@@ -46,7 +46,6 @@
     jdk
     android-tools
     gcc
-    #vscode-with-extensions
     git
     python3
     python311Packages.pip

@@ -12,7 +12,7 @@ Separately there's a ```settings``` folder that contains some of the shared sett
 
 My primary environment uses X currently, but this setup supports switching to Wayland with a simple import change.
 
-Below is a basic overview of how to get this system up and running in a VM if you like.
+Below is a basic overview of how to get this system up and running in a **VM**.
 
 ## Step 1 - Install NixOS
   - Boot your target system using the NixOS ISO 
