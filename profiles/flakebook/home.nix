@@ -5,6 +5,7 @@
     ../common/home.nix
     ../common/home-core-apps.nix    
     ../common/home-desk-apps.nix        
+    ../applications/emacs.nix
   ];
 
   #

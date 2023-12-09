@@ -33,4 +33,6 @@
     bandwhich    # what process is using bandwidth
     gtop         # command line visual top
 
+  ];
+
 }
