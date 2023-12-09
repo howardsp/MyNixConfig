@@ -12,22 +12,7 @@
     htop
     tldr
     timeshift
-    stacer
-    xfce.thunar
-
-    ffmpeg_6-full
-    kodi
-    kodiPackages.netflix
-    kodiPackages.youtube
-    kodiPackages.pvr-iptvsimple
-    kodiPackages.svtplay
-    kodiPackages.trakt
-    kodiPackages.inputstream-ffmpegdirect
-    
+    stacer         
     home-manager
-  ];
-
-  services.xserver.desktopManager.kodi.package = with pkgs;
-    [ (kodi.withPackages (kodiPkgs: with kodiPkgs; [ youtube netflix pvr-iptvsimple inputstream-ffmpegdirect ] )) ];
-  
+  ];  
 }
