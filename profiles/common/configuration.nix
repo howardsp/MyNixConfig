@@ -7,7 +7,6 @@
     #./gnome_with_x.nix    # WAYLAND
     ../../settings/sound.nix
     ../../settings/timezone.nix
-    ../../settings/fonts.nix
     ];
 
   # Ensure nix flakes are enabled

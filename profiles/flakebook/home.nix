@@ -6,6 +6,8 @@
     ../common/home-core-apps.nix    
     ../common/home-desk-apps.nix        
     ../applications/emacs.nix
+    ../applications/kodi.nix    
+    ../applications/commercial.nix    
   ];
 
   #

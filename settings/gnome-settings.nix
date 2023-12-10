@@ -7,13 +7,13 @@
     "org/gnome/shell" = {
       disable-user-extensions = false;
 
-      favorite-apps = [
-      "org.gnome.Nautilus.desktop"
-      "org.gnome.Console.desktop"  
-      "firefox.desktop"
-      "google-chrome.desktop"
-      "microsoft-edge.desktop"
-      ];
+      #favorite-apps = [
+      #"org.gnome.Nautilus.desktop"
+      #"org.gnome.Console.desktop"  
+      #"firefox.desktop"
+      #"google-chrome.desktop"
+      #"microsoft-edge.desktop"
+      #];
 
       # gnome-extensions list` for a list
       # app menu enabled until the other extensions catch up to the latest gnome
@@ -21,20 +21,24 @@
         "user-theme@gnome-shell-extensions.gcampax.github.com"
         "windowsNavigator@gnome-shell-extensions.gcampax.github.com"
         "appindicatorsupport@rgcjonas.gmail.com"
-        #"arcmenu@arcmenu.com"
+        "arcmenu@arcmenu.com"
+        #"apps-menu@gnome-shell-extensions.gcampax.github.com"
         "dash-to-panel@jderose9.github.com"
         "date-menu-formatter@marcinjakubowski.github.com"
         "gTile@vibou"
         "highlight-focus@pimsnel.com"
         "just-perfection-desktop@just-perfection"
         "Vitals@CoreCoding.com"
-        "apps-menu@gnome-shell-extensions.gcampax.github.com"
         "transparent-window-moving@noobsai.github.com"        
       ];
     };
 
     "org/gnome/mutter" = {
         edge-tiling = true;
+    };
+
+    "org/gnome/shell/keybindings" = {
+        toggle-overview = "<Control>Escape";
     };
 
     "org/gnome/settings-daemon/plugins/media-keys" = {
@@ -103,17 +107,21 @@
     };
 
    
-    # arc-menu settings
-    #"org/gnome/shell/extensions/arcmenu" = {
-    #  menu-button-icon = "Distro_Icon";
-    #  distro-icon = 0;
-    #  menu-button-postion-offset = 2; 
-    #  menu-layout = "Whisker";
-    #  menu-button-appearance = "Icon";
-    #  activate-on-hover = true;
-    #  menu-hotkey = "Super_L";
-    #  menu-height = 575;
-    #};
+     #arc-menu settings
+    "org/gnome/shell/extensions/arcmenu" = {
+      menu-button-icon = "Distro_Icon";
+      distro-icon = 0;
+      menu-button-postion-offset = 2; 
+      menu-layout = "Whisker";
+      menu-button-appearance = "Icon";
+      activate-on-hover = true;
+      menu-hotkey-type = "Custom";
+      menu-hotkey = "<Super>Escape";
+      menu-height = 575;
+      enable-standlone-runner-menu = true;
+      runner-menu-custom-hotkey = "<Super>";
+      search-provider-open-windows = true;     
+    };
 
     # just perfection 
     "org/gnome/shell/extensions/just-perfection" = {

@@ -14,17 +14,6 @@
   home.stateVersion = "23.11"; 
   programs.home-manager.enable = true;
 
-    #ffmpeg_6-full
-    #kodi
-    #kodiPackages.netflix
-    #kodiPackages.youtube
-    #kodiPackages.pvr-iptvsimple
-    #kodiPackages.svtplay
-    #kodiPackages.trakt
-    #kodiPackages.inputstream-ffmpegdirect      
-
-  #programs.kodi.package = with pkgs;
-  #  [ (kodi.withPackages (kodiPkgs: with kodiPkgs; [ youtube netflix pvr-iptvsimple inputstream-ffmpegdirect ] )) ];
 
   programs.vscode = {
     enable = true;
@@ -45,22 +34,7 @@
         neofetch
     '';
   };
-  
-  programs.emacs = {
-    enable = true;
-    package = pkgs.emacs-gtk;
-    extraPackages = epkgs: [
-      epkgs.use-package
-      epkgs.nix-mode
-      epkgs.all-the-icons
-    ];
-  };
-  
-  home.file.".emacs.d" = {
-    source = ../../settings/emacs.d;
-    recursive = true;
-  };
- 
+   
   services.syncthing.enable = false;
 
   home.sessionVariables = {

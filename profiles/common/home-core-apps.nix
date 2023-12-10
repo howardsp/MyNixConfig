@@ -10,11 +10,6 @@
     glib
     xfce.thunar
 
-    #commercial packages
-    # ---------------------------------------------------------------------------------
-    google-chrome           #Browser
-    microsoft-edge          #Browser
-
     #command line tools
     # ---------------------------------------------------------------------------------
     tesseract    # ocr tool
