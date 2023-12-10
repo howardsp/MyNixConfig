@@ -8,6 +8,8 @@
     ../applications/emacs.nix
     ../applications/kodi.nix    
     ../applications/commercial.nix    
+    ../applications/vscode.nix
+    ../applications/bash.nix
   ];
 
   #
