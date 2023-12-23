@@ -36,7 +36,7 @@
   users.users.howardsp = {
     isNormalUser = true;
     description = "Howard Spector";
-    extraGroups = [ "networkmanager" "wheel" "video" "media" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "media" "qemu-libvirtd" "libvirtd" ];
     packages = with pkgs; [];
   };
 

@@ -66,7 +66,7 @@
    
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
       name = "Close Tab - Backspace";
-      binding = "<Ctrl><Shift><Backspace>";
+      binding = "<Ctrl><Shift>Backspace";
       command = "sh -c 'xdotool keyup ctrl+shift+Backspace; xdotool getactivewindow keydown ctrl+w sleep 0.1 keyup ctrl+w'";
     };
 
