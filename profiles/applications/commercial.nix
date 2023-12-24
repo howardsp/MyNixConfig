@@ -7,8 +7,7 @@
     insync                  #Sync Drive and others. 
     teamviewer              #Control remove machines 
     zoom-us                 # video conf
-    synergy                 #Shared keyboard / mounse across machines 
-    dropbox                 #file storeage
+    synergy                 #Shared keyboard / mounse across machines   
   ];
 
 }
