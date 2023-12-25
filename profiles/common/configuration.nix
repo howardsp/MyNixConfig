@@ -15,7 +15,7 @@
     experimental-features = nix-command flakes
   '';
   nixpkgs.config.allowUnfree = true;
-
+  services.flatpak.enable = true;
 
   # Networking
   networking.networkmanager.enable = true; # Use networkmanager

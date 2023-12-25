@@ -5,7 +5,7 @@
     [Desktop Entry]
     Type=Application
     Name=insync
-    Exec=insync start
+    Exec=insync start --no-daemon
     Categories=Other
     X-GNOME-Autostart-enabled=true
     Terminal=false
@@ -24,20 +24,7 @@
     Icon=folder-remote.png
     '';
   };
-
-
-  home.file."./.config/autostart/ulauncher.desktop" = {
-    text = ''
-    [Desktop Entry]
-    Type=Application
-    Name=ulauncher
-    Exec=ulauncher
-    Categories=Other
-    X-GNOME-Autostart-enabled=true
-    Terminal=false
-    '';
-  };
-  
+ 
   home.file."./.config/autostart/synergy.desktop" = {
     text = ''
     [Desktop Entry]
@@ -49,8 +36,5 @@
     Terminal=false
     '';
   };
-
-
-
   
 }

@@ -3,8 +3,7 @@
   imports = [
     ../common/configuration.nix
     ./hardware-configuration.nix
-    ../../settings/fonts.nix
-    ../applications/dropbox.nix
+    ../../settings/fonts.nix    
     ];
 
 
