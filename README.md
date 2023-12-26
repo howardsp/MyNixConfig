@@ -1,16 +1,12 @@
 # Howard's NixOS Configuration
 
-These files are my personal nixos setup it manages my home directory setup with home-manager (as a nixos module) and provides a setup that is the bulk of my desired system configuration allowing me to have the same setup across multiple machines with ease.  
+My personal NixOS setup uses home-manager (as a NixOS module) and provides a setup that is the bulk of my desired system configuration allowing me to have the same setup across multiple machines with ease.  
 
-I'm sharing these to help others,  please only use it for educational purposes!
+I'm sharing these to help others,  please only use it for educational purposes and not on your production rigs.
 
 ## Configuration Overview
 
-You notice that the ```flake.nix``` calls into the ```hostname``` folder (in the profile directory) for the configuration.nix and home.nix, however there isn't much in those files as they call the common profile to bring all of the standard install elements together.  Any local machine customizations can be done in the machine specific profile folder. 
-
-Separately there's a ```settings``` folder that contains some of the shared settings that have been pulled out into their own files for ease of maintenance. 
-
-My primary environment uses X currently, but this setup supports switching to Wayland with a simple import change.
+My primary environment is X based currently, but this setup supports switching to Wayland with a simple import change.
 
 Below is a basic overview of how to get this system up and running in a **VM**.
 

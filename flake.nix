@@ -1,9 +1,23 @@
 # NixOS configuration entrypoint for all of my machines. 
 #
-# Run the following form your Flake Directory. 
-# Update System + Home-Manager 'sudo nixos-rebuild --flake .#system'
-# Update flake.lock - 'sudo nix flake lock --update-input nixpkgs 
-# Remove old Packages - 'sudo nix-collect-garbage -d'
+# Run the following form your **Flake Directory**. 
+#
+# Update System + Home-Manager 
+#
+#       sudo nixos-rebuild switch --flake .#**HOSTNAME**
+#
+# Update flake.lock 
+#
+#       nix-channel --update
+#       sudo nix flake lock --update-input nixpkgs 
+#
+# Remove old Packages - 
+#
+#       sudo nix-collect-garbage -d
+#
+# Show the difference between the latest and prior version
+#
+#   nvd diff $(ls -d1v /nix/var/nix/profiles/system-*-link|tail -n 2)
 #
 {
   description = "Howard's NIXOS Configuraiton that supports multiple machines";

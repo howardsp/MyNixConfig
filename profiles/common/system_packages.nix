@@ -13,6 +13,7 @@
     tldr
     timeshift
     stacer         
+    nvd # nixs version diff
     home-manager
   ];  
 }

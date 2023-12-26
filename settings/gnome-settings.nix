@@ -23,6 +23,7 @@
         "appindicatorsupport@rgcjonas.gmail.com"
         "arcmenu@arcmenu.com"
         #"apps-menu@gnome-shell-extensions.gcampax.github.com"
+        #"pop-shell@system76.com"
         "dash-to-panel@jderose9.github.com"
         "date-menu-formatter@marcinjakubowski.github.com"
         "gTile@vibou"
@@ -30,6 +31,8 @@
         "just-perfection-desktop@just-perfection"
         "Vitals@CoreCoding.com"
         "transparent-window-moving@noobsai.github.com"        
+        "quick-settings-tweaks@qwreey"
+        #"ding@rastersoft.com"
       ];
     };
 
@@ -131,7 +134,12 @@
     "org/gnome/shell/extensions/date-menu-formatter" = {
       pattern = "EEEE, MMMM d h:mm aaa";
     };
-    
+
+    "org/gnome/shell/extensions/quick-settings-tweaks" = {
+      notifications-integrated = false;
+      output-show-selected = true;
+    };
+
     #dash-to-panel
     "org/gnome/shell/extensions/dash-to-panel" = {
       panel-positions = "{\"0\":\"TOP\"\,\"1\":\"TOP\"\,\"2\":\"TOP\"\,\"3\":\"TOP\"\}";
