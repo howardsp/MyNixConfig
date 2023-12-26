@@ -41,38 +41,24 @@
     gnomeExtensions.vitals
     gnomeExtensions.transparent-window-moving
     gnomeExtensions.pop-shell
-    wl-clipboard
-    wl-clipboard-x11
-    ydotool
-
+    gnomeExtensions.desktop-icons-ng-ding
+    gnomeExtensions.quick-settings-tweaker
     
+    wl-clipboard
+    wl-clipboard-x11    
+
+    gnome.adwaita-icon-theme
+    whitesur-icon-theme
+    nordzy-icon-theme
+
+    yaru-theme
+    yaru-remix-theme
+    orchis-theme
+    whitesur-gtk-theme
+    
+    whitesur-cursors
+
   ];
-
-  # ------------------------------------------------------------------------------
-  # configure ydotool daemon to run with the correct port permissions. 
-  #
-  # this enables ydotool type <text> to function on both Wayland and X.
-  # if needed to supress duplicate text   stty -echo; <ydotool command>; stty echo
-  # ------------------------------------------------------------------------------
-  systemd.services = {
-    ydotool = {
-      description = "Start ydotoold";
-      wantedBy = [ "graphical.target" ];
-      after = [ "graphical-session.target" ];
-      restartIfChanged = true;
-
-      serviceConfig = {
-        User = "root";
-        Group = "root";
-        Restart = "always";
-        ExecStart = "${pkgs.ydotool}/bin/ydotoold --socket-perm 0666 ";
-      };
-    };
-  };
-
-  environment.sessionVariables = {
-    YDOTOOL_SOCKET = "/tmp/.ydotool_socket";
-  };  
 
   
 }

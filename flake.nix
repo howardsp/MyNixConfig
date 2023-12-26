@@ -22,34 +22,46 @@
     in {   
 
         nixosConfigurations = {             
-            virtualnix = nixpkgs.lib.nixosSystem {             
-            inherit system;                        
-              modules = [
-                (./profiles/virtualnix/configuration.nix)
-                home-manager.nixosModules.home-manager {
-                  home-manager.useUserPackages = true;  
-                  home-manager.useGlobalPkgs = true;              
-                  home-manager.users.howardsp = (./profiles/virtualnix/home.nix);
-                }
-              ];             
-            };
+          virtualnix = nixpkgs.lib.nixosSystem {             
+          inherit system;                        
+            modules = [
+              (./profiles/virtualnix/configuration.nix)
+              home-manager.nixosModules.home-manager {
+                home-manager.useUserPackages = true;  
+                home-manager.useGlobalPkgs = true;              
+                home-manager.users.howardsp = (./profiles/virtualnix/home.nix);
+              }
+            ];             
+          };
         };
 
         nixosConfigurations = { 
-            flakebook = nixpkgs.lib.nixosSystem {             
-            inherit system;              
-              modules = [
-                (./profiles/flakebook/configuration.nix)
-                home-manager.nixosModules.home-manager {
-                  home-manager.useUserPackages = true;  
-                  home-manager.useGlobalPkgs = true;              
-                  home-manager.users.howardsp = (./profiles/flakebook/home.nix);                  
-                }
-              ]; 
-            };
+          flakebook = nixpkgs.lib.nixosSystem {             
+          inherit system;              
+            modules = [
+              (./profiles/flakebook/configuration.nix)
+              home-manager.nixosModules.home-manager {
+                home-manager.useUserPackages = true;  
+                home-manager.useGlobalPkgs = true;              
+                home-manager.users.howardsp = (./profiles/flakebook/home.nix);                  
+              }
+            ]; 
+          };
         };
 
-        #my desktop - TODO
-      };      
+     nixosConfigurations = { 
+        igloo = nixpkgs.lib.nixosSystem {             
+        inherit system;
+        modules = [
+            (./profiles/igloo/configuration.nix)
+            home-manager.nixosModules.home-manager {
+              home-manager.useUserPackages = true;  
+              home-manager.useGlobalPkgs = true;
+              home-manager.users.howardsp = (./profiles/igloo/home.nix);
+            }
+          ]; 
+        };
+    };
+  };      
 
 }
