@@ -17,5 +17,13 @@
   home.stateVersion = "23.11"; 
   programs.home-manager.enable = true;
 
-  
+  home.file.".config/rofi/config.rasi".text = ''
+      configuration {
+        modes: [ combi ];
+        combi-modes: [ window, drun, run ];
+      }
+
+      @theme "Arc-Dark"
+  '';
+
 }

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   # ...
@@ -52,6 +52,7 @@
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/"        
       ];
     };
     
@@ -87,11 +88,20 @@
       binding = "<Ctrl><Super><Alt>Left";
       command = "sh -c 'xdotool getactivewindow key super+left'";
     };
+
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5" = {
       name = "Citrix - Super Right";
       binding = "<Ctrl><Super><Alt>Right";
       command = "sh -c 'xdotool getactivewindow key super-right'";
     };
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6" = {
+      name = "Rofi";
+      binding = "<Ctrl>Space";
+      command = "rofi -monitor primary -modi [drun,combi] -show combi";
+    };
+
+
 
     "org/gtk/settings/file-chooser" = {
       sort-directories-first = true;
@@ -105,6 +115,7 @@
     "org/gnome/desktop/interface" = {
       clock-format = "12h";
       color-scheme = "prefer-dark";
+      scaling-factor = lib.hm.gvariant.mkUint32 1;  ## added to prevent random window placment after resume
     };
 
    

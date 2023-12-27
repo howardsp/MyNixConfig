@@ -16,5 +16,5 @@
     source = ../../settings/emacs.d;
     recursive = true;
   };
- 
+  
 }
