@@ -52,7 +52,12 @@
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/"
-        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/"        
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom10/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom11/"
       ];
     };
     
@@ -73,6 +78,20 @@
       binding = "<Ctrl><Shift>Backspace";
       command = "sh -c 'xdotool keyup ctrl+shift+Backspace; xdotool getactivewindow keydown ctrl+w sleep 0.1 keyup ctrl+w'";
     };
+
+    #
+    # Laptop Brightness  -- TODO use NIXs to put script in BIN
+    #
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7" = {
+      name = "Brightrness Up";
+      binding = "<Ctrl><Alt><Super>Up";
+      command = "brightness.sh Up";
+    };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8" = {
+      name = "Brightrness Down";
+      binding = "<Ctrl><Alt><Super>Down";
+      command = "brightness.sh Down";
+    };        
 
     ##
     ## Citrix Keyboard Tweaks
@@ -95,12 +114,28 @@
       command = "sh -c 'xdotool getactivewindow key super-right'";
     };
 
+    ##
+    ## Invoke Rofi
+    ##
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6" = {
       name = "Rofi";
       binding = "<Ctrl>Space";
       command = "rofi -monitor primary -modi [drun,combi] -show combi";
     };
 
+    # text file will be manually created when needed. 
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom10" = {
+      name = "Paste from File ~/.config/.10.txt";
+      binding = "<Ctrl><Shift>1";
+      command = "sh -c 'xdotool sleep 1.0 keyup control+shift getactivewindow type `cat ~/.config/.10.txt`'";
+    };
+
+    # text file will be manually created when needed. 
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom11" = {
+      name = "Paste from File ~/.config/.11.txt";
+      binding = "<Ctrl><Shift>2";
+      command = "sh -c 'xdotool sleep 1.0 keyup control+shift getactivewindow type `cat ~/.config/.11.txt`'";
+    };
 
 
     "org/gtk/settings/file-chooser" = {

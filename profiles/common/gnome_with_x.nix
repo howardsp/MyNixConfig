@@ -19,5 +19,6 @@
     xorg.xkill
     xdotool
     xclip
+    xscreensaver
   ];
 }
