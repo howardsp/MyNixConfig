@@ -24,7 +24,7 @@
     gnome.nautilus
     gnome.gnome-software
     gnome.gnome-tweaks
-    gnome.gedit
+    gedit
     gnome.gnome-terminal
     gnome.gnome-initial-setup
     gnome.gnome-characters

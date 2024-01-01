@@ -35,6 +35,7 @@
       
     in {   
 
+        # my virtual machine that I use for testing.
         nixosConfigurations = {             
           virtualnix = nixpkgs.lib.nixosSystem {             
           inherit system;                        
@@ -49,21 +50,23 @@
           };
         };
 
-        nixosConfigurations = { 
-          flakebook = nixpkgs.lib.nixosSystem {             
-          inherit system;              
-            modules = [
-              (./profiles/flakebook/configuration.nix)
-              home-manager.nixosModules.home-manager {
-                home-manager.useUserPackages = true;  
-                home-manager.useGlobalPkgs = true;              
-                home-manager.users.howardsp = (./profiles/flakebook/home.nix);                  
-              }
-            ]; 
-          };
+      # primary laptop.
+      nixosConfigurations = { 
+        flakebook = nixpkgs.lib.nixosSystem {             
+        inherit system;              
+          modules = [
+            (./profiles/flakebook/configuration.nix)
+            home-manager.nixosModules.home-manager {
+              home-manager.useUserPackages = true;  
+              home-manager.useGlobalPkgs = true;              
+              home-manager.users.howardsp = (./profiles/flakebook/home.nix);                  
+            }
+          ]; 
         };
+      };
 
-     nixosConfigurations = { 
+    # Home Machine.
+    nixosConfigurations = { 
         igloo = nixpkgs.lib.nixosSystem {             
         inherit system;
         modules = [
@@ -76,6 +79,22 @@
           ]; 
         };
     };
+
+    # Server used for local cloud storage and testing / playing around with tech. 
+    nixosConfigurations = { 
+        avalanche = nixpkgs.lib.nixosSystem {             
+        inherit system;
+        modules = [
+            (./profiles/avalanche/configuration.nix)
+            home-manager.nixosModules.home-manager {
+              home-manager.useUserPackages = true;  
+              home-manager.useGlobalPkgs = true;
+              home-manager.users.howardsp = (./profiles/avalanche/home.nix);
+            }
+          ]; 
+        };
+    };
+
   };      
 
 }

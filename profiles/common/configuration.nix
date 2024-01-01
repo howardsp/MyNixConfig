@@ -40,9 +40,6 @@
     packages = with pkgs; [];
   };
 
-
-
-
   system.activationScripts.text = ''
         #!/bin/sh
 
