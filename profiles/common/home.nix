@@ -14,7 +14,7 @@
   # the paths it should manage.
   home.username = "howardsp";
   home.homeDirectory = "/home/howardsp" ;
-  home.stateVersion = "23.11"; 
+  home.stateVersion = "24.05"; 
   programs.home-manager.enable = true;
 
   home.file.".config/rofi/config.rasi".text = ''

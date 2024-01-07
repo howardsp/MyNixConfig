@@ -22,7 +22,7 @@
   ];
   
   # gnome screen blanking has a bug with multiple screens that moves windows
-  # around.   the good old standby xscreen saver avoids this issue. 
+  # around. the good old standby xscreen saver avoids this issue. 
   services.xscreensaver = {
     enable = true;
     settings = {
