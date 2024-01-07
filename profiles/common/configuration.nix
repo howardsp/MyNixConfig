@@ -10,7 +10,7 @@
     ];
 
   # Ensure nix flakes are enabled
-  nix.package = pkgs.nixFlakes;
+  
   nix.extraOptions = ''
     experimental-features = nix-command flakes
   '';
@@ -19,11 +19,8 @@
 
   # Networking
   networking.networkmanager.enable = true; # Use networkmanager
-  # networking.wireless.enable = true;  # Enables wireless MOVE to Laptop
-
+  
   fonts.fontDir.enable = true;
-
-  services.openssh.enable = true; 
 
    # Enable CUPS to print documents.
   services.printing.enable = true;

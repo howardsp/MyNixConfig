@@ -17,6 +17,8 @@
   home.stateVersion = "24.05"; 
   programs.home-manager.enable = true;
 
+  # setup up rasi configuraiton file. 
+  # invokation is mapped to control-space 
   home.file.".config/rofi/config.rasi".text = ''
       configuration {
         modes: [ combi ];

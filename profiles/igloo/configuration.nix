@@ -9,14 +9,12 @@
 
   networking.hostName = "igloo"; # Define your hostname.
 
-
   # Kernel modules  
   boot.kernelModules = [ "kvm-amd" "kvm-intel" "cpufreq_performance" ];    
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   virtualisation.libvirtd.enable = true;
-  virtualisation.docker.enable = true;
 
   services.synergy.server.enable = true;
   networking.firewall.allowedTCPPortRanges = [ { from = 24800; to = 24801; } ];

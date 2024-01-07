@@ -7,10 +7,8 @@
 
   networking.hostName = "avalanche"; # Define your hostname.
 
-  services.openssh = {
-    enable = true;
-    passwordAuthentication = true;
-  };
+  services.openssh.enable = true; 
+ 
 
   # Kernel modules  
   boot.kernelModules = [ "kvm-amd" "kvm-intel" "cpufreq_performance" ];    
@@ -18,4 +16,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   virtualisation.docker.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    ollama
+  ];      
 }
