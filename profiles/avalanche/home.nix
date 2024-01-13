@@ -20,7 +20,7 @@
 
   home.packages = with pkgs; [   
    synergy                 #Shared keyboard / mounse across machines   
-    insync
+   insync
   ];
 
 

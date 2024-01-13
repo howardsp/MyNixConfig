@@ -35,7 +35,7 @@
       
     in {   
 
-        # my virtual machine that I use for testing.
+        # virtual machine that I use for testing.
         nixosConfigurations = {             
           virtualnix = nixpkgs.lib.nixosSystem {             
           inherit system;                        
@@ -80,7 +80,7 @@
         };
     };
 
-    # Server used for local cloud storage and testing / playing around with tech. 
+    # Server used for local testing / playing around with tech. 
     nixosConfigurations = { 
         avalanche = nixpkgs.lib.nixosSystem {             
         inherit system;

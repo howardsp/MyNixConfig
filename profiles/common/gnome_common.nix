@@ -20,6 +20,7 @@
 
   environment.systemPackages = with pkgs; [
     gnome.gnome-tweaks
+    gnome.nautilus-python
     amberol
     gnome.nautilus
     gnome.gnome-software
