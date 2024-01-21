@@ -44,6 +44,7 @@
     gnomeExtensions.pop-shell
     gnomeExtensions.desktop-icons-ng-ding
     gnomeExtensions.quick-settings-tweaker
+    gnomeExtensions.pano
     
     wl-clipboard
     wl-clipboard-x11    
