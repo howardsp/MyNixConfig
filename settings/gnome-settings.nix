@@ -7,14 +7,6 @@
     "org/gnome/shell" = {
       disable-user-extensions = false;
 
-      #favorite-apps = [
-      #"org.gnome.Nautilus.desktop"
-      #"org.gnome.Console.desktop"  
-      #"firefox.desktop"
-      #"google-chrome.desktop"
-      #"microsoft-edge.desktop"
-      #];
-
       # gnome-extensions list` for a list
       # app menu enabled until the other extensions catch up to the latest gnome
       enabled-extensions = [
@@ -32,8 +24,13 @@
         "Vitals@CoreCoding.com"
         "transparent-window-moving@noobsai.github.com"        
         "quick-settings-tweaks@qwreey"
-        #"ding@rastersoft.com"
+        "pano@elhan.io"
+        "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
       ];
+    };
+
+    "org/gnome/shell/extensions/pano" = {
+      history-length = 25;
     };
 
     "org/gnome/mutter" = {

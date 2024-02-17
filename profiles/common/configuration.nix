@@ -17,6 +17,12 @@
   nixpkgs.config.allowUnfree = true;
   services.flatpak.enable = true;
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 5d";
+    };
+
   # Networking
   networking.networkmanager.enable = true; # Use networkmanager
   
@@ -24,6 +30,13 @@
 
    # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.printing.drivers = [pkgs.gutenprint pkgs.gutenprintBin pkgs.cnijfilter2 pkgs.canon-cups-ufr2];
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+    nssmdns4 = true;
+    openFirewall = true;
+    };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
