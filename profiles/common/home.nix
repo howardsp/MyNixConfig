@@ -27,5 +27,4 @@
 
       @theme "Arc-Dark"
   '';
-
 }

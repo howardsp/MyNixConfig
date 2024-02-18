@@ -15,5 +15,19 @@
     stacer         
     nvd # nixs version diff
     home-manager
+
+    (writeShellScriptBin "project-init" ''
+      if [ -z $1 ]; then
+        echo "no template specified"
+        exit 1
+      fi
+
+      TEMPLATE=$1
+
+      nix --experimental-features 'nix-command flakes' \
+        flake init \
+        --template \
+        "github:howardsp/MyNixConfig/dev-templates#''${TEMPLATE}"
+    '')
   ];  
 }

@@ -4,7 +4,8 @@
 
   home.packages = with pkgs; [
     firefox 
-    neofetch
+    #neofetch  #not maitained anymore
+    fastfetch
     flameshot
     vlc
     glib

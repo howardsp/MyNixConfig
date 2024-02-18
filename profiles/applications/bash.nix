@@ -6,8 +6,7 @@
     enable = true;
     bashrcExtra = ''
         export PATH=$PATH:~/workspace/scripts
-        eval "$(direnv hook bash)"
-        neofetch
+        fastfetch
     '';
   };
    

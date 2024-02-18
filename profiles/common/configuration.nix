@@ -54,7 +54,7 @@
         #!/bin/sh
 
         ln -sf system.activationScripts /bin/bash
-
+        
         #
         # check to see if citrix is installed and if so update
         # the confirguraiton to enable middle click and allow the 
@@ -78,6 +78,8 @@
 
         '';
      
+
+  
   # It is ok to leave this unchanged for compatibility purposes
   system.stateVersion = "24.05";
 
