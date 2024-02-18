@@ -27,7 +27,20 @@
       nix --experimental-features 'nix-command flakes' \
         flake init \
         --template \
-        "git+https://github.com/howardsp/dev-templates#''${TEMPLATE}"
+        "github:howardsp/dev-templates#''${TEMPLATE}"
+
+      echo "use flake" > .envrc
     '')
+
+    (writeShellScriptBin "project-show" ''
+      nix --experimental-features 'nix-command flakes' \
+        flake show github:howardsp/dev-templates --refresh
+    '')    
+
   ];  
+
+
+
+
+
 }
