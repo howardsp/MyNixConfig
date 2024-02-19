@@ -17,8 +17,6 @@
     android-tools
     gcc
     git
-    python3
-    python311Packages.pip
     cmake
     perl
 
