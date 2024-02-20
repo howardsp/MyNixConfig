@@ -7,7 +7,7 @@
     obs-studio    
     inkscape
     conjure
-    pdfstudio2021
+    #pdfstudio2021
     newsflash
     fluent-reader
     
