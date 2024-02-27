@@ -33,7 +33,6 @@
   services.printing.drivers = [pkgs.gutenprint pkgs.gutenprintBin pkgs.cnijfilter2 pkgs.canon-cups-ufr2];
   services.avahi = {
     enable = true;
-    nssmdns = true;
     nssmdns4 = true;
     openFirewall = true;
     };
@@ -49,6 +48,17 @@
     extraGroups = [ "networkmanager" "wheel" "video" "media" "qemu-libvirtd" "libvirtd" "docker"];
     packages = with pkgs; [];
   };
+
+  system.autoUpgrade = {
+    enable = true;
+    flags = [
+      "--update-input"
+      "nixpkgs"
+      "-L"
+    ];
+    dates = "07:35";    
+  };
+  
 
   system.activationScripts.text = ''
         #!/bin/sh
