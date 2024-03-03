@@ -33,10 +33,6 @@
     let     
       system = "x86_64-linux";
       pkgs = (import nixpkgs { inherit system;});
-      pkgs-stable = (import nixpkgs-stable {
-         inherit system;
-         config.allowUnfree = true;
-      });
 
     in {   
 
@@ -59,7 +55,7 @@
       nixosConfigurations = { 
         flakebook = nixpkgs.lib.nixosSystem {             
         inherit system;
-        extraSpecialArgs = { inherit pkgs-stable; };
+        specialArgs = { inherit inputs; };
         modules = [
             (./profiles/flakebook/configuration.nix)
             home-manager.nixosModules.home-manager {

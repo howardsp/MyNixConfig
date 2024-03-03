@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-stable,  ... }:
+{ config, lib, pkgs, inputs,  ... }:
 
 {
   imports = [
@@ -17,8 +17,8 @@
   # one must download citrix from their site and then load the tar.gz manually.  The
   # error message will provide the details to get it working. 
   #
-  home.packages = with pkgs-stable; [
-    citrix_workspace
+  home.packages = with pkgs; [
+    inputs.nixpkgs-stable."${pkgs.system}".citrix_workspace
   ];
   
 }
