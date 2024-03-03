@@ -18,7 +18,8 @@
   # error message will provide the details to get it working. 
   #
   home.packages = with pkgs; [
-    #inputs.nixpkgs-stable."${pkgs.system}".citrix_workspace
+    #citrix_workspace
+    citrix_workspace_23_02_0
   ];
   
 }
