@@ -29,7 +29,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";    
   };
   
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs: 
+  outputs = inputs@ { self, nixpkgs, nixpkgs-stable, home-manager, ... }: 
     let     
       system = "x86_64-linux";
       pkgs = (import nixpkgs { inherit system;});
