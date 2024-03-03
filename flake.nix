@@ -29,14 +29,14 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";    
   };
   
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: 
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs: 
     let     
       system = "x86_64-linux";
       pkgs = (import nixpkgs { inherit system;});
-      pkgs-stable = import nixpkgs-stable {
-            inherit system;
-            config.allowUnfree = true;
-      };
+      #pkgs-stable = import nixpkgs-stable {
+      #      inherit system;
+      #      config.allowUnfree = true;
+      #};
 
     in {   
 
@@ -60,7 +60,11 @@
         flakebook = nixpkgs.lib.nixosSystem {             
         inherit system;
         specialArgs = {
-          pkgs-stable = pkgs-stable;
+          #pkgs-stable = 
+          pkgs-stable = import nixpkgs-stable {
+            inherit system;
+            config.allowUnfree = true;
+      };
         };
         modules = [
             (./profiles/flakebook/configuration.nix)
