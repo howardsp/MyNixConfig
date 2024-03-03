@@ -1,4 +1,4 @@
-{ config, pkgs, home-manager, inputs,  ... }:
+{ config, lib, pkgs,  ... }:
 
 {
   imports = [
@@ -18,7 +18,7 @@
   # error message will provide the details to get it working. 
   #
   home.packages = with pkgs; [
-    inputs.nixpkgs-stable."${pkgs.system}".citrix_workspace
+    #inputs.nixpkgs-stable."${pkgs.system}".citrix_workspace
   ];
   
 }

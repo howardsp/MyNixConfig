@@ -59,8 +59,7 @@
             home-manager.nixosModules.home-manager {
               home-manager.useUserPackages = true;  
               home-manager.useGlobalPkgs = true;              
-              home-manager.users.howardsp = (./profiles/flakebook/home.nix);
-            {_module.args = {inherit inputs; };}
+              home-manager.users.howardsp = (./profiles/flakebook/home.nix);            
             }
           ]; 
         };
