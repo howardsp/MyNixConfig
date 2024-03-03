@@ -33,7 +33,7 @@
     let     
       system = "x86_64-linux";
       pkgs = (import nixpkgs { inherit system;});
-
+      inputs = inputs;
     in {   
 
         # virtual machine that I use for testing.
