@@ -32,8 +32,7 @@
   outputs = inputs@ { self, nixpkgs, home-manager, ... }: 
     let     
       system = "x86_64-linux";
-      pkgs = (import nixpkgs { inherit system;});
-      inputs = inputs;
+      pkgs = (import nixpkgs { inherit system;});      
     in {   
 
         # virtual machine that I use for testing.
@@ -54,14 +53,14 @@
       # primary laptop.
       nixosConfigurations = { 
         flakebook = nixpkgs.lib.nixosSystem {             
-        inherit system;
-        specialArgs = { inherit inputs; };
+        inherit system;      
         modules = [
             (./profiles/flakebook/configuration.nix)
             home-manager.nixosModules.home-manager {
               home-manager.useUserPackages = true;  
               home-manager.useGlobalPkgs = true;              
-              home-manager.users.howardsp = (./profiles/flakebook/home.nix);                  
+              home-manager.users.howardsp = (./profiles/flakebook/home.nix);
+            _module.args = {inherit inputs; };
             }
           ]; 
         };
