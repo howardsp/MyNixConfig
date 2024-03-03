@@ -60,7 +60,7 @@
               home-manager.useUserPackages = true;  
               home-manager.useGlobalPkgs = true;              
               home-manager.users.howardsp = (./profiles/flakebook/home.nix);
-            _module.args = {inherit inputs; };
+            {_module.args = {inherit inputs; };}
             }
           ]; 
         };
