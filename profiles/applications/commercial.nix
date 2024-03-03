@@ -8,7 +8,6 @@
     zoom-us                 # video conf
     synergy                 #Shared keyboard / mounse across machines   
     insync
-    
   ];
 
 }

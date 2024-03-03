@@ -24,6 +24,7 @@
   inputs = 
   {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";    
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";    
   };
@@ -37,9 +38,9 @@
 
         # virtual machine that I use for testing.
         nixosConfigurations = {             
-          virtualnix = nixpkgs.lib.nixosSystem {             
-          inherit system;                        
-            modules = [
+          virtualnix = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
               (./profiles/virtualnix/configuration.nix)
               home-manager.nixosModules.home-manager {
                 home-manager.useUserPackages = true;  
@@ -53,7 +54,15 @@
       # primary laptop.
       nixosConfigurations = { 
         flakebook = nixpkgs.lib.nixosSystem {             
-        inherit system;              
+        inherit system;
+        specialArgs = 
+            {
+              pkgs-stable = import nixpkgs-stable {
+                system = system;
+                config.allowUnfree = true;
+              };
+            }; 
+
           modules = [
             (./profiles/flakebook/configuration.nix)
             home-manager.nixosModules.home-manager {
