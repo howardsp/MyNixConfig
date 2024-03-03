@@ -33,7 +33,11 @@
     let     
       system = "x86_64-linux";
       pkgs = (import nixpkgs { inherit system;});
-      
+      pkgs-stable = import nixpkgs-stable {
+            inherit system;
+            config.allowUnfree = true;
+      };
+
     in {   
 
         # virtual machine that I use for testing.
@@ -55,15 +59,10 @@
       nixosConfigurations = { 
         flakebook = nixpkgs.lib.nixosSystem {             
         inherit system;
-        specialArgs = 
-            {
-              pkgs-stable = import nixpkgs-stable {
-                system = system;
-                config.allowUnfree = true;
-              };
-            }; 
-
-          modules = [
+        specialArgs = {
+          pkgs-stable = pkgs-stable;
+        };
+        modules = [
             (./profiles/flakebook/configuration.nix)
             home-manager.nixosModules.home-manager {
               home-manager.useUserPackages = true;  
