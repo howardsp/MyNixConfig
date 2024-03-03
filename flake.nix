@@ -59,7 +59,7 @@
       nixosConfigurations = { 
         flakebook = nixpkgs.lib.nixosSystem {             
         inherit system;
-        inherit pkgs-stable;           
+        specialArgs = { inherit pkgs-stable; };
         modules = [
             (./profiles/flakebook/configuration.nix)
             home-manager.nixosModules.home-manager {
