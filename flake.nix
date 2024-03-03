@@ -33,10 +33,10 @@
     let     
       system = "x86_64-linux";
       pkgs = (import nixpkgs { inherit system;});
-      #pkgs-stable = import nixpkgs-stable {
-      #      inherit system;
-      #      config.allowUnfree = true;
-      #};
+      pkgs-stable = (import nixpkgs-stable {
+         inherit system;
+         config.allowUnfree = true;
+      });
 
     in {   
 
@@ -59,11 +59,7 @@
       nixosConfigurations = { 
         flakebook = nixpkgs.lib.nixosSystem {             
         inherit system;
-        specialArgs = {
-          #pkgs-stable = 
-          pkgs-stable = import nixpkgs-stable {
-            inherit system;
-            config.allowUnfree = true;
+        inherit pkgs-stable;
       };
         };
         modules = [
