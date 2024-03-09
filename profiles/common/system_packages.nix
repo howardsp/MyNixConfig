@@ -2,6 +2,7 @@
 
   environment.variables.EDITOR = "vim"; # Set default editor to vim
 
+  
   environment.systemPackages = with pkgs; [
     git  
     vim
@@ -15,6 +16,7 @@
     stacer         
     nvd # nixs version diff
     home-manager
+    teamviewer
 
     (writeShellScriptBin "project-init" ''
       if [ -z $1 ]; then

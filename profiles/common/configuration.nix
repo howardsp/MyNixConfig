@@ -28,6 +28,8 @@
   
   fonts.fontDir.enable = true;
 
+  services.teamviewer.enable = true;
+
    # Enable CUPS to print documents.
   services.printing.enable = true;
   services.printing.drivers = [pkgs.gutenprint pkgs.gutenprintBin pkgs.cnijfilter2 pkgs.canon-cups-ufr2];
