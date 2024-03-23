@@ -11,6 +11,7 @@
     newsflash
     fluent-reader
     
+    
     # development tools
     # ---------------------------------------------------------------------------------
     jdk
@@ -27,5 +28,6 @@
     krita
     vlc
     hypnotix
+    photocollage
   ];
 }
