@@ -10,7 +10,6 @@
     ];
 
   # Ensure nix flakes are enabled
-  
   nix.extraOptions = ''
     experimental-features = nix-command flakes
   '';
@@ -47,7 +46,7 @@
   users.users.howardsp = {
     isNormalUser = true;
     description = "Howard Spector";
-    extraGroups = [ "networkmanager" "wheel" "video" "media" "qemu-libvirtd" "libvirtd" "docker"];
+    extraGroups = [ "networkmanager" "wheel" "video" "media" "qemu-libvirtd" "libvirtd" "docker" "lxd"];
     packages = with pkgs; [];
   };
 

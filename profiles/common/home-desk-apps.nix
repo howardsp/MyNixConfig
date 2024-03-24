@@ -28,6 +28,6 @@
     krita
     vlc
     hypnotix
-    photocollage
+    #photocollage
   ];
 }

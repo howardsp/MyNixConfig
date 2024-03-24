@@ -4,6 +4,7 @@
     ../common/configuration.nix
     ./hardware-configuration.nix
     ../../settings/fonts.nix
+    ../applications/lxd-containers.nix
     ];
 
 
@@ -21,9 +22,7 @@
   networking.firewall.allowedTCPPortRanges = [ { from = 24800; to = 24801; } ];
   networking.firewall.allowedUDPPortRanges = [ { from = 24800; to = 24801; } ];
 
-
-
-environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     virt-viewer
     virtio-win
     virt-top 
