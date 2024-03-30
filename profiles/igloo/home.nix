@@ -18,8 +18,8 @@
   # error message will provide the details to get it working. 
   #
   home.packages = with pkgs; [
-    #citrix_workspace
-    citrix_workspace_23_02_0
+    citrix_workspace    
+    #citrix_workspace_23_02_0
   ];
   
   # gnome screen blanking has a bug with multiple screens that moves windows

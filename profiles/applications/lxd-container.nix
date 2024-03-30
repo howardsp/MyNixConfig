@@ -42,6 +42,9 @@
 
   # Firewall commands allowing traffic to go in and out of the bridge interface
   # (and to the guest LXD instance).  Also sets up the actual NAT masquerade rule.
+  #
+  #  lxc config device add <container> eth1 nic nictype=bridged parent=mylxdbr0
+  #
   networking.firewall.extraCommands = ''
     iptables -A INPUT -i mylxdbr0 -m comment --comment "my rule for LXD network mylxdbr0" -j ACCEPT
 

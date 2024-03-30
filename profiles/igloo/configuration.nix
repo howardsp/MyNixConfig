@@ -4,7 +4,7 @@
     ../common/configuration.nix
     ./hardware-configuration.nix
     ../../settings/fonts.nix
-    ../applications/lxd-containers.nix
+    ../applications/lxd-container.nix
     ];
 
 

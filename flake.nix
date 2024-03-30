@@ -33,6 +33,19 @@
     let     
       system = "x86_64-linux";
       pkgs = (import nixpkgs { inherit system;});      
+
+      systemf = x: nixpkgs.lib.nixosSystem {             
+        inherit system;      
+        modules = [
+            (./profiles/${x}/configuration.nix)
+            home-manager.nixosModules.home-manager {
+              home-manager.useUserPackages = true;  
+              home-manager.useGlobalPkgs = true;              
+              home-manager.users.howardsp = (./profiles/${x}/home.nix);
+            }
+          ]; 
+        }; 
+
     in {   
 
         # virtual machine that I use for testing.
@@ -50,34 +63,20 @@
           };
         };
 
-      # primary laptop.
-      nixosConfigurations = { 
-        flakebook = nixpkgs.lib.nixosSystem {             
-        inherit system;      
-        modules = [
-            (./profiles/flakebook/configuration.nix)
-            home-manager.nixosModules.home-manager {
-              home-manager.useUserPackages = true;  
-              home-manager.useGlobalPkgs = true;              
-              home-manager.users.howardsp = (./profiles/flakebook/home.nix);            
-            }
-          ]; 
-        };
-      };
-
-    # Home Machine.
     nixosConfigurations = { 
-        igloo = nixpkgs.lib.nixosSystem {             
-        inherit system;
-        modules = [
-            (./profiles/igloo/configuration.nix)
-            home-manager.nixosModules.home-manager {
-              home-manager.useUserPackages = true;  
-              home-manager.useGlobalPkgs = true;
-              home-manager.users.howardsp = (./profiles/igloo/home.nix);
-            }
-          ]; 
-        };
+        igloo = systemf "igloo";
+        flakebook = systemf "flakebook";        
+        #nixpkgs.lib.nixosSystem {             
+        #inherit system;
+        #modules = [
+        #    (./profiles/igloo/configuration.nix)
+        #    home-manager.nixosModules.home-manager {
+        #      home-manager.useUserPackages = true;  
+        #      home-manager.useGlobalPkgs = true;
+        #      home-manager.users.howardsp = (./profiles/igloo/home.nix);
+        #    }
+        #  ]; 
+        #};
     };
 
     # Server used for local testing / playing around with tech. 
