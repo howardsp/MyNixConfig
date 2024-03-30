@@ -34,64 +34,35 @@
       system = "x86_64-linux";
       pkgs = (import nixpkgs { inherit system;});      
 
-      systemf = x: nixpkgs.lib.nixosSystem {             
-        inherit system;      
+      #
+      # Common Function to create all of my machine configurations 
+      # with a customer base configuration / home file that pulls
+      # links back to a common set for shared features. 
+      #
+      createSystem = theSystemName: nixpkgs.lib.nixosSystem {
+        inherit system;        
         modules = [
-            (./profiles/${x}/configuration.nix)
+            (./profiles/${theSystemName}/configuration.nix)
             home-manager.nixosModules.home-manager {
               home-manager.useUserPackages = true;  
               home-manager.useGlobalPkgs = true;              
-              home-manager.users.howardsp = (./profiles/${x}/home.nix);
+              home-manager.users.howardsp = (./profiles/${theSystemName}/home.nix);
             }
           ]; 
         }; 
 
     in {   
 
-        # virtual machine that I use for testing.
-        nixosConfigurations = {             
-          virtualnix = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-              (./profiles/virtualnix/configuration.nix)
-              home-manager.nixosModules.home-manager {
-                home-manager.useUserPackages = true;  
-                home-manager.useGlobalPkgs = true;              
-                home-manager.users.howardsp = (./profiles/virtualnix/home.nix);
-              }
-            ];             
-          };
-        };
-
+    #
+    # Declare my machines.
+    # 
     nixosConfigurations = { 
-        igloo = systemf "igloo";
-        flakebook = systemf "flakebook";        
-        #nixpkgs.lib.nixosSystem {             
-        #inherit system;
-        #modules = [
-        #    (./profiles/igloo/configuration.nix)
-        #    home-manager.nixosModules.home-manager {
-        #      home-manager.useUserPackages = true;  
-        #      home-manager.useGlobalPkgs = true;
-        #      home-manager.users.howardsp = (./profiles/igloo/home.nix);
-        #    }
-        #  ]; 
-        #};
-    };
+        specialArgs = { inherit inputs; };
 
-    # Server used for local testing / playing around with tech. 
-    nixosConfigurations = { 
-        avalanche = nixpkgs.lib.nixosSystem {             
-        inherit system;
-        modules = [
-            (./profiles/avalanche/configuration.nix)
-            home-manager.nixosModules.home-manager {
-              home-manager.useUserPackages = true;  
-              home-manager.useGlobalPkgs = true;
-              home-manager.users.howardsp = (./profiles/avalanche/home.nix);
-            }
-          ]; 
-        };
+        igloo = createSystem "igloo";
+        flakebook = createSystem "flakebook";
+        virtualnix = createSystem "virtualnix";
+        avalanche = createSystem "avalanche";        
     };
 
   };      
