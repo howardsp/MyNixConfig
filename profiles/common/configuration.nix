@@ -3,8 +3,8 @@
   imports = [
     ./system_packages.nix
     ./gnome_common.nix
-    ./gnome_with_x.nix    # X SERVER
-    #./gnome_with_x.nix    # WAYLAND
+    ./gnome_with_x.nix        # X SERVER
+    #./gnome_with_x.nix       # WAYLAND
     ../../settings/sound.nix
     ../../settings/timezone.nix
     ];
@@ -13,6 +13,7 @@
   nix.extraOptions = ''
     experimental-features = nix-command flakes
   '';
+  
   nixpkgs.config.allowUnfree = true;
   services.flatpak.enable = true;
 
@@ -50,17 +51,6 @@
     packages = with pkgs; [];
   };
 
-  system.autoUpgrade = {
-    enable = true;
-    flags = [
-      "--update-input"
-      "nixpkgs"
-      "-L"
-    ];
-    dates = "07:35";    
-  };
-  
-
   system.activationScripts.text = ''
         #!/bin/sh
 
@@ -87,9 +77,7 @@
           ${pkgs.perl}/bin/perl -pi -e 's/enableMiniWindow=true/enableMiniWindow=false/g' /home/howardsp/.config/zoomus.conf
         fi 
 
-        '';
-     
-
+        '';     
   
   # It is ok to leave this unchanged for compatibility purposes
   system.stateVersion = "24.05";
