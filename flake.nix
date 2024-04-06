@@ -17,34 +17,59 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";        
   };
   
-  outputs = { self, nixpkgs, home-manager, nixpkgs-stable, ... } @inputs:
-    let              
-      #
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... } @inputs:
+  
+    let 
+
+      mySettings = {
+        system = "x86_64-linux";
+        username = "howardsp";        
+        };
+
+      pkgs = import nixpkgs {
+        system = mySettings.system;
+        config = { allowUnfree = true; allowUnfreePredicate = (_: true); };
+      };
+
+      pkgs-stable = import nixpkgs-stable {
+        system = mySettings.system;
+        config = { allowUnfree = true; allowUnfreePredicate = (_: true); };
+      };
+
       # My Function to create all of my machine configurations 
       # with a customer base configuration / home file that pulls
       # links back to a common set for shared features. 
-      #      
-      createSystem = theSystemName: nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+      createSystem = { host }: nixpkgs.lib.nixosSystem {        
+        system = mySettings.system;        
         modules = [
-            (./profiles/${theSystemName}/configuration.nix)
+            (./profiles/${host}/configuration.nix)
             home-manager.nixosModules.home-manager {
               home-manager.useUserPackages = true;  
               home-manager.useGlobalPkgs = true;              
-              home-manager.users.howardsp = (./profiles/${theSystemName}/home.nix);
-            }
+              home-manager.users.howardsp = (./profiles/${host}/home.nix);
+              home-manager.extraSpecialArgs = {
+                   inherit inputs; 
+                   inherit mySettings;
+                   inherit pkgs;
+                   inherit pkgs-stable;
+                   };     
+            }            
           ]; 
+          specialArgs = { 
+              inherit inputs; 
+              inherit mySettings;
+              inherit pkgs;
+              inherit pkgs-stable;
+              };     
         }; 
     in {   
-
-    #
-    # Declare my machines.
-    # 
-    nixosConfigurations = {         
-        igloo = createSystem "igloo";
-        flakebook = createSystem "flakebook";
-        virtualnix = createSystem "virtualnix";
-        avalanche = createSystem "avalanche";        
+    
+    # Declare my machines.    
+    nixosConfigurations = {            
+        igloo = createSystem {host="igloo"; };
+        flakebook = createSystem {host = "flakebook";};
+        virtualnix = createSystem {host = "virtualnix";};
+        avalanche = createSystem {host = "avalanche";};
     };
 
   };      

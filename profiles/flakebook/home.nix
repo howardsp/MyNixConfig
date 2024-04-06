@@ -6,12 +6,11 @@
     ../common/home-core-apps.nix    
     ../common/home-desk-apps.nix        
     ../applications/emacs.nix
-    #../applications/kodi.nix    
     ../applications/commercial.nix    
     ../applications/vscode.nix
     ../applications/bash.nix
   ];
-
+  
   #
   # This will produce an error the first time it is run as to comply with Citrix EULA
   # one must download citrix from their site and then load the tar.gz manually.  The
@@ -23,4 +22,3 @@
   ];
   
 }
-

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, mySettings, ... }:
 {
   imports = [
     ./system_packages.nix
@@ -16,12 +16,6 @@
   
   nixpkgs.config.allowUnfree = true;
   services.flatpak.enable = true;
-
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 5d";
-    };
 
   # Networking
   networking.networkmanager.enable = true; # Use networkmanager
@@ -44,7 +38,7 @@
 
   
   # User account
-  users.users.howardsp = {
+  users.users.${mySettings.username} = {
     isNormalUser = true;
     description = "Howard Spector";
     extraGroups = [ "networkmanager" "wheel" "video" "media" "qemu-libvirtd" "libvirtd" "docker" "lxd"];
