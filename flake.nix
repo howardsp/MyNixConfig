@@ -6,7 +6,6 @@
 # Update flake.lock            --- sudo nix flake lock --update-input nixpkgs 
 # Remove old Packages          --- sudo nix-collect-garbage -d
 # Current/Prev ver difference  --- nvd diff $(ls -d1v /nix/var/nix/profiles/system-*-link|tail -n 2)
-#
 {
   description = "Howard's NIXOS Configuraiton that supports multiple machines";
   inputs = 
