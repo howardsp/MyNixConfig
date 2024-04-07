@@ -1,4 +1,4 @@
-{ pkgs, lib, config, mySettings, host, home-manager, ... }: {
+{ pkgs, lib, config, ... }: {
 
   options = {     
       synergy-server.enable = lib.mkOption {

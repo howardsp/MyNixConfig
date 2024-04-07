@@ -1,4 +1,4 @@
-{ config, lib, pkgs, mySettings,host, ... }:
+{ config, lib, pkgs, host, username, fullname, ... }:
 {
     imports =[    
         ./printing    
@@ -20,9 +20,9 @@
     services.flatpak.enable = true;    
 
 # User account
-  users.users.${mySettings.username} = {
+  users.users.${username} = {
     isNormalUser = true;
-    description = mySettings.fullname;
+    description = fullname;
     extraGroups = [ "networkmanager" "wheel" "video" "media" "qemu-libvirtd" "libvirtd" "docker" "lxd"];
     packages = with pkgs; [];
   };

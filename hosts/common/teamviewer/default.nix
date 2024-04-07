@@ -1,4 +1,4 @@
-{ pkgs, lib, config, mySettings, host, ... }: {
+{ pkgs, lib, config, host, ... }: {
 
   options = {     
     teamviewer.enable = lib.mkOption {

@@ -1,4 +1,4 @@
-{ pkgs, lib, config, mySettings, host, ... }: {
+{ pkgs, lib, config,  ... }: {
 
   options = {
     citrix.enable = lib.mkOption {
@@ -13,8 +13,7 @@
     # one must download citrix from their site and then load the tar.gz manually.  The
     # error message will provide the details to get it working. 
     home.packages = with pkgs; [
-        citrix_workspace    
-        #citrix_workspace_23_02_0
+        citrix_workspace            
     ];
   };
 }

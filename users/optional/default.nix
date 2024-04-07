@@ -1,4 +1,4 @@
-{ config, lib, pkgs, mySettings,host, ... }:
+{ config, lib, pkgs, host, ... }:
 {
     imports =[        
         ./citrix

@@ -1,4 +1,4 @@
-{ config, lib, pkgs,  home-manager, mySettings, ... }:
+{ config, lib, pkgs,  home-manager, username, ... }:
 
 {
   home.packages = with pkgs; [   
@@ -10,7 +10,7 @@
     insync
   ];
   
-  #home-manager.users.${mySettings.username}.
+  #home-manager.users.${username}.
   home.file."./.config/autostart/synergy.desktop" = {
     text = ''
     [Desktop Entry]

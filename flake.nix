@@ -2,7 +2,7 @@
 #
 # Run the following form your Flake Directory. 
 #
-# Update System + Home-Manager --- sudo nixos-rebuild switch --flake .#**HOSTNAME**  
+# Update System + Home-Manager --- sudo nixos-rebuild switch --flake .#  
 # Update flake.lock            --- sudo nix flake lock --update-input nixpkgs 
 # Remove old Packages          --- sudo nix-collect-garbage -d
 # Current/Prev ver difference  --- nvd diff $(ls -d1v /nix/var/nix/profiles/system-*-link|tail -n 2)
@@ -20,48 +20,30 @@
   
     let 
 
-      mySettings = {
-        system = "x86_64-linux";
-        username = "howardsp";  
-        fullname = "Howard Spector";      
-        pkgs-stable = import nixpkgs-stable {
-          system = mySettings.system;
-          config = { allowUnfree = true; allowUnfreePredicate = (_: true); };
-        };
+      pkgs-stable = import nixpkgs-stable {
+        system = "x86_64-linux" ;
+        config = { allowUnfree = true; allowUnfreePredicate = (_: true); };
       };
 
       pkgs = import nixpkgs {
-        system = mySettings.system;
+        system = "x86_64-linux" ;
         config = { allowUnfree = true; allowUnfreePredicate = (_: true); };
-        };
+      };
 
-      # My Function to create all of my machine configurations 
-      # with a customer base configuration / home file that pulls
-      # links back to a common set for shared features. 
-      createSystem = { host }: nixpkgs.lib.nixosSystem {        
-        system = mySettings.system;
+      # Function to create all of my machine configurations 
+      createSystem = { host, username ? "howardsp", fullname ? "Howard Spector",  sysarch ? "x86_64-linux" }: nixpkgs.lib.nixosSystem {        
+        system = sysarch;
         modules = [
             (./hosts/${host}.nix)
             (./hardware/hardware-${host}.nix)            
             home-manager.nixosModules.home-manager {
               home-manager.useUserPackages = true;  
               home-manager.useGlobalPkgs = true;              
-              home-manager.users.howardsp = (./users/${mySettings.username}-${host}.nix);
-              home-manager.extraSpecialArgs = {
-                   inherit inputs; 
-                   inherit mySettings;
-                   inherit host;
-                   inherit pkgs;                   
-                   };     
+              home-manager.users.howardsp = (./users/${username}-${host}.nix);
+              home-manager.extraSpecialArgs = { inherit inputs host username fullname sysarch  pkgs pkgs-stable; };     
             }            
           ]; 
-          specialArgs = { 
-              inherit inputs; 
-              inherit mySettings;
-              inherit host;
-              inherit pkgs;
-              inherit home-manager;
-              };     
+          specialArgs = { inherit inputs host username fullname sysarch pkgs pkgs-stable home-manager;};     
         }; 
     in {   
     
