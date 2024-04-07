@@ -6,6 +6,8 @@
         ./fonts
         ./gnome
         ./commandline
+        ./timezone
+        ./sound
         #../../profiles/common/system_packages.nix
         #../../profiles/common/gnome_common.nix
         #../../profiles/common/gnome_with_x.nix
