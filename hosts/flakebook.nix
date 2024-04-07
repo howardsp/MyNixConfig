@@ -11,6 +11,6 @@
   boot.kernelModules = [ "cpufreq_powersave" ];  
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_7;
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_8;
 
 }
