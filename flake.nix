@@ -23,25 +23,26 @@
       mySettings = {
         system = "x86_64-linux";
         username = "howardsp";        
+        pkgs = import nixpkgs {
+          system = mySettings.system;
+          config = { allowUnfree = true; allowUnfreePredicate = (_: true); };
+         };
+
+        pkgs-stable = import nixpkgs-stable {
+          system = mySettings.system;
+          config = { allowUnfree = true; allowUnfreePredicate = (_: true); };
+          };
         };
 
-      pkgs = import nixpkgs {
-        system = mySettings.system;
-        config = { allowUnfree = true; allowUnfreePredicate = (_: true); };
-      };
-
-      pkgs-stable = import nixpkgs-stable {
-        system = mySettings.system;
-        config = { allowUnfree = true; allowUnfreePredicate = (_: true); };
-      };
 
       # My Function to create all of my machine configurations 
       # with a customer base configuration / home file that pulls
       # links back to a common set for shared features. 
       createSystem = { host }: nixpkgs.lib.nixosSystem {        
-        system = mySettings.system;        
+        system = mySettings.system;
         modules = [
             (./profiles/${host}/configuration.nix)
+            (./hardware/hardware-${host}.nix)
             home-manager.nixosModules.home-manager {
               home-manager.useUserPackages = true;  
               home-manager.useGlobalPkgs = true;              
@@ -49,16 +50,14 @@
               home-manager.extraSpecialArgs = {
                    inherit inputs; 
                    inherit mySettings;
-                   inherit pkgs;
-                   inherit pkgs-stable;
+                   inherit host;
                    };     
             }            
           ]; 
           specialArgs = { 
               inherit inputs; 
               inherit mySettings;
-              inherit pkgs;
-              inherit pkgs-stable;
+              inherit host;
               };     
         }; 
     in {   
