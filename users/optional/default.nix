@@ -3,5 +3,6 @@
     imports =[        
         ./citrix
         ./xscreensaver
+        ./vscode
     ];
 }
