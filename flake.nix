@@ -22,7 +22,8 @@
 
       mySettings = {
         system = "x86_64-linux";
-        username = "howardsp";        
+        username = "howardsp";  
+        fullname = "Howard Spector";      
         };
 
       pkgs = import nixpkgs {

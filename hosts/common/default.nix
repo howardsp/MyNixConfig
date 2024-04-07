@@ -4,12 +4,15 @@
         ./printing    
         ./teamviewer        
         ./fonts
+        ./gnome
         ../../profiles/common/system_packages.nix
         ../../profiles/common/gnome_common.nix
         ../../profiles/common/gnome_with_x.nix
         ../../settings/sound.nix
         ../../settings/timezone.nix
     ];
+
+    environment.variables.EDITOR = "vim"; # Set default editor to vim
 
     # Ensure nix flakes are enabled
     nix.extraOptions = ''
@@ -18,13 +21,13 @@
 
     networking.hostName = "${host}"; # Define your hostname.
     networking.networkmanager.enable = true; # Use networkmanager
-
+    
     services.flatpak.enable = true;    
 
 # User account
   users.users.${mySettings.username} = {
     isNormalUser = true;
-    description = "Howard Spector";
+    description = mySettings.fullname;
     extraGroups = [ "networkmanager" "wheel" "video" "media" "qemu-libvirtd" "libvirtd" "docker" "lxd"];
     packages = with pkgs; [];
   };
