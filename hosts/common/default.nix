@@ -1,8 +1,8 @@
 { config, lib, pkgs, mySettings,host, ... }:
 {
     imports =[    
-        ./common-printing    
-        ./common-teamviewer        
+        ./printing    
+        ./teamviewer        
         ./fonts
         ../../profiles/common/system_packages.nix
         ../../profiles/common/gnome_common.nix

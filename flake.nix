@@ -63,6 +63,7 @@
               inherit host;
               inherit pkgs;
               inherit pkgs-stable;
+              inherit home-manager;
               };     
         }; 
     in {   

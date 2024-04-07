@@ -1,4 +1,4 @@
-{config, pkgs, ...}:  {
+{config, lib, pkgs, ...}:  {
 
   home.file."./.config/autostart/insync.desktop" = {
     text = ''
@@ -25,16 +25,15 @@
     '';
   };
  
-  home.file."./.config/autostart/synergy.desktop" = {
-    text = ''
-    [Desktop Entry]
-    Type=Application
-    Name=synergy
-    Exec=synergy
-    Categories=Other
-    X-GNOME-Autostart-enabled=true
-    Terminal=false
-    '';
-  };
-  
+  #home.file."./.config/autostart/synergy.desktop" = {
+  #      text = ''
+  ##      [Desktop Entry]
+   #     Type=Application
+   #     Name=synergy
+   #     Exec=synergy
+   #     Categories=Other
+   #     X-GNOME-Autostart-enabled=true
+   #     Terminal=false
+   #     '';
+   #   };    
 }

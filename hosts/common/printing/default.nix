@@ -1,13 +1,13 @@
 { pkgs, lib, config, mySettings, host, ... }: {
 
   options = {     
-    common-printing.enable = lib.mkOption {
+    printing.enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
     };
   };
 
-  config = lib.mkIf config.common-printing.enable {
+  config = lib.mkIf config.printing.enable {
 
     # Enable CUPS to print documents.
     services.printing.enable = true;

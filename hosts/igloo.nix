@@ -3,14 +3,10 @@
   imports = [
     ./common
     ./optional
-
-    #../common/configuration.nix
-    #../../settings/fonts.nix
-    #../applications/lxd-container.nix
     ];
 
-  optional-qemu.enable = true;
-  optional-synergy-server.enable = true;  
+  qemu.enable = true;
+  synergy-server.enable = true;  
 
   # Kernel modules  
   boot.kernelModules = [ "kvm-amd" "cpufreq_performance" ];    
