@@ -16,7 +16,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";        
   };
   
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... } @inputs:
+  outputs = { self, nixpkgs, home-manager, ... } @inputs:
   
     let 
 
@@ -24,18 +24,16 @@
         system = "x86_64-linux";
         username = "howardsp";  
         fullname = "Howard Spector";      
+        pkgs-stable = import nixpkgs-stable {
+          system = mySettings.system;
+          config = { allowUnfree = true; allowUnfreePredicate = (_: true); };
         };
+      };
 
       pkgs = import nixpkgs {
         system = mySettings.system;
         config = { allowUnfree = true; allowUnfreePredicate = (_: true); };
         };
-
-      pkgs-stable = import nixpkgs-stable {
-        system = mySettings.system;
-        config = { allowUnfree = true; allowUnfreePredicate = (_: true); };
-        };
-
 
       # My Function to create all of my machine configurations 
       # with a customer base configuration / home file that pulls
@@ -53,8 +51,7 @@
                    inherit inputs; 
                    inherit mySettings;
                    inherit host;
-                   inherit pkgs;
-                   inherit pkgs-stable;
+                   inherit pkgs;                   
                    };     
             }            
           ]; 
@@ -63,7 +60,6 @@
               inherit mySettings;
               inherit host;
               inherit pkgs;
-              inherit pkgs-stable;
               inherit home-manager;
               };     
         }; 

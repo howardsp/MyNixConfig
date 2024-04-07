@@ -8,22 +8,15 @@
         ./commandline
         ./timezone
         ./sound
-        #../../profiles/common/system_packages.nix
-        #../../profiles/common/gnome_common.nix
-        #../../profiles/common/gnome_with_x.nix
-        ../../settings/sound.nix
-        ../../settings/timezone.nix
     ];
     
-
     # Ensure nix flakes are enabled
     nix.extraOptions = ''
         experimental-features = nix-command flakes
     '';
 
     networking.hostName = "${host}"; # Define your hostname.
-    networking.networkmanager.enable = true; # Use networkmanager
-    
+    networking.networkmanager.enable = true; # Use networkmanager  
     services.flatpak.enable = true;    
 
 # User account
