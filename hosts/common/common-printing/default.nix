@@ -1,7 +1,10 @@
 { pkgs, lib, config, mySettings, host, ... }: {
 
-  options = {
-    common-printing.enable = lib.mkDefault true;
+  options = {     
+    common-printing.enable = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+    };
   };
 
   config = lib.mkIf config.common-printing.enable {

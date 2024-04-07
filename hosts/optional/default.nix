@@ -1,6 +1,6 @@
 { config, lib, pkgs, mySettings,host, ... }:
 {
-    import =[        
+    imports =[        
         ./optional-synergy-server
         ./optional-qemu
     ];

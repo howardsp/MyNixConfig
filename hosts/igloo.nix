@@ -4,8 +4,8 @@
     ./common
     ./optional
 
-    ../common/configuration.nix
-    ../../settings/fonts.nix
+    #../common/configuration.nix
+    #../../settings/fonts.nix
     #../applications/lxd-container.nix
     ];
 

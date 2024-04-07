@@ -1,13 +1,14 @@
 { config, lib, pkgs, mySettings,host, ... }:
 {
-    import =[    
+    imports =[    
         ./common-printing    
-        ./common-teamviewer
-        ../../../profiles/system_packages.nix
-        ../../../profiles/gnome_common.nix
-        ../../../profiles/gnome_with_x.nix
-        ../../../settings/sound.nix
-        ../../../settings/timezone.nix
+        ./common-teamviewer        
+        ./fonts
+        ../../profiles/common/system_packages.nix
+        ../../profiles/common/gnome_common.nix
+        ../../profiles/common/gnome_with_x.nix
+        ../../settings/sound.nix
+        ../../settings/timezone.nix
     ];
 
     # Ensure nix flakes are enabled
@@ -18,8 +19,7 @@
     networking.hostName = "${host}"; # Define your hostname.
     networking.networkmanager.enable = true; # Use networkmanager
 
-    services.flatpak.enable = true;
-    fonts.fontDir.enable = true;
+    services.flatpak.enable = true;    
 
 # User account
   users.users.${mySettings.username} = {

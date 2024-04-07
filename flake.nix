@@ -23,15 +23,16 @@
       mySettings = {
         system = "x86_64-linux";
         username = "howardsp";        
-        pkgs = import nixpkgs {
-          system = mySettings.system;
-          config = { allowUnfree = true; allowUnfreePredicate = (_: true); };
-         };
+        };
 
-        pkgs-stable = import nixpkgs-stable {
-          system = mySettings.system;
-          config = { allowUnfree = true; allowUnfreePredicate = (_: true); };
-          };
+      pkgs = import nixpkgs {
+        system = mySettings.system;
+        config = { allowUnfree = true; allowUnfreePredicate = (_: true); };
+        };
+
+      pkgs-stable = import nixpkgs-stable {
+        system = mySettings.system;
+        config = { allowUnfree = true; allowUnfreePredicate = (_: true); };
         };
 
 
@@ -41,7 +42,7 @@
       createSystem = { host }: nixpkgs.lib.nixosSystem {        
         system = mySettings.system;
         modules = [
-            (./profiles/${host}/configuration.nix)
+            (./hosts/${host}.nix)
             (./hardware/hardware-${host}.nix)            
             home-manager.nixosModules.home-manager {
               home-manager.useUserPackages = true;  
@@ -51,6 +52,8 @@
                    inherit inputs; 
                    inherit mySettings;
                    inherit host;
+                   inherit pkgs;
+                   inherit pkgs-stable;
                    };     
             }            
           ]; 
@@ -58,6 +61,8 @@
               inherit inputs; 
               inherit mySettings;
               inherit host;
+              inherit pkgs;
+              inherit pkgs-stable;
               };     
         }; 
     in {   

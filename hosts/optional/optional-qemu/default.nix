@@ -1,7 +1,10 @@
 { pkgs, lib, config, mySettings, host, ... }: {
 
   options = {
-    optional-qemu.enable = lib.mkDefault false;
+    optional-qemu.enable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+    };
   };
 
   config = lib.mkIf config.optional-qemu.enable {
