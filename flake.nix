@@ -16,7 +16,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";        
   };
   
-  outputs = { self, nixpkgs, home-manager, ... } @inputs:
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... } @inputs:
   
     let 
 
@@ -46,7 +46,7 @@
             home-manager.nixosModules.home-manager {
               home-manager.useUserPackages = true;  
               home-manager.useGlobalPkgs = true;              
-              home-manager.users.howardsp = (./profiles/${host}/home.nix);
+              home-manager.users.howardsp = (./users/${mySettings.username}-${host}.nix);
               home-manager.extraSpecialArgs = {
                    inherit inputs; 
                    inherit mySettings;
