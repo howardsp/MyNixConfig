@@ -1,21 +1,20 @@
 { config, lib, pkgs,   ... }:
 {
+
   imports = [
-    ../common/configuration.nix
-    ./hardware-configuration.nix
+    ./common
+    ./optional
     ];
 
-  networking.hostName = "avalanche"; # Define your hostname.
-
+  qemu.enable = true;
+  synergy-server.enable = true;  
   services.openssh.enable = true; 
- 
+  virtualisation.docker.enable = true; 
 
   # Kernel modules  
   boot.kernelModules = [ "kvm-intel" "cpufreq_performance" ];    
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  virtualisation.docker.enable = true;
 
   environment.systemPackages = with pkgs; [
     ollama

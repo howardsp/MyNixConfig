@@ -3,6 +3,11 @@
     imports =[        
         ./core
         ./desk
+        ./commercial
+        ./shell
+        ./vscode
+        ./emacs
+        ./gnome-settings
     ];
 
     # Home Manager needs a bit of information about you and 
