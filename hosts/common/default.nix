@@ -1,31 +1,27 @@
-{ config, lib, pkgs, mySettings, ... }:
+{ config, lib, pkgs, mySettings,host, ... }:
 {
-  imports = [
-    ./system_packages.nix
-    ./gnome_common.nix
-    ./gnome_with_x.nix        # X SERVER
-    #./gnome_with_x.nix       # WAYLAND
-    ../../settings/sound.nix
-    ../../settings/timezone.nix
+    import =[    
+        ./common-printing    
+        ./common-teamviewer
+        ../../../profiles/system_packages.nix
+        ../../../profiles/gnome_common.nix
+        ../../../profiles/gnome_with_x.nix
+        ../../../settings/sound.nix
+        ../../../settings/timezone.nix
     ];
 
-  
-  #nixpkgs.config.allowUnfree = true;
-  #services.flatpak.enable = true;
+    # Ensure nix flakes are enabled
+    nix.extraOptions = ''
+        experimental-features = nix-command flakes
+    '';
 
-  # Networking
-  #networking.networkmanager.enable = true; # Use networkmanager
-  
-  
+    networking.hostName = "${host}"; # Define your hostname.
+    networking.networkmanager.enable = true; # Use networkmanager
 
-  #services.teamviewer.enable = true;
+    services.flatpak.enable = true;
+    fonts.fontDir.enable = true;
 
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  
-  # User account
+# User account
   users.users.${mySettings.username} = {
     isNormalUser = true;
     description = "Howard Spector";
@@ -33,7 +29,7 @@
     packages = with pkgs; [];
   };
 
-  system.activationScripts.text = ''
+    system.activationScripts.text = ''
         #!/bin/sh
 
         ln -sf system.activationScripts /bin/bash
@@ -63,5 +59,4 @@
   
   # It is ok to leave this unchanged for compatibility purposes
   system.stateVersion = "24.05";
-
 }

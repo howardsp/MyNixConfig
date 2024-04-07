@@ -42,7 +42,7 @@
         system = mySettings.system;
         modules = [
             (./profiles/${host}/configuration.nix)
-            (./hardware/hardware-${host}.nix)
+            (./hardware/hardware-${host}.nix)            
             home-manager.nixosModules.home-manager {
               home-manager.useUserPackages = true;  
               home-manager.useGlobalPkgs = true;              
