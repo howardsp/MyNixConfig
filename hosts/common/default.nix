@@ -5,14 +5,14 @@
         ./teamviewer        
         ./fonts
         ./gnome
-        ../../profiles/common/system_packages.nix
-        ../../profiles/common/gnome_common.nix
-        ../../profiles/common/gnome_with_x.nix
+        ./commandline
+        #../../profiles/common/system_packages.nix
+        #../../profiles/common/gnome_common.nix
+        #../../profiles/common/gnome_with_x.nix
         ../../settings/sound.nix
         ../../settings/timezone.nix
     ];
-
-    environment.variables.EDITOR = "vim"; # Set default editor to vim
+    
 
     # Ensure nix flakes are enabled
     nix.extraOptions = ''

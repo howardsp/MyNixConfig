@@ -1,8 +1,19 @@
 {config, pkgs, ...}:  {
 
+  # Configure keymap in X11
+  services.xserver = {
+    xkb.layout = "us";
+    xkb.variant = "";
+  };
+
+
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+ # Enable the X11 windowing system.
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.wayland = false;
+  #services.xserver.synaptics.enable = true;
 
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
   services.dbus.packages = with pkgs; [ gnome2.GConf ];
@@ -58,6 +69,13 @@
     whitesur-gtk-theme
     
     whitesur-cursors
+
+    xorg.xrandr
+    xorg.xkill
+    xdotool
+    xclip
+    xscreensaver
+
 
   ];
 }
