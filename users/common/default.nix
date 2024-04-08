@@ -1,6 +1,6 @@
 { config, lib, pkgs, host, username, ... }:
 {
-    imports =[        
+    imports = [        
         ./core
         ./desk
         ./commercial

@@ -31,8 +31,8 @@
       };
 
       # Function to create all of my machine configurations 
-      createSystem = { host, username ? "howardsp", fullname ? "Howard Spector",  sysarch ? "x86_64-linux" }: nixpkgs.lib.nixosSystem {        
-        system = sysarch;
+      createSystem = { host, username ? "howardsp", fullname ? "Howard Spector" }: nixpkgs.lib.nixosSystem {        
+        system = "x86_64-linux";
         modules = [
             (./hosts/${host}.nix)
             (./hardware/hardware-${host}.nix)            
@@ -40,20 +40,21 @@
               home-manager.useUserPackages = true;  
               home-manager.useGlobalPkgs = true;              
               home-manager.users.howardsp = (./users/${username}-${host}.nix);
-              home-manager.extraSpecialArgs = { inherit inputs host username fullname sysarch  pkgs pkgs-stable; };     
+              home-manager.extraSpecialArgs = { inherit inputs host username fullname pkgs pkgs-stable; };     
             }            
           ]; 
-          specialArgs = { inherit inputs host username fullname sysarch pkgs pkgs-stable home-manager;};     
+          specialArgs = { inherit inputs host username fullname pkgs pkgs-stable home-manager;};     
         }; 
+
     in {   
     
-    # Declare my machines.    
-    nixosConfigurations = {            
-        igloo = createSystem {host="igloo"; };
-        flakebook = createSystem {host = "flakebook";};
-        virtualnix = createSystem {host = "virtualnix";};
-        avalanche = createSystem {host = "avalanche";};
-    };
+      # Declare my machines.    
+      nixosConfigurations = {            
+          igloo = createSystem {host="igloo"; };
+          flakebook = createSystem {host = "flakebook";};
+          virtualnix = createSystem {host = "virtualnix";};
+          avalanche = createSystem {host = "avalanche";};
+      };
 
   };      
 }
