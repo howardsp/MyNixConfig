@@ -7,6 +7,7 @@
         ./shell
         ./vscode
         ./emacs
+        ./rofi
         ./gnome-settings
     ];
 

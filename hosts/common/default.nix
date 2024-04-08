@@ -19,13 +19,13 @@
     networking.networkmanager.enable = true; # Use networkmanager  
     services.flatpak.enable = true;    
 
-# User account
-  users.users.${username} = {
-    isNormalUser = true;
-    description = fullname;
-    extraGroups = [ "networkmanager" "wheel" "video" "media" "qemu-libvirtd" "libvirtd" "docker" "lxd"];
-    packages = with pkgs; [];
-  };
+    # User account
+    users.users.${username} = {
+      isNormalUser = true;
+      description = fullname;
+      extraGroups = [ "networkmanager" "wheel" "video" "media" "qemu-libvirtd" "libvirtd" "docker" "lxd"];
+      packages = with pkgs; [];
+    };
 
     system.activationScripts.text = ''
         #!/bin/sh

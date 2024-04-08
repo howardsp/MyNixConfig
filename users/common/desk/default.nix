@@ -7,10 +7,10 @@
     obs-studio    
     inkscape
     conjure
-    #pdfstudio2021
     newsflash
     fluent-reader
-    
+    vlc
+    hypnotix
     
     # development tools
     # ---------------------------------------------------------------------------------
@@ -26,9 +26,7 @@
     # ---------------------------------------------------------------------------------
     gimp
     pinta
-    krita
-    vlc
-    hypnotix
-    #photocollage
+    krita    
+    
   ];
 }
