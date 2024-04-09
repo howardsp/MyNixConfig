@@ -30,6 +30,8 @@
         config = { allowUnfree = true; allowUnfreePredicate = (_: true); };
       };
 
+      #mypkgs = pkgs;
+
       # Function to create all of my machine configurations 
       createSystem = { host, username ? "howardsp", fullname ? "Howard Spector" }: nixpkgs.lib.nixosSystem {        
         system = "x86_64-linux";
@@ -55,6 +57,5 @@
           virtualnix = createSystem {host = "virtualnix";};
           avalanche = createSystem {host = "avalanche";};
       };
-
   };      
 }
