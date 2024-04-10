@@ -19,31 +19,25 @@
   outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... } @inputs:
   
     let 
-
-      pkgs-stable = import nixpkgs-stable {
-        system = "x86_64-linux" ;
-        config = { allowUnfree = true; allowUnfreePredicate = (_: true); };
-      };
-
-      pkgs = import nixpkgs {
-        system = "x86_64-linux" ;
-        config = { allowUnfree = true; allowUnfreePredicate = (_: true); };
-      };
+                     
+      allowUnfree = { nixpkgs.config.allowUnfree = true; };
 
       # Function to create all of my machine configurations 
-      createSystem = { host, username ? "howardsp", fullname ? "Howard Spector" }: nixpkgs.lib.nixosSystem {        
-        system = "x86_64-linux";
-        modules = [
+      createSystem = { host, username ? "howardsp", fullname ? "Howard Spector", system ? "x86_64-linux"  }: nixpkgs.lib.nixosSystem {        
+
+        inherit system;          
+        modules = [            
             (./hosts/${host}.nix)
             (./hardware/hardware-${host}.nix)            
+            (allowUnfree)
             home-manager.nixosModules.home-manager {
               home-manager.useUserPackages = true;  
               home-manager.useGlobalPkgs = true;              
               home-manager.users.howardsp = (./users/${username}-${host}.nix);
-              home-manager.extraSpecialArgs = { inherit inputs host username fullname pkgs pkgs-stable; };     
+              home-manager.extraSpecialArgs = { inherit inputs host username fullname; };     
             }            
           ]; 
-          specialArgs = { inherit inputs host username fullname pkgs pkgs-stable home-manager;};     
+          specialArgs = { inherit inputs host username fullname  home-manager;};     
         }; 
 
     in {   

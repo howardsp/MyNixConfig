@@ -5,8 +5,7 @@
   home.packages = with pkgs; [
     firefox     
     fastfetch
-    flameshot
-    vlc
+    flameshot    
     glib
     xfce.thunar
 
