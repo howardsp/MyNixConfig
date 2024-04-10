@@ -1,6 +1,6 @@
 { config, lib, pkgs, host, ... }:
 {
-    imports =[        
+    imports = [        
         ./citrix
         ./xscreensaver
         ./vscode
