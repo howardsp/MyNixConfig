@@ -22,7 +22,7 @@
                      
       allowUnfree = { nixpkgs.config.allowUnfree = true; };
 
-      # Function to create all of my machine configurations 
+      # Function to create and return a system based on params passed in
       createSystem = { host, username ? "howardsp", fullname ? "Howard Spector", system ? "x86_64-linux"  }: nixpkgs.lib.nixosSystem {        
 
         inherit system;          

@@ -4,7 +4,11 @@
   home.packages = with pkgs; [
     libreoffice-fresh
     onlyoffice-bin
-    obs-studio    
+    
+    obs-studio  
+    linuxPackages.v4l2loopback # uncertain if still needed here..?
+    v4l-utils
+
     inkscape
     conjure
     newsflash

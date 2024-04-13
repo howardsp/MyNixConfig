@@ -3,13 +3,13 @@
 {
 
   options = {
-    kodi.enable = lib.mkOption {
+    _users_optional_kodi.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
     };
   };
 
-  config = lib.mkIf config.kodi.enable {
+  config = lib.mkIf config._users_optional_kodi.enable {
 
       home.packages = with pkgs; [   
         ffmpeg_6-full

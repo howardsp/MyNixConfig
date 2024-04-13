@@ -16,7 +16,8 @@
     htop
     tldr
     timeshift
-    stacer         
+    stacer      
+    bat          # better cat   
     nvd          # nixs version diff
     duf du-dust  # replacements for du and df
     fd           # fdfind is an enhanced find

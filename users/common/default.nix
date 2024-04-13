@@ -4,8 +4,7 @@
         ./core
         ./desk
         ./commercial
-        ./shell
-        ./vscode
+        ./shell        
         ./emacs
         ./rofi
         ./gnome-settings
