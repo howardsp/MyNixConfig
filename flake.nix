@@ -2,7 +2,7 @@
 #
 # Run the following form your Flake Directory. 
 #
-# Update System + Home-Manager --- sudo nixos-rebuild switch --flake .#  
+# Update System + Home-Manager --- sudo nixos-rebuild switch --flake .#    (use --option eval-cache false on cache errors)
 # Update flake.lock            --- sudo nix flake lock --update-input nixpkgs 
 # Remove old Packages          --- sudo nix-collect-garbage -d
 # Current/Prev ver difference  --- nvd diff $(ls -d1v /nix/var/nix/profiles/system-*-link|tail -n 2)
@@ -31,8 +31,8 @@
             (./hardware/hardware-${host}.nix)            
             (allowUnfree)
             home-manager.nixosModules.home-manager {
-              home-manager.useUserPackages = true;  
-              home-manager.useGlobalPkgs = true;              
+              home-manager.useUserPackages = true;
+              home-manager.useGlobalPkgs = true;
               home-manager.users.howardsp = (./users/${username}-${host}.nix);
               home-manager.extraSpecialArgs = { inherit inputs host username fullname; };     
             }            

@@ -85,15 +85,13 @@
         binding = "<Ctrl>Space";
         command = "rofi -monitor primary -modi [drun,combi] -show combi";
         };
-
-        # text file will be manually created when needed. 
+        
         "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom10" = {
         name = "Paste from File ~/.config/.10.txt";
         binding = "<Ctrl><Alt>1";
         command = "sh -c 'xdotool sleep 1.0 keyup control+alt getactivewindow type `cat ~/.config/.10.txt`'";
         };
 
-        # text file will be manually created when needed. 
         "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom11" = {
         name = "Paste from File ~/.config/.11.txt";
         binding = "<Ctrl><Alt>2";

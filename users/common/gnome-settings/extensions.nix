@@ -15,7 +15,7 @@
         "appindicatorsupport@rgcjonas.gmail.com"
         "arcmenu@arcmenu.com"
         #"apps-menu@gnome-shell-extensions.gcampax.github.com"
-        #"pop-shell@system76.com"
+        "pop-shell@system76.com"
         "dash-to-panel@jderose9.github.com"
         "date-menu-formatter@marcinjakubowski.github.com"
         "gTile@vibou"
@@ -53,7 +53,7 @@
 
     #date menu formater
     "org/gnome/shell/extensions/date-menu-formatter" = {
-      pattern = "EEEE, MMMM d h:mm aaa";
+      pattern = "EEEE, MMMM d h:mm a";
     };
 
     "org/gnome/shell/extensions/quick-settings-tweaks" = {
