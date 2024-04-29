@@ -48,12 +48,12 @@
         "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7" = {
         name = "Brightrness Up";
         binding = "<Ctrl><Alt><Super>Up";
-        command = "brightness.sh Up";
+        command = "sh -c '/home/howardsp/workspace/scripts/brightness.sh Up'";
         };
         "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8" = {
         name = "Brightrness Down";
         binding = "<Ctrl><Alt><Super>Down";
-        command = "brightness.sh Down";
+        command = "sh -c '/home/howardsp/workspace/scripts/brightness.sh Down'";
         };        
 
         ##

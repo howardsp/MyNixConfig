@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #
 # Script to fake screen dimming on OLED LAPTOP
 #
