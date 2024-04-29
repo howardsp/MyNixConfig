@@ -3,7 +3,7 @@
 # Script to fake screen dimming on OLED LAPTOP
 #
 
-MON="DP-1-1"    # Discover monitor name with: xrandr | grep " connected"
+MON=`xrandr | grep " connected" | cut -d " " -f 1`    # Discover monitor name with: xrandr | grep " connected"
 STEP=5          # Step Up/Down brightnes by: 5 = ".05", 10 = ".10", etc.
 
 CurrBright=$( xrandr --verbose --current | grep ^"$MON" -A5 | tail -n1 )
