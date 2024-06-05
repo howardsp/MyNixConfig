@@ -36,6 +36,7 @@
     gnome.gnome-software
     gnome.gnome-tweaks
     gedit
+    gthumb    
     gnome.gnome-terminal
     gnome.gnome-initial-setup
     gnome.gnome-characters
@@ -56,8 +57,8 @@
     gnomeExtensions.quick-settings-tweaker
     gnomeExtensions.pano
     
-    wl-clipboard
-    wl-clipboard-x11    
+    #wl-clipboard
+    #wl-clipboard-x11    
 
     gnome.adwaita-icon-theme
     whitesur-icon-theme

@@ -2,13 +2,13 @@
 {
 
 options = {
-    synergy-client.enable = lib.mkOption {
+    _users_commercial_synergy-client.enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
     };
   };
 
-  config = lib.mkIf config.synergy-client.enable {
+  config = lib.mkIf config._users_commercial_synergy-client.enable {
 
       home.packages = with pkgs; [   
         synergy         

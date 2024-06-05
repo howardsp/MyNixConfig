@@ -43,11 +43,19 @@
       enable-standlone-runner-menu = true;
       runner-menu-custom-hotkey = "<Super>";
       search-provider-open-windows = true;     
+
+      menu-border-color = "rgb(63,62,64)";
+      menu-foreground-color = "rgb(211,218,227)";
+      menu-item-active-bg-color = "rgba(228,228,226,0.15)";
+      menu-item-hover-bg-color = "rgba(238,238,236,0.08)";
+      menu-separator-color = "rgb(63,62,64)";
+
     };
 
     # just perfection 
     "org/gnome/shell/extensions/just-perfection" = {
       startup-status = 0;
+      overlay-key = true;
     };
     
 
@@ -80,7 +88,6 @@
           \"2\":[{\"element\":\"desktopButton\",\"visible\":false,\"position\":\"stackedTL\"},{\"element\":\"leftBox\",\"visible\":true,\"position\":\"stackedTL\"},{\"element\":\"showAppsButton\",\"visible\":false,\"position\":\"stackedTL\"},{\"element\":\"activitiesButton\",\"visible\":false,\"position\":\"stackedTL\"},{\"element\":\"taskbar\",\"visible\":true,\"position\":\"stackedTL\"},{\"element\":\"centerBox\",\"visible\":true,\"position\":\"centered\"},{\"element\":\"dateMenu\",\"visible\":true,\"position\":\"centered\"},{\"element\":\"rightBox\",\"visible\":true,\"position\":\"stackedBR\"},{\"element\":\"systemMenu\",\"visible\":true,\"position\":\"stackedBR\"}],
           \"3\":[{\"element\":\"desktopButton\",\"visible\":false,\"position\":\"stackedTL\"},{\"element\":\"leftBox\",\"visible\":true,\"position\":\"stackedTL\"},{\"element\":\"showAppsButton\",\"visible\":false,\"position\":\"stackedTL\"},{\"element\":\"activitiesButton\",\"visible\":false,\"position\":\"stackedTL\"},{\"element\":\"taskbar\",\"visible\":true,\"position\":\"stackedTL\"},{\"element\":\"centerBox\",\"visible\":true,\"position\":\"centered\"},{\"element\":\"dateMenu\",\"visible\":true,\"position\":\"centered\"},{\"element\":\"rightBox\",\"visible\":true,\"position\":\"stackedBR\"},{\"element\":\"systemMenu\",\"visible\":true,\"position\":\"stackedBR\"}]
           }";
-
     };
     
   };

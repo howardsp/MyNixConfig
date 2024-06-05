@@ -30,7 +30,7 @@
     system.activationScripts.text = ''
           #!/bin/sh
 
-          ln -sf system.activationScripts /bin/bash
+          ln -sf /bin/sh /bin/bash
           
           #
           # check to see if citrix is installed and if so update

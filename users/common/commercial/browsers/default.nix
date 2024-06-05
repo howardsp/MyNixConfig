@@ -2,13 +2,13 @@
 {
 
  options = {
-    browsers.enable = lib.mkOption {
+     _users_commercial_browsers.enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
     };
   };
 
-  config = lib.mkIf config.browsers.enable {
+  config = lib.mkIf config._users_commercial_browsers.enable {
 
     home.packages = with pkgs; [   
         google-chrome   # Browser

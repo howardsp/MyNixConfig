@@ -4,7 +4,7 @@
   dconf.settings = {
 
         "org/gnome/shell/keybindings" = {
-            toggle-overview = "<Control>Escape";
+            toggle-overview = "<Super_L>";
         };
 
         "org/gnome/settings-daemon/plugins/media-keys" = {

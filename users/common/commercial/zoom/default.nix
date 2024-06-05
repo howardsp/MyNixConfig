@@ -2,13 +2,13 @@
 {
 
  options = {
-    zoom.enable = lib.mkOption {
+    _users_commercial_zoom.enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
     };
   };
 
-  config = lib.mkIf config.zoom.enable {
+  config = lib.mkIf config._users_commercial_zoom.enable {
 
       home.packages = with pkgs; [   
         zoom-us         # video conf         
