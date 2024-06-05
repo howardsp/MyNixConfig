@@ -19,6 +19,8 @@
     stacer      
     bat          # better cat   
     nvd          # nixs version diff
+    nh           # nixs helper
+    nix-output-monitor # cool build monitor
     duf du-dust  # replacements for du and df
     fd           # fdfind is an enhanced find
     ripgrep      # rga will seach in all kinds of files.
