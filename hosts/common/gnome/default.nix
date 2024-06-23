@@ -55,6 +55,7 @@
     gnomeExtensions.desktop-icons-ng-ding
     gnomeExtensions.quick-settings-tweaker
     gnomeExtensions.pano
+    gnomeExtensions.x11-gestures
     
     #wl-clipboard
     #wl-clipboard-x11    

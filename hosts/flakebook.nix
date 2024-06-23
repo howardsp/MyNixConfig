@@ -16,6 +16,8 @@
   
   environment.systemPackages = with pkgs; [ libinput-gestures touchegg ];
 
+  services.touchegg.enable = true;
+  
   services.xserver.libinput = {
     enable = true;
     touchpad = {
