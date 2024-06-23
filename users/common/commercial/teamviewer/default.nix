@@ -10,9 +10,10 @@
 
   config = lib.mkIf config._users_commercial_teamviewer.enable {
 
-      home.packages = with pkgs; [   
-        teamviewer      # Control remove machines         
-      ];
+      #home.packages = with pkgs; [   
+     
+       #  teamviewer      # Control remove machines         
+      #];
        
     };
 }

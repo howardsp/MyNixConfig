@@ -9,7 +9,7 @@
     glib
     xfce.thunar
     kate
-
+    deskreen
     # tools
     # ---------------------------------------------------------------------------------
     tesseract    # ocr tool
