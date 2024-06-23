@@ -13,8 +13,7 @@
  # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.wayland = false;
-  #services.xserver.synaptics.enable = true;
-
+  
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
   services.dbus.packages = with pkgs; [ gnome2.GConf ];
   programs.dconf.enable = true;

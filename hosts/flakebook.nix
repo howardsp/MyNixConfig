@@ -13,6 +13,14 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_8;
-
-  services.xserver.synaptics.enable = true;
+  
+  services.xserver.libinput = {
+    enable = true;
+    touchpad = {
+      sendEventsMode = "enabled";
+      scrollMethod = "twofinger";
+      naturalScrolling = true;
+      tapping = true;
+    };
+  };
 }
