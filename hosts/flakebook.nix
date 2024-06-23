@@ -14,7 +14,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_8;
   
-  environment.systemPackages = with pkgs; [ libinput-gestures ];
+  environment.systemPackages = with pkgs; [ libinput-gestures touchegg ];
 
   services.xserver.libinput = {
     enable = true;
