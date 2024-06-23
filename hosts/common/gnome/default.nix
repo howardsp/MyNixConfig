@@ -76,6 +76,7 @@
     xclip
     xscreensaver
 
+    
 
   ];
 }
