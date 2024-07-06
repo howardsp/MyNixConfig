@@ -21,27 +21,26 @@
   # Exclude base gnome packages
   environment.gnome.excludePackages = with pkgs; [
     gnome.gnome-remote-desktop
-    gnome.epiphany
-    gnome.geary
+    epiphany
+    geary
     gnome.gnome-maps
     gnome.gnome-weather
   ];
 
   environment.systemPackages = with pkgs; [
-    gnome.gnome-tweaks
-    gnome.nautilus-python
+    gnome-tweaks
+    nautilus-python
     amberol
-    gnome.nautilus
+    nautilus
     gnome.gnome-software
-    gnome.gnome-tweaks
     gedit
     gthumb    
-    gnome.gnome-terminal
+    gnome-terminal
     gnome.gnome-initial-setup
     gnome.gnome-characters
-    gnome.dconf-editor
+    dconf-editor
     gnome-console
-    gnome.gnome-system-monitor
+    gnome-system-monitor
     gnomeExtensions.arcmenu
     gnomeExtensions.dash-to-panel 
     gnomeExtensions.date-menu-formatter
@@ -60,7 +59,7 @@
     #wl-clipboard
     #wl-clipboard-x11    
 
-    gnome.adwaita-icon-theme
+    adwaita-icon-theme
     whitesur-icon-theme
     nordzy-icon-theme
 

@@ -13,5 +13,9 @@
   boot.extraModulePackages = [ pkgs.linuxKernel.packages.linux_6_8.v4l2loopback ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;  
+  
+  boot.kernelParams = [ "zswap.enabled=1"  "amd_pstate=active" "mitigations=off" ];
+  
+  powerManagement.cpuFreqGovernor = "performance";
 
 }

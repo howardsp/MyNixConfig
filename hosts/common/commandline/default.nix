@@ -34,6 +34,7 @@
     miller       # like sed, awk, ... for formated files csv, json..
     bandwhich    # what process is using bandwidth
     gtop         # command line visual top
+    fzf          # fuzzy find for the command line
 
 
     (writeShellScriptBin "project-init" ''
