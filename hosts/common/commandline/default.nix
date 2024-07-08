@@ -3,20 +3,19 @@
   environment.variables.EDITOR = "vim"; # Set default editor to vim
   
 	environment.systemPackages = with pkgs; [
-
     home-manager
     teamviewer
-
     git  
     vim
+    neovim
     wget
     curl
     zip
     unzip
-    htop
-    tldr
-    timeshift
-    stacer      
+    htop         
+    tldr         # short version of man
+    timeshift    # backup
+    stacer       # ui system dashboard
     bat          # better cat   
     nvd          # nixs version diff
     nh           # nixs helper

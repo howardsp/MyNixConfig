@@ -56,18 +56,13 @@
     gnomeExtensions.pano
     gnomeExtensions.x11-gestures
     
-    #wl-clipboard
-    #wl-clipboard-x11    
-
     adwaita-icon-theme
     whitesur-icon-theme
     nordzy-icon-theme
-
     yaru-theme
     yaru-remix-theme
     orchis-theme
-    whitesur-gtk-theme
-    
+    whitesur-gtk-theme 
     whitesur-cursors
 
     xorg.xrandr
