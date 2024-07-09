@@ -1,8 +1,5 @@
 { config, lib, pkgs,  ... }:
 
 {
-  imports = [
-    ./common
-    ./optional
-  ];
+  imports = [ ../packages/user ];
 }

@@ -1,9 +1,6 @@
 { config, lib, pkgs, host, ... }:
 {
-  imports = [
-    ./common
-    ./optional
-    ];
+  imports = [ ../packages/system ];
 
   _hosts_optional_qemu.enable = true;
   _hosts_optional_synergy-server.enable = true;  

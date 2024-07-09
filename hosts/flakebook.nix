@@ -1,9 +1,7 @@
 { config, lib, pkgs, mySettings, host, ... }:
 {
-  imports = [
-    ./common
-    ./optional
-    ];
+ imports = [ ../packages/system ];
+
  services.teamviewer.enable = true;
  services.xrdp.enable = true;
  #services.xrdp.defaultWindowManager = "startplasma-x11";

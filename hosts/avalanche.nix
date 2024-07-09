@@ -1,10 +1,7 @@
 { config, lib, pkgs,   ... }:
 {
 
-  imports = [
-    ./common
-    ./optional
-    ];
+  imports = [ ../packages/system ];
 
   qemu.enable = true;
   synergy-server.enable = true;  
