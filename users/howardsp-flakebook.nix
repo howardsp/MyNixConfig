@@ -3,7 +3,7 @@
 {
 imports = [ ../packages/user ];
 
-  _users_optional_vscode.enable = true;  
-  _users_optional_citrix.enable = true;
+  _user_optional_vscode.enable = true;  
+  _user_optional_citrix.enable = true;
   
 }

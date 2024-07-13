@@ -1,13 +1,13 @@
 { pkgs, lib, config,  ... }: {
 
   options = {
-    _users_optional_citrix.enable = lib.mkOption {
+    _user_optional_citrix.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
     };
   };
   
-  config = lib.mkIf config._users_optional_citrix.enable {
+  config = lib.mkIf config._user_optional_citrix.enable {
 
     # This will produce an error the first time it is run as to comply with Citrix EULA
     # one must download citrix from their site and then load the tar.gz manually.  The

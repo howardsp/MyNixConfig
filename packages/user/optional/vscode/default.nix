@@ -1,13 +1,13 @@
 { pkgs, lib, config, ... }: {
 
   options = {
-    _users_optional_vscode.enable = lib.mkOption {
+    _user_optional_vscode.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
     };
   };
 
-  config = lib.mkIf config._users_optional_vscode.enable {
+  config = lib.mkIf config._user_optional_vscode.enable {
 
     programs.vscode = {
       enable = true;
