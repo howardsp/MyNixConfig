@@ -70,8 +70,5 @@
     xdotool
     xclip
     xscreensaver
-
-    
-
   ];
 }

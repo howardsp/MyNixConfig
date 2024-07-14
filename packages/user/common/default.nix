@@ -1,7 +1,6 @@
 { config, lib, pkgs, host, ... }:
 {
     imports = [                
-        ./commercial
         ./shell        
         ./emacs
         ./rofi

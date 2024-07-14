@@ -12,9 +12,11 @@
     ];
   };
   
-  home.file.".emacs.d" = {
-    source = ./emacs.d;
-    recursive = true;
-  };
+  home.file.".emacs.d/init.el".source = ./emacs.d/init.el;    
+
+  #home.file.".emacs.d/" = {
+  #  source = ./emacs.d;
+  #  recursive = true;
+  #};
   
 }
