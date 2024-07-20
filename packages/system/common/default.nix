@@ -1,8 +1,7 @@
 { config, lib, pkgs, host, username, fullname, ... }:
 {
     imports =[    
-        ./printing    
-        ./teamviewer        
+        ./printing            
         ./fonts
         ./gnome
         ./commandline

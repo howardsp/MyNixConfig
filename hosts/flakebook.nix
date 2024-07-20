@@ -2,21 +2,23 @@
 {
  imports = [ ../packages/system ];
 
- services.teamviewer.enable = true;
- services.xrdp.enable = true;
- #services.xrdp.defaultWindowManager = "startplasma-x11";
- services.xrdp.openFirewall = true;
-  
+  services.teamviewer.enable = true;
+
   boot.kernelModules = [ "cpufreq_powersave" ];  
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_8;
   
+ 
+  networking.networkmanager.wifi.scanRandMacAddress=false;
+  networking.networkmanager.wifi.macAddress="stable-ssid";
+ 
+ 
   environment.systemPackages = with pkgs; [ libinput-gestures touchegg ];
 
   services.touchegg.enable = true;
   
-  services.xserver.libinput = {
+  services.libinput = {
     enable = true;
     touchpad = {
       sendEventsMode = "enabled";

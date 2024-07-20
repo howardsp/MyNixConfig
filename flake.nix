@@ -14,9 +14,10 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";        
+    #exfoliate.url = "github:howardsp/exfoliate";            
   };
   
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... } @inputs:
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, exfoliate, ... } @inputs:
   
     let 
                      
@@ -34,15 +35,16 @@
               home-manager.useUserPackages = true;
               home-manager.useGlobalPkgs = true;
               home-manager.users.howardsp = (./users/${username}-${host}.nix);
-              home-manager.extraSpecialArgs = { inherit inputs host username fullname; };     
+              home-manager.extraSpecialArgs = { inherit  host username fullname; };     
             }            
           ]; 
-          specialArgs = { inherit inputs host username fullname  home-manager;};     
+          specialArgs = { inherit  host username fullname  home-manager;};     
         }; 
 
     in {   
     
       # Declare my machines.    
+
       nixosConfigurations = {            
           igloo = createSystem {host="igloo"; };
           flakebook = createSystem {host = "flakebook";};
@@ -50,4 +52,4 @@
           avalanche = createSystem {host = "avalanche";};
       };
   };      
-}
+} 
