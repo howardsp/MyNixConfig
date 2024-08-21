@@ -34,7 +34,8 @@
             vlc
             hypnotix
             xfce.thunar 
-            
+            cameractrls  # commandline camera  tweaks 
+            cameractrls-gtk4 # UI for camera contrls
             tesseract    # ocr tool
             mods         # command line AI        
         ]

@@ -12,20 +12,19 @@
   {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";    
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
+  
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";            
+
+    #exfoliate.url = "github:howardsp/exfoliate";    
   };
-  
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... } @inputs:
-  
-    let 
-                     
-      allowUnfree = { nixpkgs.config.allowUnfree = true; };
-
-      # Function to create and return a system based on params passed in
-      createSystem = { host, username ? "howardsp", fullname ? "Howard Spector", system ? "x86_64-linux"  }: nixpkgs.lib.nixosSystem {        
-
-        inherit system;          
+    
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager,  ... } @inputs:
+    
+    let       
+      allowUnfree = { nixpkgs.config.allowUnfree = true; };          
+      createSystem = { host, username ? "howardsp", fullname ? "Howard Spector", system ? "x86_64-linux"  }: nixpkgs.lib.nixosSystem {                
+        inherit system;                  
         modules = [            
             (./hosts/${host}.nix)
             (./hardware/hardware-${host}.nix)            
@@ -33,19 +32,18 @@
             home-manager.nixosModules.home-manager {
               home-manager.useUserPackages = true;
               home-manager.useGlobalPkgs = true;
-              home-manager.users.howardsp = (./users/${username}-${host}.nix);
+              home-manager.users.${username} = (./users/${username}-${host}.nix);
               home-manager.extraSpecialArgs = { inherit  host username fullname; };     
-            }            
+            } 
           ]; 
           specialArgs = { inherit  host username fullname  home-manager;};     
         }; 
 
-    in {   
-    
-      # Declare my machines.    
+    in {               
 
       nixosConfigurations = {            
-          igloo = createSystem {host="igloo"; };
+          #igloo = exfoliate.lib.createSystem { host="igloo"; };
+          igloo = createSystem { host="igloo"; };
           flakebook = createSystem {host = "flakebook";};
           virtualnix = createSystem {host = "virtualnix";};
           avalanche = createSystem {host = "avalanche";};
