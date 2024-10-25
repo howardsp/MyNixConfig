@@ -13,17 +13,22 @@
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.wayland = false;
   
-  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+  services.xrdp.enable = true;
+  services.xrdp.defaultWindowManager = "${pkgs.gnome-session}/bin/gnome-session";
+  services.xrdp.openFirewall = true;
+
+
+  services.udev.packages = with pkgs; [ gnome-settings-daemon ];
   services.dbus.packages = with pkgs; [ gnome2.GConf ];
   programs.dconf.enable = true;
 
   # Exclude base gnome packages
   environment.gnome.excludePackages = with pkgs; [
-    gnome.gnome-remote-desktop
+    gnome-remote-desktop
     epiphany
     geary
-    gnome.gnome-maps
-    gnome.gnome-weather
+    gnome-maps
+    gnome-weather
   ];
 
   environment.systemPackages = with pkgs; [
@@ -31,12 +36,12 @@
     nautilus-python
     amberol
     nautilus
-    gnome.gnome-software
+    gnome-software
     gedit
     gthumb    
     gnome-terminal
-    gnome.gnome-initial-setup
-    gnome.gnome-characters
+    gnome-initial-setup
+    gnome-characters
     dconf-editor
     gnome-console
     gnome-system-monitor
@@ -68,6 +73,6 @@
     xorg.xkill
     xdotool
     xclip
-    xscreensaver
+    #xscreensaver
   ];
 }

@@ -11,7 +11,7 @@
   inputs = 
   {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";    
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
   
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";            
@@ -33,7 +33,14 @@
               home-manager.useUserPackages = true;
               home-manager.useGlobalPkgs = true;
               home-manager.users.${username} = (./users/${username}-${host}.nix);
-              home-manager.extraSpecialArgs = { inherit  host username fullname; };     
+              home-manager.extraSpecialArgs = {
+                pkgs-stable = import nixpkgs-stable  {
+                    inherit system;
+                    config.allowUnfree = true;
+                };
+                inherit host username fullname;
+                
+                };     
             } 
           ]; 
           specialArgs = { inherit  host username fullname  home-manager;};     

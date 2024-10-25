@@ -10,7 +10,7 @@
             freefont_ttf
             carlito   # similar to microsoft Calibri
             noto-fonts
-            noto-fonts-cjk # Chinese, Japanese, Korean
+            noto-fonts-cjk-sans # Chinese, Japanese, Korean
             noto-fonts-emoji
             noto-fonts-extra
             fira-code # Monospace font with programming ligatures
