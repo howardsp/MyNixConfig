@@ -7,8 +7,7 @@
   boot.kernelModules = [ "cpufreq_powersave" ];  
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_10;
-  
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_11;
  
   networking.networkmanager.wifi.scanRandMacAddress=false;
   networking.networkmanager.wifi.macAddress="permanent";

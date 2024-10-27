@@ -59,6 +59,8 @@
     gnomeExtensions.quick-settings-tweaker
     gnomeExtensions.pano
     gnomeExtensions.x11-gestures
+    gnomeExtensions.caffeine
+    gnomeExtensions.tiling-shell
     
     adwaita-icon-theme
     whitesur-icon-theme

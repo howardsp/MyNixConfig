@@ -24,7 +24,8 @@
     let       
       allowUnfree = { nixpkgs.config.allowUnfree = true; };          
       createSystem = { host, username ? "howardsp", fullname ? "Howard Spector", system ? "x86_64-linux"  }: nixpkgs.lib.nixosSystem {                
-        inherit system;                  
+        inherit system;     
+        
         modules = [            
             (./hosts/${host}.nix)
             (./hardware/hardware-${host}.nix)            
@@ -33,17 +34,22 @@
               home-manager.useUserPackages = true;
               home-manager.useGlobalPkgs = true;
               home-manager.users.${username} = (./users/${username}-${host}.nix);
-              home-manager.extraSpecialArgs = {
+              home-manager.extraSpecialArgs = {                
                 pkgs-stable = import nixpkgs-stable  {
                     inherit system;
                     config.allowUnfree = true;
-                };
+                };             
+
                 inherit host username fullname;
-                
                 };     
             } 
           ]; 
-          specialArgs = { inherit  host username fullname  home-manager;};     
+          specialArgs = { 
+              pkgs-stable = import nixpkgs-stable  {
+                  inherit system;
+                  config.allowUnfree = true;
+              };             
+              inherit  host username fullname  home-manager; };
         }; 
 
     in {               

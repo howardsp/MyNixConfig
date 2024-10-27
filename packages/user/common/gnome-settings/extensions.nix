@@ -26,6 +26,8 @@
         "quick-settings-tweaks@qwreey"
         "pano@elhan.io"
         "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
+        "caffeine@patapon.info"
+        "tilingshell@ferrarodomenico.com"
       ];
     };
    
