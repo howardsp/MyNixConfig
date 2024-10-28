@@ -14,7 +14,6 @@
   networking.networkmanager.wifi.scanRandMacAddress=false;
   networking.networkmanager.wifi.macAddress="permanent";
  
- 
   environment.systemPackages = with pkgs; [ libinput-gestures touchegg ];
 
   services.touchegg.enable = true;

@@ -13,9 +13,9 @@
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.wayland = false;
   
-  services.xrdp.enable = true;
-  services.xrdp.defaultWindowManager = "${pkgs.gnome-session}/bin/gnome-session";
-  services.xrdp.openFirewall = true;
+  #services.xrdp.enable = true;
+  #services.xrdp.defaultWindowManager = "${pkgs.gnome-session}/bin/gnome-session";
+  #services.xrdp.openFirewall = true;
 
 
   services.udev.packages = with pkgs; [ gnome-settings-daemon ];
