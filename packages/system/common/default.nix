@@ -7,6 +7,9 @@
         ./sound
     ];  
 
+    networking.firewall.allowedTCPPortRanges = [ { from = 3131; to = 3131; } ];
+    networking.firewall.allowedUDPPortRanges = [ { from = 3131; to = 3131; } ];
+
     environment.variables.EDITOR = "vim"; # Set default editor to vim
             
         environment.systemPackages = with pkgs; [
