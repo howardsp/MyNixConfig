@@ -114,7 +114,7 @@
       };
 
       darwinConfigurations = {
-        Howards-MacBook-Pro = createSystemMAC {host = "Howards-MacBook-Pro"; system = "x86_64-darwin"; };        
+        Howards-MacBook-Pro = createSystemMAC {username = "howardspector"; host = "Howards-MacBook-Pro"; system = "x86_64-darwin"; };        
       };        
     };
 }
