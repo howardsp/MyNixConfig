@@ -34,6 +34,7 @@
       allowUnfree = { nixpkgs.config.allowUnfree = true; };          
 
       createSystemMAC = { host, username ? "howardsp", fullname ? "Howard Spector", system ? "x86_64-linux"  }: darwin.lib.darwinSystem {            
+          inherit system;     
           modules = [
             (./hosts/${host}.nix)            
             (allowUnfree)
