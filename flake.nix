@@ -5,7 +5,8 @@
 # Update System + Home-Manager --- sudo nixos-rebuild switch --flake .#    (use --option eval-cache false on cache errors)
 # Update flake.lock            --- sudo nix flake lock --update-input nixpkgs 
 # Remove old Packages          --- sudo nix-collect-garbage -d
-# Current/Prev ver difference  --- nvd diff $(ls -d1v /nix/var/nix/profiles/system-*-link|tail -n 2)
+# Current/Prev ver difference  --- nvd diff $(ls -d1v /nix/var/nix/profiles/system-*-link|tail -n 2
+# nix run nix-darwin -- switch --flake 
 {
   description = "Howard's NIXOS Configuraiton that supports multiple machines";
   inputs = 
@@ -52,8 +53,7 @@
             } 
             nix-homebrew.darwinModules.nix-homebrew
             {
-              nix-homebrew = {
-                inherit username;
+              nix-homebrew = {                
                 enable = true;
                 taps = {
                   "homebrew/homebrew-core" = homebrew-core;
