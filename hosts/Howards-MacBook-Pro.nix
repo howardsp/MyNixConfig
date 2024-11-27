@@ -7,8 +7,7 @@
     # Homebrew is *installed* via the flake input nix-homebrew
     enable = true;
 
-  environment.systemPackages = with pkgs; [
-    firefox         
+  environment.systemPackages = with pkgs; [           
     fastfetch
     mas
     git  
@@ -37,7 +36,7 @@
     gtop         # command line visual top
     fzf          # fuzzy find for the command line
   ];
-  
+
     brews = [
 
     ];

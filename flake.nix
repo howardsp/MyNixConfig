@@ -109,11 +109,11 @@
           flakebook = createSystem {host = "flakebook";};
           virtualnix = createSystem {host = "virtualnix";};
           avalanche = createSystem {host = "avalanche";};
-          flakymac = createSystem {host = "flakymac"; system = "x86_64-darwin"; };
+          #flakymac = createSystem {host = "flakymac"; system = "x86_64-darwin"; };
       };
 
       darwinConfigurations = {
-        flakymac = createSystemMAC {host = "flakymac"; system = "x86_64-darwin"; };        
+        Howards-Macbook-Pro = createSystemMAC {host = "Howards-Macbook-Pro"; system = "x86_64-darwin"; };        
       };        
     };
 }
