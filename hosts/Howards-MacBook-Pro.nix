@@ -2,6 +2,9 @@
 {
  #imports = [ ../packages/system ];
 
+  config = {
+
+
     # User account
     users.users.${username} = {
       isNormalUser = true;
@@ -10,7 +13,7 @@
       packages = with pkgs; [];
     };
   
-    system.stateVersion = "24.11";    
+  system.stateVersion = "24.11";    
 
   homebrew = {
     # This is a module from nix-darwin
@@ -73,4 +76,5 @@
       gtop         # command line visual top
       fzf          # fuzzy find for the command line
       ]; 
+  };
 }

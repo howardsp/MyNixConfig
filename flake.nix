@@ -37,21 +37,6 @@
       createSystemMAC = { host, username ? "howardsp", fullname ? "Howard Spector", system ? "x86_64-linux"  }: darwin.lib.darwinSystem {            
           inherit system;     
           modules = [
-
-            nix-homebrew.darwinModules.nix-homebrew
-            {
-              nix-homebrew = {                
-                enable = true;
-                taps = {
-                  "homebrew/homebrew-core" = homebrew-core;
-                  "homebrew/homebrew-cask" = homebrew-cask;
-                  "homebrew/homebrew-bundle" = homebrew-bundle;
-                };
-                mutableTaps = false;
-                autoMigrate = true;
-              };
-            }            
-
             (./hosts/${host}.nix)            
             (allowUnfree)
             home-manager.nixosModules.home-manager {
@@ -66,6 +51,19 @@
                 inherit host username fullname;
                 };     
             } 
+            nix-homebrew.darwinModules.nix-homebrew
+            {
+              nix-homebrew = {                
+                enable = true;
+                taps = {
+                  "homebrew/homebrew-core" = homebrew-core;
+                  "homebrew/homebrew-cask" = homebrew-cask;
+                  "homebrew/homebrew-bundle" = homebrew-bundle;
+                };
+                mutableTaps = false;
+                autoMigrate = true;
+              };
+            }            
           ];
           specialArgs = { 
             pkgs-stable = import nixpkgs-stable  {
