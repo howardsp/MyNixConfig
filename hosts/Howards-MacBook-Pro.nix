@@ -4,10 +4,12 @@
 
   config = {
 
+    services.nix-daemon.enable = true;
+    nix.settings.experimental-features = "nix-command flakes";
+
 
     # User account
-    users.users.${username} = {
-      isNormalUser = true;
+    users.users.${username} = {      
       description = fullname;
       #extraGroups = [ "networkmanager" "wheel" "video" "media" "qemu-libvirtd" "libvirtd" "docker" "lxd"];
       packages = with pkgs; [];
