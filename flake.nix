@@ -46,8 +46,7 @@
             home-manager.darwinModules.home-manager {
               home-manager.useUserPackages = true;
               home-manager.useGlobalPkgs = true;
-              home-manager.users.${username} = (./users/${username}-${host}.nix);
-              home-manager.users.${username}.home.homeDirectory = ( /Users/${username});
+              home-manager.users.${username} = (./users/${username}-${host}.nix);              
               home-manager.extraSpecialArgs = {                
               pkgs-stable = import nixpkgs-stable  {
                     inherit system;
