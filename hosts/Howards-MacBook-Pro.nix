@@ -44,8 +44,11 @@
   };
 
   environment.systemPackages = with pkgs; [           
-      fastfetch
+      
+      home-manager
       mas
+
+      fastfetch
       git  
       vim
       neovim
