@@ -2,6 +2,17 @@
 {
  #imports = [ ../packages/system ];
 
+
+    # User account
+    users.users.${username} = {
+      isNormalUser = true;
+      description = fullname;
+      extraGroups = [ "networkmanager" "wheel" "video" "media" "qemu-libvirtd" "libvirtd" "docker" "lxd"];
+      packages = with pkgs; [];
+    };
+  
+    system.stateVersion = "24.11";    
+
   homebrew = {
     # This is a module from nix-darwin
     # Homebrew is *installed* via the flake input nix-homebrew
