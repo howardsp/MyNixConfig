@@ -11,6 +11,7 @@
     # User account
     users.users.${username} = {      
       description = fullname;
+      home = "/Users/${username}";
       #extraGroups = [ "networkmanager" "wheel" "video" "media" "qemu-libvirtd" "libvirtd" "docker" "lxd"];
       packages = with pkgs; [];
     };
