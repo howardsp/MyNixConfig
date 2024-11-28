@@ -46,7 +46,7 @@
             home-manager.darwinModules.home-manager {
               home-manager.useUserPackages = true;
               home-manager.useGlobalPkgs = true;
-              home-manager.users.${username} = (./users/${username}-${host}.nix);              
+              home-manager.users.${username} = (./users/${username}-${host}.nix);                            
               home-manager.extraSpecialArgs = {                
               pkgs-stable = import nixpkgs-stable  {
                     inherit system;
@@ -60,6 +60,7 @@
               nix-homebrew = {                
                 enable = true;
                 #enableRosetta = true;
+                user = ${username};
                 taps = {
                   "homebrew/homebrew-core" = homebrew-core;
                   "homebrew/homebrew-cask" = homebrew-cask;
