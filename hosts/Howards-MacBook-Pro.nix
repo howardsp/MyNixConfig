@@ -26,11 +26,10 @@
       #brews = [ ];
 
       casks = [
-        # Communication Tools
-        "discord"    
+        # Communication Tools        
         "telegram"
         "zoom"
-        "citrix"
+        "citrix-workspace"
         "google-chrome"
         "firefox"
         "microsoft-office"
