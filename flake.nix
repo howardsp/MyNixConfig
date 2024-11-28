@@ -19,11 +19,15 @@
 
     darwin.url = "github:LnL7/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
+
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";    
+    
     homebrew-bundle.url = "github:homebrew/homebrew-bundle";
     homebrew-bundle.flake = false;    
+    
     homebrew-core.url = "github:homebrew/homebrew-core";
     homebrew-core.flake = false;    
+    
     homebrew-cask.url = "github:homebrew/homebrew-cask";
     homebrew-cask.flake = false;
     #exfoliate.url = "github:howardsp/exfoliate";    
@@ -39,7 +43,7 @@
           modules = [
             (./hosts/${host}.nix)            
             (allowUnfree)
-            home-manager.nixosModules.home-manager {
+            home-manager.darwinModules.home-manager {
               home-manager.useUserPackages = true;
               home-manager.useGlobalPkgs = true;
               home-manager.users.${username} = (./users/${username}-${host}.nix);
@@ -55,6 +59,7 @@
             {
               nix-homebrew = {                
                 enable = true;
+                #enableRosetta = true;
                 taps = {
                   "homebrew/homebrew-core" = homebrew-core;
                   "homebrew/homebrew-cask" = homebrew-cask;
