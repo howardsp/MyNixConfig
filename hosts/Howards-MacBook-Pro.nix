@@ -1,4 +1,4 @@
-{ config, lib, pkgs, host,username, ... }:
+{ config, lib, pkgs, host,username, fullname, ... }:
 {
  #imports = [ ../packages/system ];
 
