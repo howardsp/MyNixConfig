@@ -17,9 +17,7 @@
     # Homebrew is *installed* via the flake input nix-homebrew
     enable = true;
 
-    brews = [
-
-    ];
+    #brews = [ ];
 
     casks = [
       # Communication Tools
