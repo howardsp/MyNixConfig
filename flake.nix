@@ -47,7 +47,7 @@
               home-manager.useUserPackages = true;
               home-manager.useGlobalPkgs = true;
               home-manager.users.${username} = (./users/${username}-${host}.nix);                            
-              home-manager.users.users.${username} = "/Users/${username}";
+              home-manager.users.users.${username}.home = "/Users/${username}";
               home-manager.extraSpecialArgs = {                
               pkgs-stable = import nixpkgs-stable  {
                     inherit system;
