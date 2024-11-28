@@ -22,6 +22,12 @@
       # This is a module from nix-darwin
       # Homebrew is *installed* via the flake input nix-homebrew
       enable = true;
+      
+      onActivation = {
+          autoUpdate = true;
+          cleanup = "uninstall";
+          upgrade = true;
+      };
 
       #brews = [ ];
 
@@ -33,6 +39,8 @@
         "google-chrome"
         "firefox"
         "microsoft-office"
+        "visual-studio-code"
+        "dropbox"
       ];
 
       # These app IDs are from using the mas CLI app
@@ -47,9 +55,9 @@
   };
    environment.systemPackages = with pkgs; [           
       
-      home-manager
       mas
-
+      
+      home-manager   
       fastfetch
       git  
       vim
