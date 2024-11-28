@@ -12,7 +12,7 @@
 
     environment.variables.EDITOR = "vim"; # Set default editor to vim
             
-        environment.systemPackages = with pkgs; [
+    environment.systemPackages = with pkgs; [
         home-manager
         teamviewer
         deskreen
