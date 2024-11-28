@@ -1,7 +1,6 @@
-{ config, lib, pkgs, host, ... }:
+{ config, lib, pkgs, host,username, ... }:
 {
  #imports = [ ../packages/system ];
-
 
     # User account
     users.users.${username} = {
@@ -21,6 +20,7 @@
     brews = [
 
     ];
+
     casks = [
       # Communication Tools
       "discord"    
@@ -36,11 +36,11 @@
     # mas = mac app store https://github.com/mas-cli/mas
     #$ nix shell nixpkgs#mas
     #$ mas search <app name>    
-    masApps = {
-      #"1password" = 1333542190;
-      "hidden-bar" = 1452453066;
-      #"wireguard" = 1451685025;
-    };
+    #masApps = {
+    #  #"1password" = 1333542190;
+    #  "hidden-bar" = 1452453066;
+    #  #"wireguard" = 1451685025;
+    #};
   };
 
   environment.systemPackages = with pkgs; [           
