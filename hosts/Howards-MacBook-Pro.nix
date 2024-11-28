@@ -6,7 +6,7 @@
     users.users.${username} = {
       isNormalUser = true;
       description = fullname;
-      extraGroups = [ "networkmanager" "wheel" "video" "media" "qemu-libvirtd" "libvirtd" "docker" "lxd"];
+      #extraGroups = [ "networkmanager" "wheel" "video" "media" "qemu-libvirtd" "libvirtd" "docker" "lxd"];
       packages = with pkgs; [];
     };
   
