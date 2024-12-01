@@ -96,8 +96,7 @@
           upgrade = true;
       };
 
-      brews = [ 
-        "synergy-core"
+      brews = [         
         "emacs-dracula"
       ];
 
@@ -127,6 +126,7 @@
    environment.systemPackages = with pkgs; [           
       
       mas
+      synergy 
       
       home-manager   
       fastfetch
