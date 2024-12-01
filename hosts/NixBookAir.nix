@@ -98,6 +98,7 @@
 
       brews = [ 
         "synergy-core"
+        "emacs-dracula"
       ];
 
       casks = [        
@@ -109,8 +110,7 @@
         "microsoft-office"
         "visual-studio-code"
         "dropbox"
-        "unnaturalscrollwheels"
-        "emacs-mac"        
+        "unnaturalscrollwheels"              
       ];
 
       # These app IDs are from using the mas CLI app
