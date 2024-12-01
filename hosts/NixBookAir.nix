@@ -110,7 +110,8 @@
         "microsoft-office"
         "visual-studio-code"
         "dropbox"
-        "unnaturalscrollwheels"              
+        "unnaturalscrollwheels"        
+        "bettertouchtool"      
       ];
 
       # These app IDs are from using the mas CLI app
