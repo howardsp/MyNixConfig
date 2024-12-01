@@ -96,7 +96,9 @@
           upgrade = true;
       };
 
-      #brews = [ ];
+      brews = [ 
+        "synergy-core"
+      ];
 
       casks = [        
         "telegram"
@@ -108,8 +110,7 @@
         "visual-studio-code"
         "dropbox"
         "unnaturalscrollwheels"
-        "emacs-mac"
-        "synergy-core"
+        "emacs-mac"        
       ];
 
       # These app IDs are from using the mas CLI app
