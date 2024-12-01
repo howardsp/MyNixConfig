@@ -114,7 +114,7 @@
       };
 
       darwinConfigurations = {
-        NixBookAir = createSystemMAC {username = "howardsp"; host = "NixBookAir"; system = "x86_64-darwin"; };        
+        NixBookAir = createSystemMAC {username = "howardsp"; host = "NixBookAir"; system = "aarch64-darwin"; };        
       };        
     };
 }
