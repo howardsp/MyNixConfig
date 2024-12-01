@@ -5,7 +5,7 @@
     		fontDir.enable = true;
     		enableGhostscriptFonts = true;
         packages = with pkgs; [
-		        nerdfonts
+		        #nerdfonts
 		        liberation_ttf
             freefont_ttf
             carlito   # similar to microsoft Calibri

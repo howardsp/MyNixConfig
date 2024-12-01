@@ -19,18 +19,13 @@
 
     darwin.url = "github:LnL7/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
-
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";    
-    
     homebrew-bundle.url = "github:homebrew/homebrew-bundle";
     homebrew-bundle.flake = false;    
-    
     homebrew-core.url = "github:homebrew/homebrew-core";
     homebrew-core.flake = false;    
-    
     homebrew-cask.url = "github:homebrew/homebrew-cask";
     homebrew-cask.flake = false;
-    #exfoliate.url = "github:howardsp/exfoliate";    
   };
     
   outputs = { self, nixpkgs, nixpkgs-stable, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, home-manager,  ... } @inputs:
@@ -115,12 +110,11 @@
           igloo = createSystem { host="igloo"; };
           flakebook = createSystem {host = "flakebook";};
           virtualnix = createSystem {host = "virtualnix";};
-          avalanche = createSystem {host = "avalanche";};
-          #flakymac = createSystem {host = "flakymac"; system = "x86_64-darwin"; };
+          avalanche = createSystem {host = "avalanche";};          
       };
 
       darwinConfigurations = {
-        Howards-MacBook-Pro = createSystemMAC {username = "howardspector"; host = "Howards-MacBook-Pro"; system = "x86_64-darwin"; };        
+        NixBookAir = createSystemMAC {username = "howardsp"; host = "NixBookAir"; system = "x86_64-darwin"; };        
       };        
     };
 }
