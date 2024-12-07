@@ -125,7 +125,7 @@
         "newsify" = 510153374;    
         "dropover" = 1355679052;    
         "amphetamine" = 937984704;
-      #};
+      };
   };
    environment.systemPackages = with pkgs; [           
       
