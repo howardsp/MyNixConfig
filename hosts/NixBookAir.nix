@@ -108,13 +108,11 @@
         "visual-studio-code"
         "dropbox"
         "unnaturalscrollwheels"        
-        "bettertouchtool"
-        "middleclick"
+        "bettertouchtool"        
         "aldente"
-        "commander-one"
         "insync"
         "topnotch"
-        "wins"
+        "karabiner-elements"
       ];
 
       # These app IDs are from using the mas CLI app
@@ -122,8 +120,7 @@
       #$ nix shell nixpkgs#mas
       #$ mas search <app name>    
       masApps = {        
-        "newsify" = 510153374;    
-        "dropover" = 1355679052;    
+        "newsify" = 510153374;            
         "amphetamine" = 937984704;
       };
   };
