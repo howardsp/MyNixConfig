@@ -7,12 +7,10 @@
     services.nix-daemon.enable = true;
     nix.settings.experimental-features = "nix-command flakes";
 
-
     # User account
     users.users.${username} = {      
       description = fullname;
-      home = "/Users/${username}";
-      #extraGroups = [ "networkmanager" "wheel" "video" "media" "qemu-libvirtd" "libvirtd" "docker" "lxd"];
+      home = "/Users/${username}";      
       packages = with pkgs; [];
     };
   
@@ -110,24 +108,28 @@
         "visual-studio-code"
         "dropbox"
         "unnaturalscrollwheels"        
-        "bettertouchtool"      
+        "bettertouchtool"
+        "middleclick"
+        "aldente"
+        "commander-one"
+        "insync"
       ];
 
       # These app IDs are from using the mas CLI app
       # mas = mac app store https://github.com/mas-cli/mas
       #$ nix shell nixpkgs#mas
       #$ mas search <app name>    
-      #masApps = {
-      #  #"1password" = 1333542190;
-      #  "hidden-bar" = 1452453066;
-      #  #"wireguard" = 1451685025;
+      masApps = {        
+        "newsify" = 510153374;    
+        "dropover" = 1355679052;    
+        "amphetamine" = 937984704;
       #};
   };
    environment.systemPackages = with pkgs; [           
       
       mas
       synergy 
-      
+
       home-manager   
       fastfetch
       git  
