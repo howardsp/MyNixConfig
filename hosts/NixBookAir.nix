@@ -113,6 +113,8 @@
         "aldente"
         "commander-one"
         "insync"
+        "topnotch"
+        "wins"
       ];
 
       # These app IDs are from using the mas CLI app
