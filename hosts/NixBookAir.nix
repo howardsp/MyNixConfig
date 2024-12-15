@@ -4,8 +4,6 @@
 
   config = {
 
-    _hosts_optional_qemu.enable = false;
-    _hosts_optional_synergy-server.enable = false;          
     #nix.settings.experimental-features = "nix-command flakes";
       
     system.defaults = {
