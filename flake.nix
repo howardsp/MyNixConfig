@@ -48,7 +48,7 @@
                     inherit system;
                     config.allowUnfree = true;
                 };             
-                inherit host username fullname;
+                inherit host username fullname thesystem;
                 };     
             } 
             nix-homebrew.darwinModules.nix-homebrew
@@ -72,7 +72,7 @@
               inherit system;
               config.allowUnfree = true;
             };             
-          inherit  host username fullname  inputs; };
+          inherit  host username fullname  inputs thesystem; };
         };
                   
 
