@@ -33,8 +33,8 @@
     let       
       allowUnfree = { nixpkgs.config.allowUnfree = true; };               
 
-      createSystemMAC = { host, username ? "howardsp", fullname ? "Howard Spector", system ? "x86_64-linux"  }: darwin.lib.darwinSystem {            
-          inherit system;     
+      createSystemMAC = { host, username ? "howardsp", fullname ? "Howard Spector", thesystem ? "x86_64-linux"  }: darwin.lib.darwinSystem {            
+          system = thesystem;
           
           modules = [
             (./hosts/${host}.nix)            
@@ -45,7 +45,7 @@
               home-manager.users.${username} = (./users/${username}-${host}.nix);                                       
               home-manager.extraSpecialArgs = {                
               pkgs-stable = import nixpkgs-stable  {
-                    inherit system;
+                    system = thesystem;
                     config.allowUnfree = true;
                 };             
                 inherit host username fullname thesystem;
@@ -69,7 +69,7 @@
           ];
           specialArgs = { 
             pkgs-stable = import nixpkgs-stable  {
-              inherit system;
+              system = thesystem;
               config.allowUnfree = true;
             };             
           inherit  host username fullname  inputs thesystem; };
