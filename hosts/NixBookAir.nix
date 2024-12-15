@@ -1,19 +1,12 @@
 { config, lib, pkgs, host,username, fullname, ... }:
 {
- #imports = [ ../packages/system ];
+ imports = [ ../packages/system ];
 
   config = {
 
-    services.nix-daemon.enable = true;
-    system.stateVersion = 5; # HomeBrew Version Placeholder
-    nix.settings.experimental-features = "nix-command flakes";
-
-    # User account
-    users.users.${username} = {      
-      description = fullname;
-      home = "/Users/${username}";      
-      packages = with pkgs; [];
-    };
+    _hosts_optional_qemu.enable = false;
+    _hosts_optional_synergy-server.enable = false;          
+    #nix.settings.experimental-features = "nix-command flakes";
       
     system.defaults = {
       #https://daiderd.com/nix-darwin/manual/index.html
@@ -23,6 +16,16 @@
       NSGlobalDomain.AppleShowAllExtensions = true;    
       NSGlobalDomain."com.apple.mouse.tapBehavior" = 1;
       NSGlobalDomain."com.apple.trackpad.trackpadCornerClickBehavior" = 1;      
+
+      homebrew = {
+        enable = true;      
+        onActivation = {
+            autoUpdate = true;
+            cleanup = "uninstall";
+            upgrade = true;
+        };
+      };
+
 
       finder = {
         _FXShowPosixPathInTitle = false;
@@ -35,25 +38,26 @@
         ShowPathbar = true;
         ShowStatusBar = true;
       };
-      dock = {
-        appswitcher-all-displays = true;
-        autohide = true;
-        autohide-delay = 0.0;
-        autohide-time-modifier = 0.15;
-        dashboard-in-overlay = false;
-        enable-spring-load-actions-on-all-items = false;
-        expose-animation-duration = 0.2;
-        expose-group-by-app = false;
-        mineffect = "genie";
-        minimize-to-application = true;
-        mouse-over-hilite-stack = true;
-        mru-spaces = false;
-        orientation = "bottom";
-        show-process-indicators = true;
-        show-recents = false;
-        showhidden = true;
-        tilesize = 48;
-        persistent-apps = [
+     
+     dock = {
+          appswitcher-all-displays = true;
+          autohide = true;
+          autohide-delay = 0.0;
+          autohide-time-modifier = 0.15;
+          dashboard-in-overlay = false;
+          enable-spring-load-actions-on-all-items = false;
+          expose-animation-duration = 0.2;
+          expose-group-by-app = false;
+          mineffect = "genie";
+          minimize-to-application = true;
+          mouse-over-hilite-stack = true;
+          mru-spaces = false;
+          orientation = "bottom";
+          show-process-indicators = true;
+          show-recents = false;
+          showhidden = true;
+          tilesize = 48;
+          persistent-apps = [
           "/System/Applications/App Store.app"
           "/System/Cryptexes/App/System/Applications/Safari.app"
           "/Applications/Firefox.app"
@@ -64,82 +68,9 @@
           "/System/Applications/Utilities/Terminal.app"
           "/System/Applications/Utilities/Activity Monitor.app"
           "/System/Applications/System Settings.app"
-        ];
-        persistent-others = [ "/Users/${username}/Downloads/" ];
+          ];
+          persistent-others = [ "/Users/${username}/Downloads/" ];
       };
     };
-
-    homebrew = {
-      enable = true;      
-      onActivation = {
-          autoUpdate = true;
-          cleanup = "uninstall";
-          upgrade = true;
-      };
-
-      brews = [         
-        "emacs-dracula"
-      ];
-
-      casks = [        
-        "telegram"
-        "zoom"
-        "citrix-workspace"
-        "google-chrome"
-        "firefox"
-        "microsoft-office"
-        "visual-studio-code"
-        "dropbox"
-        "unnaturalscrollwheels"        
-        "bettertouchtool"        
-        "aldente"
-        "insync"
-        "topnotch"
-        "karabiner-elements"
-        "notunes"
-      ];
-
-      # These MAC App Store IDs are from using the mas CLI app
-      # mas = mac app store https://github.com/mas-cli/mas
-      #$ mas search <app name>    
-      masApps = {        
-        "newsify" = 510153374;            
-        "amphetamine" = 937984704;
-      };
-  };
-
-   environment.systemPackages = with pkgs; [           
-      
-      mas
-      synergy 
-
-      home-manager   
-      fastfetch
-      git  
-      vim
-      neovim
-      wget
-      curl
-      zip
-      unzip
-      htop         
-      tldr         # short version of man
-      bat          # better cat   
-      nvd          # nixs version diff
-      nh           # nixs helper
-      duf du-dust  # replacements for du and df
-      fd           # fdfind is an enhanced find
-      ripgrep      # rga will seach in all kinds of files.
-      choose       # (the basics of awk/cut)
-      direnv       # load environment variables depending on the current directory
-      entr         # run arbitrary commands when files chaneg
-      sd           # sed alternative
-      difftastic   # diff that understands code
-      httpie       # command line http client
-      curlie       # frontend to curl adds ease of use
-      miller       # like sed, awk, ... for formated files csv, json..
-      gtop         # command line visual top
-      fzf          # fuzzy find for the command line
-      ]; 
   };
 }
