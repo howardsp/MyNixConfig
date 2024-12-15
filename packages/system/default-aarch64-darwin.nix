@@ -16,9 +16,7 @@
         environment.systemPackages = with pkgs; [                       
             mas
             synergy 
-        ]; 
-
-        system.defaults = {
+        ];         
 
             homebrew = {
                 brews = [         
@@ -48,7 +46,6 @@
                     "newsify" = 510153374;            
                     "amphetamine" = 937984704;
                 };
-            };
-        };    
+            };            
     };
 }

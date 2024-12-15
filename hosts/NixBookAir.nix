@@ -5,7 +5,16 @@
   config = {
 
     #nix.settings.experimental-features = "nix-command flakes";
-      
+
+   homebrew = {
+        enable = true;      
+        onActivation = {
+            autoUpdate = true;
+            cleanup = "uninstall";
+            upgrade = true;
+        };
+      };
+         
     system.defaults = {
       #https://daiderd.com/nix-darwin/manual/index.html
       WindowManager.GloballyEnabled = true;
@@ -14,15 +23,6 @@
       NSGlobalDomain.AppleShowAllExtensions = true;    
       NSGlobalDomain."com.apple.mouse.tapBehavior" = 1;
       NSGlobalDomain."com.apple.trackpad.trackpadCornerClickBehavior" = 1;      
-
-      homebrew = {
-        enable = true;      
-        onActivation = {
-            autoUpdate = true;
-            cleanup = "uninstall";
-            upgrade = true;
-        };
-      };
 
 
       finder = {
