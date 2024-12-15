@@ -5,6 +5,7 @@
   config = {
 
     services.nix-daemon.enable = true;
+    system.stateVersion = 5; # HomeBrew Version Placeholder
     nix.settings.experimental-features = "nix-command flakes";
 
     # User account
@@ -13,24 +14,15 @@
       home = "/Users/${username}";      
       packages = with pkgs; [];
     };
-  
-    system.stateVersion = 5;
-
+      
     system.defaults = {
       #https://daiderd.com/nix-darwin/manual/index.html
       WindowManager.GloballyEnabled = true;
 
       controlcenter.BatteryShowPercentage = true;
-      NSGlobalDomain.AppleShowAllExtensions = true;
-      
-      #NSGlobalDomain.InitialKeyRepeat = 25;
-      #NSGlobalDomain.KeyRepeat = 4;
-      #NSGlobalDomain.NSNavPanelExpandedStateForSaveMode = true;
-      #NSGlobalDomain.PMPrintingExpandedStateForPrint = true;
-      
+      NSGlobalDomain.AppleShowAllExtensions = true;    
       NSGlobalDomain."com.apple.mouse.tapBehavior" = 1;
-      NSGlobalDomain."com.apple.trackpad.trackpadCornerClickBehavior" = 1;
-      #NSGlobalDomain."com.apple.swipescrolldirection" = 0;
+      NSGlobalDomain."com.apple.trackpad.trackpadCornerClickBehavior" = 1;      
 
       finder = {
         _FXShowPosixPathInTitle = false;
@@ -52,7 +44,6 @@
         enable-spring-load-actions-on-all-items = false;
         expose-animation-duration = 0.2;
         expose-group-by-app = false;
-        #launchanim = true;
         mineffect = "genie";
         minimize-to-application = true;
         mouse-over-hilite-stack = true;
@@ -61,12 +52,7 @@
         show-process-indicators = true;
         show-recents = false;
         showhidden = true;
-        #static-only = false;
         tilesize = 48;
-        #wvous-bl-corner = 1;
-        #wvous-br-corner = 1;
-        #wvous-tl-corner = 1;
-        #wvous-tr-corner = 1;
         persistent-apps = [
           "/System/Applications/App Store.app"
           "/System/Cryptexes/App/System/Applications/Safari.app"
@@ -84,10 +70,7 @@
     };
 
     homebrew = {
-      # This is a module from nix-darwin
-      # Homebrew is *installed* via the flake input nix-homebrew
-      enable = true;
-      
+      enable = true;      
       onActivation = {
           autoUpdate = true;
           cleanup = "uninstall";
@@ -113,17 +96,18 @@
         "insync"
         "topnotch"
         "karabiner-elements"
+        "notunes"
       ];
 
-      # These app IDs are from using the mas CLI app
+      # These MAC App Store IDs are from using the mas CLI app
       # mas = mac app store https://github.com/mas-cli/mas
-      #$ nix shell nixpkgs#mas
       #$ mas search <app name>    
       masApps = {        
         "newsify" = 510153374;            
         "amphetamine" = 937984704;
       };
   };
+
    environment.systemPackages = with pkgs; [           
       
       mas

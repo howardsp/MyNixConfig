@@ -31,10 +31,11 @@
   outputs = { self, nixpkgs, nixpkgs-stable, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, home-manager,  ... } @inputs:
     
     let       
-      allowUnfree = { nixpkgs.config.allowUnfree = true; };          
+      allowUnfree = { nixpkgs.config.allowUnfree = true; };               
 
       createSystemMAC = { host, username ? "howardsp", fullname ? "Howard Spector", system ? "x86_64-linux"  }: darwin.lib.darwinSystem {            
           inherit system;     
+          
           modules = [
             (./hosts/${host}.nix)            
             (allowUnfree)
@@ -75,8 +76,8 @@
         };
                   
 
-      createSystem = { host, username ? "howardsp", fullname ? "Howard Spector", system ? "x86_64-linux"  }: nixpkgs.lib.nixosSystem {                
-        inherit system;     
+      createSystem = { host, username ? "howardsp", fullname ? "Howard Spector", thesystem ? "x86_64-linux"  }: nixpkgs.lib.nixosSystem {                
+        system = thesystem;
         
         modules = [            
             (./hosts/${host}.nix)
@@ -88,20 +89,20 @@
               home-manager.users.${username} = (./users/${username}-${host}.nix);
               home-manager.extraSpecialArgs = {                
                 pkgs-stable = import nixpkgs-stable  {
-                    inherit system;
+                    system = thesystem;
                     config.allowUnfree = true;
                 };             
 
-                inherit host username fullname;
+                inherit host username fullname thesystem;
                 };     
             } 
           ]; 
           specialArgs = { 
               pkgs-stable = import nixpkgs-stable  {
-                  inherit system;
+                  system = thesystem;
                   config.allowUnfree = true;
               };             
-              inherit  host username fullname  home-manager; };
+              inherit  host username fullname  home-manager thesystem;};
         }; 
 
     in {               

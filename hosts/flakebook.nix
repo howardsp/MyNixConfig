@@ -9,13 +9,11 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_11;
   boot.loader.grub.configurationLimit=3;
-  
- 
+   
   networking.networkmanager.wifi.scanRandMacAddress=false;
   networking.networkmanager.wifi.macAddress="permanent";
  
   environment.systemPackages = with pkgs; [ libinput-gestures touchegg ];
-
   services.touchegg.enable = true;
   
   services.libinput = {

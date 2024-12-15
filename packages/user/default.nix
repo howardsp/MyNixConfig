@@ -43,8 +43,8 @@
             ++ lib.optionals (config._user_development_tools.enable)   [ jdk android-tools python3 gcc git cmake perl gitkraken kate ]
             ++ lib.optionals (config._user_photo_editing.enable)       [ gimp pinta krita glib photocollage ]
             ++ lib.optionals (config._user_obs_support.enable)         [ obs-studio linuxPackages.v4l2loopback v4l-utils ]        
-            ++ lib.optionals (config._user_commercial_browsers.enable) [ google-chrome microsoft-edge ]
-            ++ lib.optionals (config._user_commercial_zoom.enable)     [ zoom-us ]
+            ++ lib.optionals (config._user_commercial_browsers.enable ) [ google-chrome microsoft-edge ]
+            ++ lib.optionals (config._user_commercial_zoom.enable && system != "x86_64-darwin")     [ zoom-us ]
             ++ lib.optionals (config._user_optional_citrix.enable)     [ pkgs-stable.pkgs.citrix_workspace];    
     };
 }

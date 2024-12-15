@@ -12,11 +12,6 @@
  # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.wayland = false;
-  
-  #services.xrdp.enable = true;
-  #services.xrdp.defaultWindowManager = "${pkgs.gnome-session}/bin/gnome-session";
-  #services.xrdp.openFirewall = true;
-
 
   services.udev.packages = with pkgs; [ gnome-settings-daemon ];
   services.dbus.packages = with pkgs; [ gnome2.GConf ];
