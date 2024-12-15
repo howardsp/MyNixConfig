@@ -12,6 +12,9 @@
       extraGroups = [ "networkmanager" "wheel" "video" "media" "qemu-libvirtd" "libvirtd" "docker" "lxd"]; 
     };
 
+    environment.systemPackages = with pkgs; [                       
+        stacer       # ui system dashboard ( not MAC friendly)
+    ];         
 
     time.timeZone = "America/New_York";
     i18n.defaultLocale = "en_US.UTF-8";
