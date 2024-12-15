@@ -26,8 +26,7 @@
         zip
         unzip
         htop         
-        tldr         # short version of man
-        timeshift    # backup
+        tldr         # short version of man        
         stacer       # ui system dashboard
         bat          # better cat   
         nvd          # nixs version diff
