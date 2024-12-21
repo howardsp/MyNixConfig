@@ -22,22 +22,18 @@
         programs.home-manager.enable = true;
 
         home.packages = with pkgs; [
-            firefox         
-            fastfetch
+            firefox                     
             flameshot   
             libreoffice-fresh
             onlyoffice-bin           
-            inkscape
-            conjure
+            inkscape            
             newsflash
             fluent-reader
             vlc
             hypnotix
             xfce.thunar 
             cameractrls  # commandline camera  tweaks 
-            cameractrls-gtk4 # UI for camera contrls
-            tesseract    # ocr tool
-            mods         # command line AI        
+            cameractrls-gtk4 # UI for camera contrls            
             webex
         ]
             ++ lib.optionals (config._user_development_tools.enable)   [ jdk android-tools python3 gcc git cmake perl gitkraken kate ]

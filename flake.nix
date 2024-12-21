@@ -33,7 +33,7 @@
     let       
       allowUnfree = { nixpkgs.config.allowUnfree = true; };               
 
-      createSystemMAC = { host, username ? "howardsp", fullname ? "Howard Spector", thesystem ? "x86_64-linux"  }: darwin.lib.darwinSystem {            
+      createSystemDarwin = { host, username ? "howardsp", fullname ? "Howard Spector", thesystem ? "aarch64-darwin"  }: darwin.lib.darwinSystem {            
           system = thesystem;
           
           modules = [
@@ -76,7 +76,7 @@
         };
                   
 
-      createSystem = { host, username ? "howardsp", fullname ? "Howard Spector", thesystem ? "x86_64-linux"  }: nixpkgs.lib.nixosSystem {                
+      createSystem = { host, username ? "howardsp", fullname ? "Howard Spector", thesystem ? "x86_64-linux"  }: nixpkgs.lib.nixosSystem {
         system = thesystem;
         
         modules = [            
@@ -108,14 +108,13 @@
     in {               
 
       nixosConfigurations = {                     
-          igloo = createSystem { host="igloo"; };
-          flakebook = createSystem {host = "flakebook";};
+          igloo = createSystem { host="igloo"; };          
           virtualnix = createSystem {host = "virtualnix";};
           avalanche = createSystem {host = "avalanche";};          
       };
 
       darwinConfigurations = {
-        NixBookAir = createSystemMAC {username = "howardsp"; host = "NixBookAir"; thesystem = "aarch64-darwin"; };        
+        NixBookAir = createSystemDarwin {username = "howardsp"; host = "nixbookair";  };        
       };        
     };
 }

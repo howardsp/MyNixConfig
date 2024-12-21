@@ -4,17 +4,15 @@
 
   config = {
 
-    #nix.settings.experimental-features = "nix-command flakes";
-
    homebrew = {
-        enable = true;      
-        onActivation = {
-            autoUpdate = true;
-            cleanup = "uninstall";
-            upgrade = true;
-        };
+      enable = true;      
+      onActivation = {
+          autoUpdate = true;
+          cleanup = "uninstall";
+          upgrade = true;
       };
-         
+    };
+
     system.defaults = {
       #https://daiderd.com/nix-darwin/manual/index.html
       WindowManager.GloballyEnabled = true;
@@ -23,7 +21,6 @@
       NSGlobalDomain.AppleShowAllExtensions = true;    
       NSGlobalDomain."com.apple.mouse.tapBehavior" = 1;
       NSGlobalDomain."com.apple.trackpad.trackpadCornerClickBehavior" = 1;      
-
 
       finder = {
         _FXShowPosixPathInTitle = false;
@@ -56,18 +53,21 @@
           showhidden = true;
           tilesize = 48;
           persistent-apps = [
-          "/System/Applications/App Store.app"
-          "/System/Cryptexes/App/System/Applications/Safari.app"
-          "/Applications/Firefox.app"
-          "/Applications/Google Chrome.app"
-          "/System/Applications/Messages.app"
-          "/Applications/zoom.us.app"          
-          "/Applications/Visual Studio Code.app"
-          "/System/Applications/Utilities/Terminal.app"
-          "/System/Applications/Utilities/Activity Monitor.app"
-          "/System/Applications/System Settings.app"
-          ];
-          persistent-others = [ "/Users/${username}/Downloads/" ];
+            "/System/Applications/App Store.app"
+            "/System/Cryptexes/App/System/Applications/Safari.app"
+            "/Applications/Firefox.app"
+            "/Applications/Google Chrome.app"
+            "/System/Applications/Messages.app"
+            "/Applications/zoom.us.app"          
+            "/Applications/Visual Studio Code.app"
+            "/System/Applications/Utilities/Terminal.app"
+            "/System/Applications/Utilities/Activity Monitor.app"
+            "/System/Applications/System Settings.app"
+            ];
+          persistent-others = [ 
+            "/Users/${username}/Downloads/"
+            "/Users/${username}/Applications/"
+            ];
       };
     };
   };
