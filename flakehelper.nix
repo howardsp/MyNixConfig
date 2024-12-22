@@ -1,4 +1,4 @@
-{ nixpkgs, nixpkgs-stable,home-manager, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, ... }: {                    
+{ nixpkgs, nixpkgs-stable,home-manager, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, darwin, ... }: {                    
 
     allowUnfree = { nixpkgs.config.allowUnfree = true; };       
     
