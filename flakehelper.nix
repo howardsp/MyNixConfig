@@ -68,7 +68,7 @@
                         };
                     mutableTaps = false;
                     autoMigrate = true;
-                    }
+                    };
             }
           ];
           specialArgs = { 
