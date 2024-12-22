@@ -26,7 +26,7 @@
   };
     
   outputs = { self, nixpkgs, nixpkgs-stable, darwin, nix-homebrew, homebrew-bundle, 
-              homebrew-core, homebrew-cask, home-manager, darwin, ... } @inputs:    
+              homebrew-core, homebrew-cask, home-manager, ... } @inputs:    
     let       
 
       helpers = import ./flakehelper.nix {inherit nixpkgs nixpkgs-stable home-manager nix-homebrew 
