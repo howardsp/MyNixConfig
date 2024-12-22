@@ -30,7 +30,7 @@
     let       
 
       helpers = import ./flakehelper.nix {inherit nixpkgs nixpkgs-stable home-manager nix-homebrew 
-                                                  homebrew-core homebrew-cask homebrew-bundle;};
+                                                  homebrew-core homebrew-cask homebrew-bundle darwin;};
 
       in {               
 
