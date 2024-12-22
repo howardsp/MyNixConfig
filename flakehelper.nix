@@ -61,7 +61,7 @@
               system = thesystem;
               config.allowUnfree = true;
             };             
-          inherit  host username fullname  inputs thesystem; };
+          inherit  host username fullname thesystem; };
         };
 
 }
