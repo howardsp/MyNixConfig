@@ -1,4 +1,4 @@
-{ lib, nixpkgs, nixpkgs-stable,home-manager, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, darwin, ... }: {                    
+{ nixpkgs, nixpkgs-stable,home-manager, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, darwin, ... }: {                    
 
     allowUnfree = { nixpkgs.config.allowUnfree = true; };       
     
@@ -16,7 +16,8 @@
     }; 
 
     homeBrewHelper = {username ? "howardsp" }: nix-homebrew.darwinModules.nix-homebrew {
-        nix-homebrew = {                
+        nix-homebrew = {    
+            lib = nixpkgs.lib;            
             enable = true;
             #enableRosetta = true;
             user = "${username}";
