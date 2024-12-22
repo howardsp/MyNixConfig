@@ -45,7 +45,7 @@
                   system = thesystem;
                   config.allowUnfree = true;
               };             
-              inherit  host username fullname  home-manager thesystem;};
+              inherit  nixpkgs host username fullname  home-manager thesystem;};
         }; 
 
       createSystemDarwin = { helpers, host, username ? "howardsp", fullname ? "Howard Spector", thesystem ? "aarch64-darwin"  }: darwin.lib.darwinSystem {
@@ -62,7 +62,7 @@
               system = thesystem;
               config.allowUnfree = true;
             };             
-          inherit  lib host username fullname thesystem; };
+          inherit  nixpkgs host username fullname thesystem; };
         };
 
 }
