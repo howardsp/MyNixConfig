@@ -56,18 +56,20 @@
             home-manager.darwinModules.home-manager {}
             (helpers.homeHelper {username = username; fullname = fullname; host = host; thesystem = thesystem;})
             #(helpers.homeBrewHelper {username = username;})             
-            nix-homebrew {                
-                enable = true;
-                #enableRosetta = true;
-                user = "${username}";
-                taps = {
-                    "homebrew/homebrew-core" = homebrew-core;
-                    "homebrew/homebrew-cask" = homebrew-cask;
-                    "homebrew/homebrew-bundle" = homebrew-bundle;
-                    };
-                mutableTaps = false;
-                autoMigrate = true;
-                }
+            nix-homebrew.darwinModules.nix-homebrew {
+                nix-homebrew = {                
+                    enable = true;
+                    #enableRosetta = true;
+                    user = "${username}";
+                    taps = {
+                        "homebrew/homebrew-core" = homebrew-core;
+                        "homebrew/homebrew-cask" = homebrew-cask;
+                        "homebrew/homebrew-bundle" = homebrew-bundle;
+                        };
+                    mutableTaps = false;
+                    autoMigrate = true;
+                    }
+            }
           ];
           specialArgs = { 
             pkgs-stable = import nixpkgs-stable  {
