@@ -29,19 +29,19 @@
               homebrew-core, homebrew-cask, home-manager, ... } @inputs:    
     let       
 
-      helpers = import ./flakehelper.nix {inherit nixpkgs nixpkgs-stable home-manager nix-homebrew 
+      helper = import ./flakehelper.nix {inherit nixpkgs nixpkgs-stable home-manager nix-homebrew 
                                                   homebrew-core homebrew-cask homebrew-bundle darwin;};
 
       in {               
 
         nixosConfigurations = {                     
-          igloo = helpers.createSystem {helpers = helpers; host = "igloo";};
-          virtualnix = helpers.createSystem {helpers = helpers; host = "virtualnix";};
-          avalanche = helpers.createSystem {helpers = helpers; host = "avalanche";};          
+          igloo = helper.createSystem {helper = helper; host = "igloo";};
+          virtualnix = helper.createSystem {helper = helper; host = "virtualnix";};
+          avalanche = helper.createSystem {helper = helper; host = "avalanche";};          
         };
 
         darwinConfigurations = {
-          nixbookair = helpers.createSystemDarwin {helpers = helpers; host = "nixbookair";  };        
+          nixbookair = helper.createSystemDarwin {helper = helper; host = "nixbookair";  };        
         };        
     };
 }

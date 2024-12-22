@@ -16,29 +16,14 @@
         };                     
     }; 
 
-    homeBrewHelper = {username ? "howardsp" }: nix-homebrew.darwinModules.nix-homebrew {
-        nix-homebrew = {                
-            enable = true;
-            #enableRosetta = true;
-            user = "${username}";
-            taps = {
-                "homebrew/homebrew-core" = homebrew-core;
-                "homebrew/homebrew-cask" = homebrew-cask;
-                "homebrew/homebrew-bundle" = homebrew-bundle;
-                };
-            mutableTaps = false;
-            autoMigrate = true;
-        };
-    };
-
-      createSystem = { helpers, host, username ? "howardsp", fullname ? "Howard Spector", thesystem ? "x86_64-linux"  }: nixpkgs.lib.nixosSystem {
+    createSystem = { helper, host, username ? "howardsp", fullname ? "Howard Spector", thesystem ? "x86_64-linux"  }: nixpkgs.lib.nixosSystem {
         system = thesystem;        
         modules = [            
             (./hosts/${host}.nix)
             (./hardware/hardware-${host}.nix)            
-            (helpers.allowUnfree)
+            (helper.allowUnfree)
             home-manager.nixosModules.home-manager {}
-            (helpers.homeHelper {username = username; fullname = fullname; host = host; thesystem = thesystem;})
+            (helper.homeHelper {username = username; fullname = fullname; host = host; thesystem = thesystem;})
           ]; 
           specialArgs = { 
               pkgs-stable = import nixpkgs-stable  {
@@ -48,13 +33,13 @@
               inherit  nixpkgs host username fullname  home-manager thesystem;};
         }; 
 
-      createSystemDarwin = { helpers, host, username ? "howardsp", fullname ? "Howard Spector", thesystem ? "aarch64-darwin"  }: darwin.lib.darwinSystem {
+    createSystemDarwin = { helper, host, username ? "howardsp", fullname ? "Howard Spector", thesystem ? "aarch64-darwin"  }: darwin.lib.darwinSystem {
           system = thesystem;          
           modules = [
             (./hosts/${host}.nix)
-            (helpers.allowUnfree)
+            (helper.allowUnfree)
             home-manager.darwinModules.home-manager {}
-            (helpers.homeHelper {username = username; fullname = fullname; host = host; thesystem = thesystem;})
+            (helper.homeHelper {username = username; fullname = fullname; host = host; thesystem = thesystem;})
             #(helpers.homeBrewHelper {username = username;})             
             nix-homebrew.darwinModules.nix-homebrew {
                 nix-homebrew = {                
@@ -78,5 +63,4 @@
             };             
           inherit  nixpkgs host username fullname thesystem; };
         };
-
 }
