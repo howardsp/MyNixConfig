@@ -42,7 +42,7 @@
           dashboard-in-overlay = false;
           enable-spring-load-actions-on-all-items = false;
           expose-animation-duration = 0.2;
-          expose-group-by-apps = false;
+          expose-group-apps = false;
           mineffect = "genie";
           minimize-to-application = true;
           mouse-over-hilite-stack = true;
