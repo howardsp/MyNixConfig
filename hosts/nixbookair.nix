@@ -42,7 +42,7 @@
           dashboard-in-overlay = false;
           enable-spring-load-actions-on-all-items = false;
           expose-animation-duration = 0.2;
-          expose-group-by-app = false;
+          expose-group-by-apps = false;
           mineffect = "genie";
           minimize-to-application = true;
           mouse-over-hilite-stack = true;
@@ -65,8 +65,7 @@
             "/System/Applications/System Settings.app"
             ];
           persistent-others = [ 
-            "/Users/${username}/Downloads/"
-            "/Users/${username}/Applications/"
+            "/Users/${username}/Downloads/" 
             ];
       };
     };

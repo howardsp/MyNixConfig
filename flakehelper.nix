@@ -1,4 +1,4 @@
-{ nixpkgs, nixpkgs-stable,home-manager, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, darwin, ... }: {                    
+{ nixpkgs, nixpkgs-stable,home-manager, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, darwin, helper, ... }: {                    
 
 
     allowUnfree = { nixpkgs.config.allowUnfree = true; };       
@@ -16,7 +16,7 @@
         };                     
     }; 
 
-    createSystem = { helper, host, username ? "howardsp", fullname ? "Howard Spector", thesystem ? "x86_64-linux"  }: nixpkgs.lib.nixosSystem {
+    createSystem = { host, username ? "howardsp", fullname ? "Howard Spector", thesystem ? "x86_64-linux"  }: nixpkgs.lib.nixosSystem {
         system = thesystem;        
         modules = [            
             (./hosts/${host}.nix)
@@ -33,7 +33,7 @@
               inherit  nixpkgs host username fullname  home-manager thesystem;};
         }; 
 
-    createSystemDarwin = { helper, host, username ? "howardsp", fullname ? "Howard Spector", thesystem ? "aarch64-darwin"  }: darwin.lib.darwinSystem {
+    createSystemDarwin = { host, username ? "howardsp", fullname ? "Howard Spector", thesystem ? "aarch64-darwin"  }: darwin.lib.darwinSystem {
           system = thesystem;          
           modules = [
             (./hosts/${host}.nix)

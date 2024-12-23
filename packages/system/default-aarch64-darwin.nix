@@ -37,7 +37,7 @@
                 "karabiner-elements"
                 "notunes"
                 "webex"
-                "emacs-dracula"
+                "emacs"
                 "monitorcontrol"
             ];
 
