@@ -18,7 +18,7 @@
     
         home.username = username;
         home.homeDirectory = "/home/${username}" ;
-        home.stateVersion = "24.05"; 
+        home.stateVersion = "24.11"; 
         programs.home-manager.enable = true;
 
         home.packages = with pkgs; [
@@ -41,6 +41,6 @@
             ++ lib.optionals (config._user_obs_support.enable)         [ obs-studio linuxPackages.v4l2loopback v4l-utils ]        
             ++ lib.optionals (config._user_commercial_browsers.enable ) [ google-chrome microsoft-edge ]
             ++ lib.optionals (config._user_commercial_zoom.enable && system != "x86_64-darwin")     [ zoom-us ]
-            ++ lib.optionals (config._user_optional_citrix.enable)     [ pkgs-stable.pkgs.citrix_workspace];    
+            ++ lib.optionals (config._user_optional_citrix.enable)     [ citrix_workspace];    
     };
 }

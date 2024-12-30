@@ -1,10 +1,11 @@
-{ config, lib, pkgs, host, username, fullname, ... }:
+{ config, lib, pkgs, pkgs-stable, host, username, fullname, ... }:
 {
     imports =[        
         ./common
         ./optional
     ];
-
+    
+    system.stateVersion = "24.11";    
 
     # User account on Linux
     users.users.${username} = {
@@ -13,7 +14,7 @@
     };
 
     environment.systemPackages = with pkgs; [                       
-        stacer       # ui system dashboard ( not MAC friendly)
+        stacer       # ui system dashboard ( not MAC friendly)        
     ];         
 
     time.timeZone = "America/New_York";
@@ -22,10 +23,7 @@
     networking.hostName = "${host}"; # Define your hostname.
     networking.networkmanager.enable = true; # Use networkmanager  
     services.flatpak.enable = true;    
-
-    # It is ok to leave this unchanged for compatibility purposes
-    system.stateVersion = "24.05";    
-
+    
     system.activationScripts.text = ''
         #!/bin/sh
 

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, host, username, fullname, thesystem, ... }:
+{ config, lib, pkgs, pkgs-stable, host, username, fullname, thesystem, ... }:
 {
     imports = [        
         ./default-${thesystem}.nix

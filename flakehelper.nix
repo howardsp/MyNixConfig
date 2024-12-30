@@ -1,4 +1,4 @@
-{ nixpkgs, nixpkgs-stable,home-manager, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, darwin, helper, ... }: {                    
+{ nixpkgs, nixpkgs-unstable,home-manager, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, darwin, helper, ... }: {                    
 
 
     allowUnfree = { nixpkgs.config.allowUnfree = true; };       
@@ -8,7 +8,7 @@
         home-manager.useGlobalPkgs = true;
         home-manager.users.${username} = (./users/${username}-${host}.nix);
         home-manager.extraSpecialArgs = {                
-            pkgs-stable = import nixpkgs-stable  {
+            pkgs-unstable = import nixpkgs-unstable  {
                 system = thesystem;
                 config.allowUnfree = true;
             };             
@@ -26,7 +26,7 @@
             (helper.homeHelper {username = username; fullname = fullname; host = host; thesystem = thesystem;})
           ]; 
           specialArgs = { 
-              pkgs-stable = import nixpkgs-stable  {
+              pkgs-unstable = import nixpkgs-unstable  {
                   system = thesystem;
                   config.allowUnfree = true;
               };             
@@ -57,7 +57,7 @@
             }
           ];
           specialArgs = { 
-            pkgs-stable = import nixpkgs-stable  {
+            pkgs-unstable = import nixpkgs-unstable  {
               system = thesystem;
               config.allowUnfree = true;
             };             

@@ -2,7 +2,7 @@
 {
   imports = [ ../packages/system ];
 
-  services.teamviewer.enable = true;
+  #services.teamviewer.enable = true;
   _hosts_optional_qemu.enable = true;
   _hosts_optional_synergy-server.enable = true;  
 

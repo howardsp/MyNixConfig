@@ -10,8 +10,8 @@
 {
   description = "Howard's NIXOS Configuraiton that supports multiple machines";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";    
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable"; 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";            
     darwin.url = "github:LnL7/nix-darwin/master";
@@ -25,11 +25,11 @@
     homebrew-cask.flake = false;    
   };
     
-  outputs = { self, nixpkgs, nixpkgs-stable, darwin, nix-homebrew, homebrew-bundle, 
+  outputs = { self, nixpkgs, nixpkgs-unstable, darwin, nix-homebrew, homebrew-bundle, 
               homebrew-core, homebrew-cask, home-manager, ... } @inputs:    
     let       
 
-      helper = import ./flakehelper.nix {inherit nixpkgs nixpkgs-stable home-manager nix-homebrew helper
+      helper = import ./flakehelper.nix {inherit nixpkgs nixpkgs-unstable home-manager nix-homebrew helper
                                                   homebrew-core homebrew-cask homebrew-bundle darwin;};
 
       in {               

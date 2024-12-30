@@ -1,4 +1,4 @@
-{config, pkgs, ...}:  {
+{config, pkgs, pkgs-stable, ...}:  {
 
   # Configure keymap in X11
   services.xserver = {
@@ -17,7 +17,7 @@
   services.dbus.packages = with pkgs; [ gnome2.GConf ];
   programs.dconf.enable = true;
 
-  # Exclude base gnome packages
+  # Exclude base gnome packages    
   environment.gnome.excludePackages = with pkgs; [
     gnome-remote-desktop
     epiphany
@@ -26,7 +26,7 @@
     gnome-weather
   ];
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [        
     gnome-tweaks
     nautilus-python
     amberol
