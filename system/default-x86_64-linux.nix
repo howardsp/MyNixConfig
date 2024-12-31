@@ -32,7 +32,7 @@
             extraGroups = [ "networkmanager" "wheel" "video" "media" "qemu-libvirtd" "libvirtd" "docker" "lxd"]; 
         };
 
-        virtualisation.libvirtd.enable =  config.__qemu.enable;
+        virtualisation.libvirtd.enable = config.__qemu.enable;
               
         services.synergy.server.enable = config.__synergy-server.enable;
         networking.firewall.allowedTCPPortRanges = [ { from = 24800; to = 24801; } ];
