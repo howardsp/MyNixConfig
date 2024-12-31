@@ -1,4 +1,4 @@
-{ config, lib, pkgs, host, username, fullname, ... }:
+{ config, lib, pkgs, home-manager, host, username, fullname, ... }:
 {
 
     system.stateVersion = 5; # HomeBrew Version Placeholder
@@ -9,7 +9,5 @@
         home = "/Users/${username}";            
     };        
 
-    #environment.systemPackages = with pkgs; [ mas ];         
-
-
+    environment.systemPackages = with pkgs; [ mas ];         
 }
