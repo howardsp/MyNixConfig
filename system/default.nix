@@ -46,5 +46,25 @@
         # Development Tools (java done per/type)
         android-tools python3 gcc git cmake perl gitkraken 
 
+        (writeShellScriptBin "project-init" ''
+        if [ -z $1 ]; then
+            echo "no template specified"
+            exit 1
+        fi
+
+        TEMPLATE=$1
+
+        nix --experimental-features 'nix-command flakes' \
+            flake init \
+            --template \
+            "github:howardsp/dev-templates#''${TEMPLATE}"
+
+        echo "use flake" > .envrc
+        '')
+
+        (writeShellScriptBin "project-show" ''
+        nix --experimental-features 'nix-command flakes' \
+            flake show github:howardsp/dev-templates --refresh
+        '')    
     ];  
 }
