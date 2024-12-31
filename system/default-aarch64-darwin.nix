@@ -12,7 +12,7 @@
     environment.systemPackages = with pkgs; [ mas ];         
 
     homebrew = {
-        brews = [  ];
+        brews = [ "openjdk" ];
         casks = [        
             "telegram"
             "zoom"
