@@ -1,6 +1,6 @@
 { config, lib, pkgs, host, ... }:
 {
-  imports = [ ../packages/system ];
+  imports = [ ../packages ];
 
   __qemu.enable = true;
   __synergy-server.enable = true;  

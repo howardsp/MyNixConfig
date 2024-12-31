@@ -11,7 +11,6 @@ home.file.".config/rofi/config.rasi".text = ''
         modes: [ combi ];
         combi-modes: [ window, drun, run ];
       }
-
       @theme "Arc-Dark"
   '';
 }

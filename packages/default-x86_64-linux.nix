@@ -1,6 +1,14 @@
 { config, lib, pkgs, pkgs-stable, host, username, fullname, ... }:
 {
-    imports =[ ./common  ];
+    imports =[   
+        ./gnome        
+        ./emacs
+        ./rofi
+        ./insync  
+        ./synergy-client 
+        ./vscode
+        ./xscreensaver
+    ];
 
     options = {        
         __photo.enable = lib.mkOption { type = lib.types.bool; default = true;};        

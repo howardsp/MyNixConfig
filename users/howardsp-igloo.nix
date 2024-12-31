@@ -1,5 +1,5 @@
 { config, lib, pkgs,  ... }:
 
 {
-  imports = [ ../packages/user ];    
+  imports = [ ../home-manager ];    
 }
