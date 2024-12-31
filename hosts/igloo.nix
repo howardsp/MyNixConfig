@@ -2,9 +2,8 @@
 {
   imports = [ ../packages/system ];
 
-  #services.teamviewer.enable = true;
-  _hosts_optional_qemu.enable = true;
-  _hosts_optional_synergy-server.enable = true;  
+  __qemu.enable = true;
+  __synergy-server.enable = true;  
 
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_11;
   boot.kernelModules = [ "kvm-amd" "cpufreq_performance" "v4l2loopback" ];    

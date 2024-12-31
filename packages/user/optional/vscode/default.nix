@@ -1,9 +1,9 @@
 { pkgs, lib, config, ... }: {
 
   options = {
-    _user_optional_vscode.enable = lib.mkOption {
+    __vscode.enable = lib.mkOption {
       type = lib.types.bool;
-      default = false;
+      default = true;
     };
   };
 

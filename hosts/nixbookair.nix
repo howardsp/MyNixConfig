@@ -7,10 +7,10 @@
    homebrew = {
       enable = true;      
       onActivation = {
-          autoUpdate = true;
-          cleanup = "uninstall";
-          upgrade = true;
-      };
+        autoUpdate = true;
+        cleanup = "uninstall";
+        upgrade = true;
+        };
     };
 
     system.defaults = {

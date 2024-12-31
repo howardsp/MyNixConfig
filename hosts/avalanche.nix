@@ -3,8 +3,7 @@
 
   imports = [ ../packages/system ];
 
-  qemu.enable = true;
-  synergy-server.enable = true;  
+
   services.openssh.enable = true; 
   virtualisation.docker.enable = true; 
 

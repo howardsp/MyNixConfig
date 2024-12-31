@@ -15,19 +15,16 @@
   
     environment.variables.EDITOR = "vim"; # Set default editor to vim           
     environment.systemPackages = with pkgs; [        
-        home-manager             
-        fastfetch           # terminal information 
+        home-manager     
+        synergy                 
         conjure             # transform images
         mods                # command line AI        
         tesseract           # ocr tool            
-        git  
-        vim
-        neovim
-        wget
-        curl
-        zip
-        unzip
-        htop         
+        git          
+        
+        #editor and command line 
+        vim neovim wget curl zip unzip htop coreutils-full fastfetch 
+
         tldr                # short version of man        
         bat                 # better cat   
         nvd                 # nixs version diff
@@ -46,6 +43,9 @@
         miller              # like sed, awk, ... for formated files csv, json..
         gtop                # command line visual top
         fzf                 # fuzzy find for the command line
+
+        # Development Tools (java done per/type)
+        android-tools python3 gcc git cmake perl gitkraken 
 
 
         (writeShellScriptBin "project-init" ''
