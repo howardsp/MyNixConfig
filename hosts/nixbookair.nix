@@ -1,6 +1,6 @@
 { config, lib, pkgs, host,username, fullname, ... }:
 {
- imports = [ ../packages ];
+ imports = [ ../system ];
 
   config = {
 

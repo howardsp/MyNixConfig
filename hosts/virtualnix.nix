@@ -1,6 +1,6 @@
 { config, lib, pkgs,   ... }:
 {
-  imports = [ ../packages/system ];
+  imports = [ ../system ];
 
   services.spice-vdagentd.enable = true;
 

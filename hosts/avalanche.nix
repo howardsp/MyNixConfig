@@ -1,7 +1,7 @@
 { config, lib, pkgs,   ... }:
 {
 
-  imports = [ ../packages/system ];
+  imports = [ ../system ];
 
 
   services.openssh.enable = true; 

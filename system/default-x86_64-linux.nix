@@ -2,12 +2,9 @@
 {
     imports =[   
         ./gnome        
-        ./emacs
-        ./rofi
-        ./insync  
-        ./synergy-client 
-        ./vscode
-        ./xscreensaver
+        ./fonts
+        ./sound
+        ./printing
     ];
 
     options = {        
@@ -44,7 +41,9 @@
         environment.systemPackages = with pkgs; [                       
             stacer                                                
             xfce.thunar 
+            rofi
             jdk
+            insync
             ]
             ++ lib.optionals (config.__citrix.enable)       [ citrix_workspace]            
             ++ lib.optionals (config.__office.enable)       [ flameshot libreoffice-fresh onlyoffice-bin inkscape ]
