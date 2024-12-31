@@ -61,6 +61,6 @@
               system = thesystem;
               config.allowUnfree = true;
             };             
-          inherit  nixpkgs host username fullname thesystem; };
+          inherit  nixpkgs host home-manager username fullname thesystem; };
         };
 }

@@ -40,7 +40,8 @@
         "newsify" = 510153374;            
         "amphetamine" = 937984704;
     };
-  };              
+  };    
+            
   system.defaults = {
       #https://daiderd.com/nix-darwin/manual/index.html
       WindowManager.GloballyEnabled = true;
