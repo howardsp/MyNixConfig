@@ -1,4 +1,4 @@
-{ config, lib, pkgs, username,  ... }:
+{ config, lib, pkgs, username,   ... }:
 
 {     
     imports = [ 
@@ -6,5 +6,6 @@
     ];
 
     home.stateVersion = "24.11";     
+    programs.home-manager.enable = true;
     
 }
