@@ -2,8 +2,7 @@
 {
 
     system.stateVersion = 5; # HomeBrew Version Placeholder
-    services.nix-daemon.enable = true;
-    system.stateVersion = "24.11";    
+    services.nix-daemon.enable = true;    
     networking.hostName = "${host}";         # Define your hostname.
 
     # User account
