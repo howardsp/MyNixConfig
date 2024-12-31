@@ -39,7 +39,8 @@
         networking.firewall.allowedUDPPortRanges = [ { from = 24800; to = 24801; } ];     
 
         environment.systemPackages = with pkgs; [                       
-            stacer                                                
+            stacer    
+            synergy                                                             
             xfce.thunar 
             rofi
             jdk

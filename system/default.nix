@@ -15,8 +15,7 @@
   
     environment.variables.EDITOR = "vim"; # Set default editor to vim           
     environment.systemPackages = with pkgs; [        
-        home-manager     
-        synergy                 
+        home-manager             
         conjure             # transform images
         mods                # command line AI        
         tesseract           # ocr tool            
@@ -46,7 +45,6 @@
 
         # Development Tools (java done per/type)
         android-tools python3 gcc git cmake perl gitkraken 
-
 
         (writeShellScriptBin "project-init" ''
         if [ -z $1 ]; then
