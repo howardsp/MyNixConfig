@@ -1,14 +1,17 @@
-{ config, lib, pkgs, host,username, fullname, ... }:
+{ config, lib, pkgs, home-manager, host,username, fullname, ... }:
 {
- imports = [ ../system ];
+
+  imports = [ ../system ];
  
   homebrew = {
     enable = true;      
+
     onActivation = {
       autoUpdate = true;
       cleanup = "uninstall";
       upgrade = true;
-      };
+    };
+
     brews = [ "openjdk" ];
     casks = [        
         "telegram"
