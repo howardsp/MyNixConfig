@@ -12,7 +12,9 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable"; 
-    home-manager.url = "github:nix-community/home-manager";
+    #home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:rycee/home-manager/master";
+    
     home-manager.inputs.nixpkgs.follows = "nixpkgs";            
     darwin.url = "github:LnL7/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
