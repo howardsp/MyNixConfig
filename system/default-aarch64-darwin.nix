@@ -9,7 +9,7 @@
         home = "/Users/${username}";            
     };        
 
-    environment.systemPackages = with pkgs; [ mas ];         
+    #environment.systemPackages = with pkgs; [ mas ];         
 
 
 }
