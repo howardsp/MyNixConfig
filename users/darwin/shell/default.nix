@@ -5,7 +5,7 @@
   programs.zsh = {
     enable = true;
 
-    autosuggestions.enable = true;
+    enableAutosuggestions = true;
 
     plugins = [{
       name = "zsh-history-substring-search";
