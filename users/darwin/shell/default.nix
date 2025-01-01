@@ -24,31 +24,7 @@
     initExtra = ''    
       alias ll='ls -lptr'   
       alias nix-build='cd ~/MyNixConfig; nix run nix-darwin -- switch --flake .#${host}' 
-    '';
-
-    shellInit = ''        
       fastfetch
     '';
-
-    # With Zplug:
-    zplug = {
-      enable = true;
-      plugins = [
-        {name = "zsh-users/zsh-autosuggestions";} # Simple plugin installation
-        {
-          name = "romkatv/powerlevel10k";
-          tags = [ "as:theme" "depth:1" ];
-        } # Installations with additional options. For the list of options, please refer to Zplug README.
-      ];
-    };
-
-    # With Antidote:
-    antidote = {
-      enable = true;
-      plugins = [''
-        zsh-users/zsh-autosuggestions
-        ohmyzsh/ohmyzsh path:lib/git.zsh
-      '']; # explanation of "path:..." and other options explained in Antidote README.  
-    };
   };
 }
