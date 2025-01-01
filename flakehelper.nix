@@ -8,7 +8,7 @@
     homeHelper = {username ? "howardsp", fullname, host, thesystem }: {
         home-manager.useUserPackages = true;
         home-manager.useGlobalPkgs = true;
-        home-manager.users.${username} = (./users);
+        home-manager.users.${username} = (./users/${username}-${host}.nix);
         home-manager.extraSpecialArgs = {                
             pkgs-unstable = import nixpkgs-unstable  {
                 system = thesystem;

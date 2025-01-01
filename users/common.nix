@@ -1,8 +1,5 @@
 { config, lib, pkgs, pkgs-stable, home-manager, host, username, fullname, thesystem, ... }:
 {
-    imports = [        
-        "./${username}-${host}.nix"
-    ];
 
     home.username = username;
     home.homeDirectory = "/home/${username}" ;

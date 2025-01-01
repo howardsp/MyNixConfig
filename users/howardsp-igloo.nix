@@ -1,7 +1,8 @@
 { config, lib, pkgs, username,  ... }:
 
 {
-      imports = [        
+      imports = [  
+        ./common.nix      
         ./linux/shell
         ./linux/emacs
         ./linux/gnome-settings
