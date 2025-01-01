@@ -5,7 +5,7 @@
   programs.zsh = {
     enable = true;
 
-    enableAutosuggestions = true;
+    autosuggestions.enable = true;
 
     plugins = [{
       name = "zsh-history-substring-search";
@@ -21,9 +21,18 @@
     sessionVariables = { };
     history.size = 10000;
 
+    shellAliases = {    
+      bat = "bat --color=always ";
+      ll="ls -lptr --color";
+      ls="ls --color";
+      nix-build="cd ~/MyNixConfig; nix run nix-darwin -- switch --flake .#${host}";
+    };   
+
     initExtra = ''    
-      alias ll='ls -lptr'   
-      alias nix-build='cd ~/MyNixConfig; nix run nix-darwin -- switch --flake .#${host}' 
+      #bat --color=always 
+      #alias ll='ls -lptr --color'
+      #alias ls='ls --color'
+      #alias nix-build='cd ~/MyNixConfig; nix run nix-darwin -- switch --flake .#${host}' 
       fastfetch
     '';
   };
