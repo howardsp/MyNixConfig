@@ -2,7 +2,7 @@
 
 {     
     imports = [ 
-        ./shell
+        ./common/shell
     ];
 
     home.username = username;

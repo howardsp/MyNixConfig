@@ -35,13 +35,13 @@
       in {               
 
         nixosConfigurations = {                     
-          igloo = helper.createSystem { host = "igloo";};
-          virtualnix = helper.createSystem { host = "virtualnix";};
-          avalanche = helper.createSystem { host = "avalanche";};          
+          igloo = helper.createLinuxSystem { host = "igloo";};
+          virtualnix = helper.createLinuxSystem { host = "virtualnix";};
+          avalanche = helper.createLinuxSystem { host = "avalanche";};          
         };
 
         darwinConfigurations = {
-          nixbookair = helper.createSystemDarwin { host = "nixbookair";  };        
+          nixbookair = helper.createDarwinSystem { host = "nixbookair";  };        
         };        
     };
 }

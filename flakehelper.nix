@@ -1,8 +1,10 @@
 { nixpkgs, nixpkgs-unstable,home-manager, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, darwin, helper, ... }: {                    
 
-
     allowUnfree = { nixpkgs.config.allowUnfree = true; };       
     
+    # generalizes the initial home-manager setup for both Linux and MAC based systems. 
+    # ensuring consistency in the setup across version of home-manager. 
+    #
     homeHelper = {username ? "howardsp", fullname, host, thesystem }: {
         home-manager.useUserPackages = true;
         home-manager.useGlobalPkgs = true;
@@ -16,7 +18,9 @@
         };                     
     }; 
 
-    createSystem = { host, username ? "howardsp", fullname ? "Howard Spector", thesystem ? "x86_64-linux"  }: nixpkgs.lib.nixosSystem {
+    # generalize the initial nixosSystem creation to ensure consistency 
+    #
+    createLinuxSystem = { host, username ? "howardsp", fullname ? "Howard Spector", thesystem ? "x86_64-linux"  }: nixpkgs.lib.nixosSystem {
         system = thesystem;        
         modules = [            
             (./hosts/${host}.nix)
@@ -33,7 +37,9 @@
               inherit  nixpkgs host username fullname  home-manager thesystem;};
         }; 
 
-    createSystemDarwin = { host, username ? "howardsp", fullname ? "Howard Spector", thesystem ? "aarch64-darwin"  }: darwin.lib.darwinSystem {
+    # generalize the initial darwinSystem creation to ensure consistency 
+    #
+    createDarwinSystem = { host, username ? "howardsp", fullname ? "Howard Spector", thesystem ? "aarch64-darwin"  }: darwin.lib.darwinSystem {
           system = thesystem;          
           modules = [
             (./hosts/${host}.nix)

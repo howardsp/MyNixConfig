@@ -2,14 +2,14 @@
 
 {
       imports = [        
-        ./emacs
-        ./gnome-settings
-        ./insync
-        ./rofi
-        ./shell
-        ./synergy-client
-        ./vscode
-        ./xscreensaver
+        ./common/shell
+        ./linux/emacs
+        ./linux/gnome-settings
+        ./linux/insync
+        ./linux/rofi        
+        ./linux/synergy-client
+        ./linux/vscode
+        ./linux/xscreensaver
     ];
 
     home.username = username;

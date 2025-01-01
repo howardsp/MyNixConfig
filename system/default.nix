@@ -20,7 +20,7 @@
         mods                # command line AI        
         tesseract           # ocr tool            
         git          
-        
+        bash
         #editor and command line 
         vim neovim wget curl zip unzip htop coreutils-full fastfetch 
 

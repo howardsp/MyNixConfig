@@ -1,10 +1,10 @@
 { config, lib, pkgs, pkgs-stable, host, username, fullname, ... }:
 {
     imports =[   
-        ./gnome        
-        ./fonts
-        ./sound
-        ./printing
+        ./linux/gnome        
+        ./linux/fonts
+        ./linux/sound
+        ./linux/printing
     ];
 
     options = {        
