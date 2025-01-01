@@ -2,10 +2,6 @@
 
 {     
     imports = [ 
-        ./common/shell
+        ./darwin/shell
     ];
-
-    home.username = username;
-    home.stateVersion = "24.11";     
-    programs.home-manager.enable = true;
 }

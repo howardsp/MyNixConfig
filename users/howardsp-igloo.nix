@@ -2,7 +2,7 @@
 
 {
       imports = [        
-        ./common/shell
+        ./linux/shell
         ./linux/emacs
         ./linux/gnome-settings
         ./linux/insync
@@ -11,12 +11,4 @@
         ./linux/vscode
         ./linux/xscreensaver
     ];
-
-    home.username = username;
-    home.homeDirectory = "/home/${username}" ;
-    home.stateVersion = "24.11"; 
-    programs.home-manager.enable = true;
-
-    home.packages = with pkgs; [];
-
 }
