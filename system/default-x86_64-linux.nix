@@ -31,7 +31,7 @@
             isNormalUser = true;
             extraGroups = [ "networkmanager" "wheel" "video" "media" "qemu-libvirtd" "libvirtd" "docker" "lxd"]; 
         };
-
+        
         virtualisation.libvirtd.enable = config.__qemu.enable;
               
         services.synergy.server.enable = config.__synergy-server.enable;

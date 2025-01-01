@@ -1,6 +1,6 @@
 { config, lib, pkgs, username,  ... }:
 
-{
+{      
       imports = [  
         ./common.nix      
         ./linux/shell
@@ -11,5 +11,7 @@
         ./linux/synergy-client
         ./linux/vscode
         ./linux/xscreensaver
-    ];
+    ];        
+    
+  home.homeDirectory = "/home/${username}" ;
 }
