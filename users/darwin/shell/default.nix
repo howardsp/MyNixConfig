@@ -23,7 +23,7 @@
 
     initExtra = ''    
       alias ll='ls -lptr'   
-      nix-build='cd ~/MyNixConfig; nix run nix-darwin -- switch --flake .#${host}' 
+      alias nix-build='cd ~/MyNixConfig; nix run nix-darwin -- switch --flake .#${host}' 
     '';
 
     shellInit = ''        
@@ -40,13 +40,6 @@
           tags = [ "as:theme" "depth:1" ];
         } # Installations with additional options. For the list of options, please refer to Zplug README.
       ];
-    };
-
-    # With Oh-My-Zsh:
-    ohMyZsh = {
-      enable = true;
-      plugins = ["git" "thefuck"];
-      theme = "robbyrussell";
     };
 
     # With Antidote:
