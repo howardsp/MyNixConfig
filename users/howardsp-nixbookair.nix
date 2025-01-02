@@ -4,6 +4,6 @@
     imports = [ 
         ./common.nix
         ./darwin/zsh
-        ./darwin/bash
+        ./common/bash
     ];
 }

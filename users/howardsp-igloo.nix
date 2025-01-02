@@ -3,7 +3,7 @@
 {      
       imports = [  
         ./common.nix      
-        ./linux/bash
+        ./common/bash
         ./linux/emacs
         ./linux/gnome-settings
         ./linux/insync
