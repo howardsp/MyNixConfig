@@ -6,6 +6,8 @@
 
     # Ensure nix flakes are enabled
     nix.extraOptions = ''experimental-features = nix-command flakes'';
+    
+    programs.zsh.enable = true;
 
     # User account Common
     users.users.${username} = {      
