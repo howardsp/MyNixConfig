@@ -44,6 +44,7 @@
             "notunes"
             "webex"            
             "monitorcontrol"
+            "iterm2"
         ];
 
         # mas = mac app store https://github.com/mas-cli/mas 
