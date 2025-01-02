@@ -4,6 +4,7 @@
       imports = [  
         ./common.nix      
         ./common/bash
+        ./common/zsh
         ./linux/emacs
         ./linux/gnome-settings
         ./linux/insync

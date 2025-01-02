@@ -9,7 +9,8 @@
 
     # User account Common
     users.users.${username} = {      
-      description = fullname;      
+      description = fullname;     
+      shell = pkgs.zsh; 
       packages = with pkgs; [];      
     };
   
@@ -21,6 +22,9 @@
         tesseract           # ocr tool            
         git          
         bash
+        zsh
+        zsh-powerlevel10k
+
         #editor and command line 
         vim neovim wget curl zip unzip htop coreutils-full fastfetch 
 

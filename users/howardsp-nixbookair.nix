@@ -3,7 +3,7 @@
 {     
     imports = [ 
         ./common.nix
-        ./darwin/zsh
+        ./common/zsh
         ./common/bash
     ];
 }

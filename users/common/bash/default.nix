@@ -15,5 +15,5 @@
     bat = "bat --color=always ";
     ll="ls -lptr --color";
     ls="ls --color";
-  };   
+  };  
 }

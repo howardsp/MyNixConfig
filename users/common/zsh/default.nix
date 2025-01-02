@@ -3,7 +3,6 @@
 {
   programs.zsh = {
     enable = true;
-
     autosuggestion.enable = true;
 
     plugins = [{
@@ -17,18 +16,25 @@
       };
     }];
 
-    sessionVariables = { };
+    sessionVariables = { 
+      POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true;
+    };
     history.size = 10000;
 
     shellAliases = {    
       bat = "bat --color=always ";
       ll="ls -lptr --color";
       ls="ls --color";
-      nix-build="cd ~/MyNixConfig; nix run nix-darwin -- switch --flake .#${host}";
+      nixdarwin="cd ~/MyNixConfig; nix run nix-darwin -- switch --flake .#${host}";
+      nixlinux="cd ~/MyNixConfig; sudo nixos-rebuild switch --flake .#${host}";
     };   
 
-    initExtra = ''    
+    initExtra = ''        
       fastfetch
+      export PATH=$PATH:~/workspace/scripts
+      eval "$(direnv hook zsh)"
+      eval "$(fzf --zsh)"             
+      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
     '';
-  };
+  };   
 }
