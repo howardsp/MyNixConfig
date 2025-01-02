@@ -1,6 +1,10 @@
 { config, lib, pkgs, home-manager, host, username, fullname, ... }:
 {
 
+    imports =[   
+        ./linux/fonts
+    ];
+
     system.stateVersion = 5; # HomeBrew Version Placeholder
     services.nix-daemon.enable = true;        
 

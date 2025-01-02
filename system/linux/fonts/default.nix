@@ -4,9 +4,10 @@
     		enableDefaultPackages = true;
     		fontDir.enable = true;
     		enableGhostscriptFonts = true;
-        packages = with pkgs; [
-		        #nerdfonts
-		        liberation_ttf
+        packages = with pkgs; [		        
+            meslo-lgs-nf
+            nerdfonts
+            liberation_ttf
             freefont_ttf
             carlito   # similar to microsoft Calibri
             noto-fonts
