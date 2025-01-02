@@ -3,7 +3,7 @@
 	fonts = {
     		#enableDefaultPackages = true; 
     		#fontDir.enable = true;
-    		enableGhostscriptFonts = true;
+    		#enableGhostscriptFonts = true; 
         packages = with pkgs; [		        
             meslo-lgs-nf
             nerdfonts
