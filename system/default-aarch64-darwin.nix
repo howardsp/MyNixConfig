@@ -38,8 +38,7 @@
             "topnotch"
             "karabiner-elements"
             "notunes"
-            "webex"
-            "emacs"
+            "webex"            
             "monitorcontrol"
         ];
 
