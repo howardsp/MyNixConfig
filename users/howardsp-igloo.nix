@@ -3,7 +3,7 @@
 {      
       imports = [  
         ./common.nix      
-        ./linux/shell
+        ./linux/bash
         ./linux/emacs
         ./linux/gnome-settings
         ./linux/insync
@@ -12,6 +12,6 @@
         ./linux/vscode
         ./linux/xscreensaver
     ];        
-    
+
   home.homeDirectory = "/home/${username}" ;
 }

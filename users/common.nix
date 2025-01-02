@@ -6,4 +6,7 @@
     home.enableNixpkgsReleaseCheck = false;
     home.packages = with pkgs; [];  
     programs.home-manager.enable = true;
+
+    home.sessionVariables.EDITOR = "vim";    
+
 }

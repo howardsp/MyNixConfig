@@ -1,8 +1,7 @@
-{ config, lib, pkgs,  ... }:
+{ config, lib, pkgs, host,  ... }:
 
 {
-   
-  programs.bash = {
+ programs.bash = {
     enable = true;
     bashrcExtra = ''
         export PATH=$PATH:~/workspace/scripts
@@ -14,9 +13,7 @@
   programs.bash.shellAliases = {
     fzvim = "vim $(fzf --preview='bat --color=always {}')";
     bat = "bat --color=always ";
+    ll="ls -lptr --color";
+    ls="ls --color";
   };   
-
-  home.sessionVariables = {
-    EDITOR = "vim";
-  };
 }
