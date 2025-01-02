@@ -1,9 +1,6 @@
 {config, pkgs, ...}:  {
 
 	fonts = {
-    		#enableDefaultPackages = true; 
-    		#fontDir.enable = true;
-    		#enableGhostscriptFonts = true; 
         packages = with pkgs; [		        
             meslo-lgs-nf
             nerdfonts

@@ -2,7 +2,7 @@
 {
 
     imports =[   
-        ./linux/fonts
+        ./common/fonts
     ];
 
     system.stateVersion = 5; # HomeBrew Version Placeholder

@@ -1,8 +1,8 @@
 { config, lib, pkgs, pkgs-stable, host, username, fullname, ... }:
 {
     imports =[   
-        ./linux/gnome        
-        ./linux/fonts
+        ./common/fonts
+        ./linux/gnome                
         ./linux/sound
         ./linux/printing
     ];
@@ -25,6 +25,10 @@
         networking.hostName = "${host}";         # Define your hostname.
         networking.networkmanager.enable = true; # Use networkmanager  
         services.flatpak.enable = true;    
+
+        fonts.enableDefaultPackages = true; 
+        fonts.fontDir.enable = true;
+        fonts.enableGhostscriptFonts = true; 
 
         # User account on Linux
         users.users.${username} = {
