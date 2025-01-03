@@ -51,7 +51,7 @@
             "/System/Applications/Messages.app"
             "/Applications/zoom.us.app"          
             "/Applications/Visual Studio Code.app"
-            "/System/Applications/iTerm.app"
+            "/Applications/iterm.app"
             "/System/Applications/Utilities/Activity Monitor.app"
             "/System/Applications/System Settings.app"
             ];
