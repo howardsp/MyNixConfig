@@ -16,24 +16,22 @@
       packages = with pkgs; [];      
     };
   
-    environment.variables.EDITOR = "vim"; # Set default editor to vim           
+    environment.variables.EDITOR = "vim"; # Set default editor to vim        
+
     environment.systemPackages = with pkgs; [        
         home-manager             
         conjure             # transform images
         mods                # command line AI        
         tesseract           # ocr tool            
-        git          
-        bash
-        zsh
-        zsh-powerlevel10k
-
-        #editor and command line 
-        vim neovim wget curl zip unzip htop coreutils-full fastfetch 
+        git                 # version control
+        bash                # shell
+        zsh                 # shell
+        zsh-powerlevel10k   # zsh prompt tweaking
+        synergy             # sharing keyboard
 
         tldr                # short version of man        
         bat                 # better cat   
-        nvd                 # nixs version diff
-        nh                  # nixs helper
+        nvd nh              # nixs version diff / nixs helper                      
         nix-output-monitor  # cool build monitor
         duf du-dust         # replacements for du and df
         fd                  # fdfind is an enhanced find
@@ -51,6 +49,9 @@
 
         # Development Tools (java done per/type)
         android-tools python3 gcc git cmake perl gitkraken 
+
+        #editor and command line 
+        vim neovim wget curl zip unzip htop coreutils-full fastfetch 
 
         (writeShellScriptBin "project-init" ''
         if [ -z $1 ]; then

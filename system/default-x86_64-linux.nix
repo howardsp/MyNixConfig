@@ -13,6 +13,7 @@
         __browsers.enable  = lib.mkOption { type = lib.types.bool; default = true; };
         __citrix.enable = lib.mkOption { type = lib.types.bool; default = true; };
         __office.enable = lib.mkOption { type = lib.types.bool; default = true; };
+
         __synergy-server.enable = lib.mkOption { type = lib.types.bool; default = false; };
         __qemu.enable = lib.mkOption { type = lib.types.bool; default = false; };
     }; 
@@ -36,15 +37,13 @@
             extraGroups = [ "networkmanager" "wheel" "video" "media" "qemu-libvirtd" "libvirtd" "docker" "lxd"]; 
         };
         
-        virtualisation.libvirtd.enable = config.__qemu.enable;
-              
+        virtualisation.libvirtd.enable = config.__qemu.enable;              
         services.synergy.server.enable = config.__synergy-server.enable;
         networking.firewall.allowedTCPPortRanges = [ { from = 24800; to = 24801; } ];
         networking.firewall.allowedUDPPortRanges = [ { from = 24800; to = 24801; } ];     
 
         environment.systemPackages = with pkgs; [                       
-            stacer    
-            synergy                                                             
+            stacer                
             xfce.thunar 
             rofi
             jdk

@@ -2,7 +2,6 @@
 {
 
   imports = [ ../system ];
- 
             
   system.defaults = {
       #https://daiderd.com/nix-darwin/manual/index.html

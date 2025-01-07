@@ -17,7 +17,6 @@
 
     homebrew = {
         enable = true;      
-
         onActivation = {
         autoUpdate = true;
         cleanup = "uninstall";
@@ -26,7 +25,7 @@
 
         brews = [ "openjdk" ];
         casks = [        
-            "telegram"
+            "telegram"            
             "zoom"
             "citrix-workspace"
             "google-chrome"
