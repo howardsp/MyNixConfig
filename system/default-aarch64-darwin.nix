@@ -30,6 +30,7 @@
             "citrix-workspace"
             "google-chrome"
             "firefox"
+            "brave-browser"
             "microsoft-office"
             "microsoft-edge"
             "visual-studio-code"
