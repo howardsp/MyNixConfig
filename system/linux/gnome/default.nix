@@ -32,6 +32,7 @@
     amberol
     nautilus
     gnome-software
+    refine
     gedit
     gthumb    
     gnome-terminal
