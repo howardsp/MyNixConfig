@@ -13,7 +13,7 @@
         home = "/Users/${username}";            
     };        
 
-    environment.systemPackages = with pkgs; [ mas ];         
+    environment.systemPackages = with pkgs; [ mas qemu_full ];
 
     homebrew = {
         enable = true;      
@@ -44,7 +44,7 @@
             "notunes"
             "webex"            
             "monitorcontrol"
-            "iterm2"
+            "iterm2"            
         ];
 
         # mas = mac app store https://github.com/mas-cli/mas 
