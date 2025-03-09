@@ -17,7 +17,7 @@
     };
   
     environment.variables.EDITOR = "vim"; # Set default editor to vim        
-    environment.variables.DIRENV_WARN_TIMEOUT=0;    
+    environment.variables.DIRENV_WARN_TIMEOUT="false";
 
     environment.systemPackages = with pkgs; [        
         home-manager             
