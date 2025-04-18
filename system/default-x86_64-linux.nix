@@ -51,7 +51,7 @@
             ]
             ++ lib.optionals (config.__citrix.enable)       [ citrix_workspace]            
             ++ lib.optionals (config.__office.enable)       [ flameshot libreoffice-fresh onlyoffice-bin inkscape ]
-            ++ lib.optionals (config.__photo.enable)        [ vlc gimp pinta krita glib photocollage ]        
+            ++ lib.optionals (config.__photo.enable)        [ vlc gimp pinta krita glib photocollage mpv ]        
             ++ lib.optionals (config.__browsers.enable )    [ brave firefox google-chrome microsoft-edge ]
             ++ lib.optionals (config.__qemu.enable )        [ virt-viewer virtio-win virt-top virt-manager]
             ++ lib.optionals (config.__webcam.enable )      [ zoom-us webex cameractrls cameractrls-gtk4 obs-studio 

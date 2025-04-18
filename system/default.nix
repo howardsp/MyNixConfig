@@ -29,7 +29,6 @@
         zsh                 # shell
         zsh-powerlevel10k   # zsh prompt tweaking
         synergy             # sharing keyboard
-
         tldr                # short version of man        
         bat                 # better cat   
         nvd nh              # nixs version diff / nixs helper                      
@@ -73,6 +72,15 @@
         (writeShellScriptBin "project-show" ''
         nix --experimental-features 'nix-command flakes' \
             flake show github:howardsp/dev-templates --refresh
+        '')    
+
+     (writeShellScriptBin "nixdiff" ''
+        let CURRENT=`ls -dv /nix/var/nix/profiles/system-*-link | tail -1 | cut -d "-" -f 2`
+        let LAST=$CURRENT-1
+        let BEFORE=$LAST-1
+
+        nvd diff  /nix/var/nix/profiles/system-$BEFORE-link /nix/var/nix/profiles/system-$LAST-link
+        nvd diff  /nix/var/nix/profiles/system-$LAST-link /nix/var/nix/profiles/system-$CURRENT-link
         '')    
     ];  
 }
