@@ -7,6 +7,8 @@
       #https://daiderd.com/nix-darwin/manual/index.html
       WindowManager.GloballyEnabled = true;
 
+      primaryUser = "howardsp";
+
       controlcenter.BatteryShowPercentage = true;
       NSGlobalDomain.AppleShowAllExtensions = true;    
       NSGlobalDomain."com.apple.mouse.tapBehavior" = 1;
