@@ -22,7 +22,8 @@
 
         time.timeZone = "America/New_York";
         i18n.defaultLocale = "en_US.UTF-8";
-        system.stateVersion = "24.11";    
+        system.stateVersion = "25.05"; 
+        
         networking.hostName = "${host}";         # Define your hostname.
         networking.networkmanager.enable = true; # Use networkmanager  
         services.flatpak.enable = true;    
