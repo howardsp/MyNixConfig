@@ -3,11 +3,11 @@
 
   imports = [ ../system ];
             
+  system.primaryUser = "howardsp";            
+  
   system.defaults = {
       #https://daiderd.com/nix-darwin/manual/index.html
-      WindowManager.GloballyEnabled = true;
-
-      primaryUser = "howardsp";
+      WindowManager.GloballyEnabled = true;      
 
       controlcenter.BatteryShowPercentage = true;
       NSGlobalDomain.AppleShowAllExtensions = true;    
