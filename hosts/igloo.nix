@@ -7,7 +7,7 @@
 
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_15;
   boot.kernelModules = [ "kvm-amd" "cpufreq_performance" "v4l2loopback" ];    
-  boot.extraModulePackages = [ pkgs.linuxKernel.packages.linux_6_14.v4l2loopback ];
+  boot.extraModulePackages = [ pkgs.linuxKernel.packages.linux_6_15.v4l2loopback ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;  
   
