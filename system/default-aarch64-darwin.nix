@@ -6,7 +6,7 @@
     ];
 
     system.stateVersion = 5; # HomeBrew Version Placeholder
-    services.nix-daemon.enable = true;        
+    #services.nix-daemon.enable = true;  -- no longer used?
 
     # User account
     users.users.${username} = {      
