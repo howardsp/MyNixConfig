@@ -5,19 +5,9 @@
         ./linux/gnome                
         ./linux/sound
         ./linux/printing
+        ./linux/synergy-server
     ];
     
-    options = {        
-          __photo.enable = lib.mkOption { type = lib.types.bool; default = true;};        
-          __webcam.enable = lib.mkOption { type = lib.types.bool; default = true; };
-          __browsers.enable  = lib.mkOption { type = lib.types.bool; default = true; };
-          __citrix.enable = lib.mkOption { type = lib.types.bool; default = true; };
-          __office.enable = lib.mkOption { type = lib.types.bool; default = true; };
-
-          __synergy-server.enable = lib.mkOption { type = lib.types.bool; default = false; };
-          __qemu.enable = lib.mkOption { type = lib.types.bool; default = false; };
-      }; 
-
     config = {
 
         time.timeZone = "America/New_York";

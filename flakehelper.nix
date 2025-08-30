@@ -44,6 +44,7 @@
           system = thesystem;          
           modules = [
             (./hosts/${host}.nix)
+            (./flakeoptions.nix)    
             (helper.allowUnfree)
             home-manager.darwinModules.home-manager {}
             (helper.homeHelper {username = username; fullname = fullname; host = host; thesystem = thesystem;})
