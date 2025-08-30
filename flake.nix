@@ -25,23 +25,40 @@
     homebrew-cask.flake = false;    
   };
      
+     
   outputs = { self, nixpkgs, nixpkgs-unstable, darwin, nix-homebrew, homebrew-bundle, 
               homebrew-core, homebrew-cask, home-manager, ... } @inputs:    
     let       
 
       helper = import ./flakehelper.nix {inherit nixpkgs nixpkgs-unstable home-manager nix-homebrew helper
-                                                  homebrew-core homebrew-cask homebrew-bundle darwin;};
+                                                  homebrew-core homebrew-cask homebrew-bundle darwin;};    
+
+      options = {        
+          __photo.enable = nixpkgs.lib.mkOption { type = nixpkgs.lib.types.bool; default = true;};        
+          __webcam.enable = nixpkgs.lib.mkOption { type = nixpkgs.lib.types.bool; default = true; };
+          __browsers.enable  = nixpkgs.lib.mkOption { type = nixpkgs.lib.types.bool; default = true; };
+          __citrix.enable = nixpkgs.lib.mkOption { type = nixpkgs.lib.types.bool; default = true; };
+          __office.enable = nixpkgs.lib.mkOption { type = nixpkgs.lib.types.bool; default = true; };
+          __synergy.enable = nixpkgs.lib.mkOption { type = nixpkgs.lib.types.bool; default = true; };
+
+          __synergy-server.enable = nixpkgs.lib.mkOption { type = nixpkgs.lib.types.bool; default = false; };
+          __qemu.enable = nixpkgs.lib.mkOption { type = nixpkgs.lib.types.bool; default = false; };
+      };  
 
       in {               
 
         nixosConfigurations = {                     
-          igloo = helper.createLinuxSystem { host = "igloo";};
+          igloo = helper.createLinuxSystem { host = "igloo";};          
+
           virtualnix = helper.createLinuxSystem { host = "virtualnix";};
           avalanche = helper.createLinuxSystem { host = "avalanche";};          
         };
 
         darwinConfigurations = {
           nixbookair = helper.createDarwinSystem { host = "nixbookair";  };        
-        };        
+        };  
+
+        igloo.options.__qemu = true;
+        igloo.options.__synergy-server = true;
     };
 }

@@ -6,18 +6,18 @@
         ./linux/sound
         ./linux/printing
     ];
-
-    options = {        
-        __photo.enable = lib.mkOption { type = lib.types.bool; default = true;};        
-        __webcam.enable = lib.mkOption { type = lib.types.bool; default = true; };
-        __browsers.enable  = lib.mkOption { type = lib.types.bool; default = true; };
-        __citrix.enable = lib.mkOption { type = lib.types.bool; default = true; };
-        __office.enable = lib.mkOption { type = lib.types.bool; default = true; };
-
-        __synergy-server.enable = lib.mkOption { type = lib.types.bool; default = false; };
-        __qemu.enable = lib.mkOption { type = lib.types.bool; default = false; };
-    }; 
     
+    options = {        
+          __photo.enable = lib.mkOption { type = lib.types.bool; default = true;};        
+          __webcam.enable = lib.mkOption { type = lib.types.bool; default = true; };
+          __browsers.enable  = lib.mkOption { type = lib.types.bool; default = true; };
+          __citrix.enable = lib.mkOption { type = lib.types.bool; default = true; };
+          __office.enable = lib.mkOption { type = lib.types.bool; default = true; };
+
+          __synergy-server.enable = lib.mkOption { type = lib.types.bool; default = false; };
+          __qemu.enable = lib.mkOption { type = lib.types.bool; default = false; };
+      }; 
+
     config = {
 
         time.timeZone = "America/New_York";
@@ -39,9 +39,6 @@
         };
         
         virtualisation.libvirtd.enable = config.__qemu.enable;              
-        services.synergy.server.enable = config.__synergy-server.enable;
-        networking.firewall.allowedTCPPortRanges = [ { from = 24800; to = 24801; } ];
-        networking.firewall.allowedUDPPortRanges = [ { from = 24800; to = 24801; } ];     
 
         environment.systemPackages = with pkgs; [                       
             stacer                

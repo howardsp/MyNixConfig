@@ -12,7 +12,8 @@
         ./linux/synergy-client
         ./linux/vscode
         ./linux/xscreensaver
-    ];        
+    ]
+    ++ lib.optional config.__synergy-server ./linux/synergy-server;
 
   home.homeDirectory = "/home/${username}" ;
 }

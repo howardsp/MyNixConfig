@@ -53,7 +53,7 @@
         #editor and command line 
         vim neovim wget curl zip unzip htop coreutils-full fastfetch 
 
-        (writeShellScriptBin "project-init" ''
+    (writeShellScriptBin "project-init" ''
         if [ -z $1 ]; then
             echo "no template specified"
             exit 1
@@ -69,7 +69,7 @@
         echo "use flake" > .envrc
         '')
 
-        (writeShellScriptBin "project-show" ''
+    (writeShellScriptBin "project-show" ''
         nix --experimental-features 'nix-command flakes' \
             flake show github:howardsp/dev-templates --refresh
         '')    
