@@ -24,8 +24,7 @@
     homebrew-cask.url = "github:homebrew/homebrew-cask";
     homebrew-cask.flake = false;    
   };
-     
-     
+          
   outputs = { self, nixpkgs, nixpkgs-unstable, darwin, nix-homebrew, homebrew-bundle, 
               homebrew-core, homebrew-cask, home-manager, ... } @inputs:    
     let       
@@ -35,7 +34,6 @@
     in {                                                  
         nixosConfigurations = {                     
           igloo = helper.createLinuxSystem { host = "igloo";};          
-
           virtualnix = helper.createLinuxSystem { host = "virtualnix";};
           avalanche = helper.createLinuxSystem { host = "avalanche";};          
         };
@@ -44,7 +42,5 @@
           nixbookair = helper.createDarwinSystem { host = "nixbookair";  };        
         };  
 
-        igloo.__qemu = true;
-        igloo.__synergy-server = true;
     };
 }

@@ -4,6 +4,21 @@
         ./default-${thesystem}.nix
     ];
 
+
+    options = {        
+        __photo.enable = lib.mkOption { type = lib.types.bool; default = true;};        
+        __webcam.enable = lib.mkOption { type = lib.types.bool; default = true; };
+        __browsers.enable  = lib.mkOption { type = lib.types.bool; default = true; };
+        __citrix.enable = lib.mkOption { type = lib.types.bool; default = true; };
+        __office.enable = lib.mkOption { type = lib.types.bool; default = true; };
+        __synergy.enable = lib.mkOption { type = lib.types.bool; default = true; };
+
+        __synergy-server.enable = lib.mkOption { type = lib.types.bool; default = false; };
+        __qemu.enable = lib.mkOption { type = lib.types.bool; default = false; };
+    };     
+
+    config = {
+
     # Ensure nix flakes are enabled
     nix.extraOptions = ''experimental-features = nix-command flakes'';
     
@@ -82,5 +97,6 @@
         nvd diff  /nix/var/nix/profiles/system-$BEFORE-link /nix/var/nix/profiles/system-$LAST-link
         nvd diff  /nix/var/nix/profiles/system-$LAST-link /nix/var/nix/profiles/system-$CURRENT-link
         '')    
-    ];  
+    ];
+    };  
 }

@@ -1,5 +1,7 @@
 { config, options, lib, pkgs,  home-manager, username, ... }:
 {
+  config = lib.mkIf __synergy.enable
+  {
       home.file."./.config/autostart/synergy.desktop" = {
         text = ''
         [Desktop Entry]
@@ -11,5 +13,6 @@
         Terminal=false
         '';
       };     
+  };
 }
 
