@@ -24,8 +24,7 @@
         system = thesystem;        
         modules = [            
             (./hosts/${host}.nix)
-            (./hardware/hardware-${host}.nix)        
-            (./flakeoptions.nix)    
+            (./hardware/hardware-${host}.nix)                    
             (helper.allowUnfree)
             home-manager.nixosModules.home-manager {}
             (helper.homeHelper {username = username; fullname = fullname; host = host; thesystem = thesystem;})
@@ -43,8 +42,7 @@
     createDarwinSystem = { host, username ? "howardsp", fullname ? "Howard Spector", thesystem ? "aarch64-darwin"  }: darwin.lib.darwinSystem {
           system = thesystem;          
           modules = [
-            (./hosts/${host}.nix)
-            (./flakeoptions.nix)    
+            (./hosts/${host}.nix)            
             (helper.allowUnfree)
             home-manager.darwinModules.home-manager {}
             (helper.homeHelper {username = username; fullname = fullname; host = host; thesystem = thesystem;})

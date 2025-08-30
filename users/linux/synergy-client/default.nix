@@ -1,6 +1,15 @@
 { config, options, lib, pkgs,  home-manager, username, ... }:
 {
-      system.networking.firewall.allowedTCPPortRanges = [ { from = 24800; to = 24801; } ];
-      system.networking.firewall.allowedUDPPortRanges = [ { from = 24800; to = 24801; } ];     
+      home.file."./.config/autostart/synergy.desktop" = {
+        text = ''
+        [Desktop Entry]
+        Type=Application
+        Name=synergy
+        Exec=synergy
+        Categories=Other
+        X-GNOME-Autostart-enabled=true
+        Terminal=false
+        '';
+      };     
 }
 

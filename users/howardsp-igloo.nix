@@ -9,7 +9,6 @@
       ./linux/insync
       ./linux/rofi        
       ./linux/synergy-client
-      ./linux/synergy-server      
       ./linux/vscode
       ./linux/xscreensaver
     ];
