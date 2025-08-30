@@ -32,21 +32,7 @@
 
       helper = import ./flakehelper.nix {inherit nixpkgs nixpkgs-unstable home-manager nix-homebrew helper
                                                   homebrew-core homebrew-cask homebrew-bundle darwin;};    
-
-      options = {        
-          __photo.enable = nixpkgs.lib.mkOption { type = nixpkgs.lib.types.bool; default = true;};        
-          __webcam.enable = nixpkgs.lib.mkOption { type = nixpkgs.lib.types.bool; default = true; };
-          __browsers.enable  = nixpkgs.lib.mkOption { type = nixpkgs.lib.types.bool; default = true; };
-          __citrix.enable = nixpkgs.lib.mkOption { type = nixpkgs.lib.types.bool; default = true; };
-          __office.enable = nixpkgs.lib.mkOption { type = nixpkgs.lib.types.bool; default = true; };
-          __synergy.enable = nixpkgs.lib.mkOption { type = nixpkgs.lib.types.bool; default = true; };
-
-          __synergy-server.enable = nixpkgs.lib.mkOption { type = nixpkgs.lib.types.bool; default = false; };
-          __qemu.enable = nixpkgs.lib.mkOption { type = nixpkgs.lib.types.bool; default = false; };
-      };  
-
-      in {               
-
+    in {                                                  
         nixosConfigurations = {                     
           igloo = helper.createLinuxSystem { host = "igloo";};          
 
@@ -58,7 +44,7 @@
           nixbookair = helper.createDarwinSystem { host = "nixbookair";  };        
         };  
 
-        igloo.options.__qemu = true;
-        igloo.options.__synergy-server = true;
+        igloo.__qemu = true;
+        igloo.__synergy-server = true;
     };
 }

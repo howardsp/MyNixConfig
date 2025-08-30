@@ -24,7 +24,8 @@
         system = thesystem;        
         modules = [            
             (./hosts/${host}.nix)
-            (./hardware/hardware-${host}.nix)            
+            (./hardware/hardware-${host}.nix)        
+            (./flakeoptions.nix)    
             (helper.allowUnfree)
             home-manager.nixosModules.home-manager {}
             (helper.homeHelper {username = username; fullname = fullname; host = host; thesystem = thesystem;})
