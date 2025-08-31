@@ -8,7 +8,7 @@
       ./linux/gnome-settings
       ./linux/insync
       ./linux/rofi        
-      ./linux/synergy-client
+      #./linux/synergy-client
       ./linux/vscode
       ./linux/xscreensaver
     ];

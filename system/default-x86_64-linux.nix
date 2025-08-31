@@ -6,6 +6,7 @@
         ./linux/sound
         ./linux/printing
         ./linux/synergy-server
+        ./linux/synergy-client
     ];
     
     config = {
