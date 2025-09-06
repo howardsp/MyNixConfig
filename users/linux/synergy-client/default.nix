@@ -1,14 +1,14 @@
 { config, options, lib, pkgs,  home-manager, username, ... }:
- 
-  let 
+ {
+  options.myOptions-synergy-client.enable = lib.mkOption {
+    type = lib.types.bool;
+    default = true;
+    description = "Enable Synergy autostart";
+  };
 
-  homeEnableSynergy = config.__synergy-client.enable;
-  
-  in
-  {
-    config = lib.mkIf (homeEnableSynergy)
+    config = lib.mkIf (config.myOptions-synergy-client.enable)
     {
-        home-manager.file."./.config/autostart/synergy.desktop" = {      
+        home.file."./.config/autostart/synergy.desktop" = {      
           text = ''
           [Desktop Entry]
           Type=Application

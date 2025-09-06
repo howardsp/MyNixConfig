@@ -12,7 +12,7 @@
         home-manager.extraSpecialArgs = {                
             pkgs-unstable = import nixpkgs-unstable  {
                 system = thesystem;
-                config.allowUnfree = true;
+                config.allowUnfree = true;                
             };             
             inherit host username fullname thesystem;
         };                     
@@ -21,20 +21,20 @@
     # generalize the initial nixosSystem creation to ensure consistency 
     #
     createLinuxSystem = { host, username ? "howardsp", fullname ? "Howard Spector", thesystem ? "x86_64-linux"  }: nixpkgs.lib.nixosSystem {
-        system = thesystem;        
+        system = thesystem;           
         modules = [            
             (./hosts/${host}.nix)
             (./hardware/hardware-${host}.nix)                    
             (helper.allowUnfree)
             home-manager.nixosModules.home-manager {}
-            (helper.homeHelper {username = username; fullname = fullname; host = host; thesystem = thesystem;})
+            (helper.homeHelper {username = username; fullname = fullname; host = host; thesystem = thesystem; })
           ]; 
           specialArgs = { 
               pkgs-unstable = import nixpkgs-unstable  {
                   system = thesystem;
                   config.allowUnfree = true;
               };             
-              inherit  nixpkgs host username fullname  home-manager thesystem;};
+              inherit  nixpkgs host username fullname home-manager thesystem;};
         }; 
 
     # generalize the initial darwinSystem creation to ensure consistency 

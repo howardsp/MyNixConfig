@@ -5,8 +5,7 @@
         ./linux/gnome                
         ./linux/sound
         ./linux/printing
-        ./linux/synergy-server
-        ./linux/synergy-client
+        ./linux/synergy-server        
     ];
     
     config = {
@@ -37,6 +36,8 @@
             rofi
             jdk
             insync
+            gnome-multi-writer            
+            mediawriter            
             ]
             ++ lib.optionals (config.__citrix.enable)       [ citrix_workspace]            
             ++ lib.optionals (config.__office.enable)       [ flameshot libreoffice-fresh onlyoffice-bin inkscape ]

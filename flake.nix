@@ -10,6 +10,7 @@
 {
   description = "Howard's NIXOS Configuraiton that supports multiple machines";
   inputs = {
+    
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/0b491b460f52e87e23eb17bbf59c6ae64b7664c1";
