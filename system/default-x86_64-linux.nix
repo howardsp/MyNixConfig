@@ -5,7 +5,8 @@
         ./linux/gnome                
         ./linux/sound
         ./linux/printing
-        ./linux/synergy-server        
+        ./linux/synergy-server    
+        ./linux/steam    
     ];
     
     config = {
