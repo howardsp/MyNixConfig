@@ -37,6 +37,7 @@
             rofi
             jdk
             insync
+            syncthing
             gnome-multi-writer            
             mediawriter            
             ]
