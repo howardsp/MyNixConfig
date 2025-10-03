@@ -15,6 +15,10 @@
             "--privileged"
             ];
         };        
+
+        networking.firewall.allowedTCPPorts = [
+          config.services.home-assistant.config.http.server_port
+        ];
       };
 }
 
