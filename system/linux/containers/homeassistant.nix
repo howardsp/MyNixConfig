@@ -1,9 +1,5 @@
 { config, system, options, lib, pkgs,  home-manager, username, ... }:
 {
-    options = {        
-            myHomeAssistant.enable = lib.mkOption { type = lib.types.bool; default = false;};        
-      };
-
       config = lib.mkIf (config.mySteamConfig.enable)
       {       
         virtualisation.oci-containers.containers."homeassistant" = {

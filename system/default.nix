@@ -10,7 +10,7 @@
             __browsers.enable  = lib.mkOption { type = lib.types.bool; default = true; };
             __citrix.enable = lib.mkOption { type = lib.types.bool; default = true; };
             __office.enable = lib.mkOption { type = lib.types.bool; default = true; };            
-
+            myHomeAssistant.enable = lib.mkOption { type = lib.types.bool; default = false;};        
             __synergy-server.enable = lib.mkOption { type = lib.types.bool; default = false; };
             __qemu.enable = lib.mkOption { type = lib.types.bool; default = false; };
         };     
