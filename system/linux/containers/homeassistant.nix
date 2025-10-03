@@ -16,9 +16,8 @@
             ];
         };        
 
-        networking.firewall.allowedTCPPorts = [
-          config.services.home-assistant.config.http.server_port
-        ];
+        networking.firewall.allowedTCPPortRanges = [ { from = 8123; to = 8123; } ];
+
       };
 }
 
