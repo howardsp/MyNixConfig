@@ -1,0 +1,24 @@
+{ config, system, options, lib, pkgs,  home-manager, username, ... }:
+{
+    options = {        
+            myHomeAssistant.enable = lib.mkOption { type = lib.types.bool; default = false;};        
+      };
+
+      config = lib.mkIf (config.mySteamConfig.enable)
+      {       
+        virtualisation.oci-containers.containers."homeassistant" = {
+            autoStart = true;
+            image = "ghcr.io/home-assistant/home-assistant:stable";
+            volumes = [
+            "/home/${username}/HomeAssistant:/config"
+            "/etc/localtime:/etc/localtime:ro"
+            ];
+            extraOptions = [
+            "--device=/dev/ttyUSB0"
+            "--network=host"
+            "--privileged"
+            ];
+        };        
+      };
+}
+

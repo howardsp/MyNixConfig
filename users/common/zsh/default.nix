@@ -28,7 +28,7 @@
       ll="ls -lptr --color";
       ls="ls --color";
       nixdarwin="cd ~/MyNixConfig; nix run nix-darwin -- switch --flake .#${host}";
-      nixlinux="cd ~/MyNixConfig; sudo nixos-rebuild switch --flake .#${host}";
+      nixlinux="cd ~/MyNixConfig; ";
       nixclean="nix-collect-garbage --delete-older-than 30d --max-jobs auto ";
     };   
 

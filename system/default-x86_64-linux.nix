@@ -6,7 +6,8 @@
         ./linux/sound
         ./linux/printing
         ./linux/synergy-server    
-        ./linux/steam    
+        ./linux/steam   
+        ./linux/containers/homeassistant.nix 
     ];
     
     config = {
