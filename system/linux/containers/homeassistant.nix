@@ -1,6 +1,6 @@
 { config, system, options, lib, pkgs,  home-manager, username, ... }:
 {
-      config = lib.mkIf (config.mySteamConfig.enable)
+      config = lib.mkIf (config.myHomeAssistant.enable)
       {       
         virtualisation.oci-containers.containers."homeassistant" = {
             autoStart = true;

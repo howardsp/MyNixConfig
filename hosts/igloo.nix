@@ -3,7 +3,7 @@
   imports = [ ../system ];
 
  __qemu.enable = true;
- myHomeAssistant = true;
+ myHomeAssistant.enable = true;
 
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_16;
   boot.kernelModules = [ "kvm-amd" "cpufreq_performance" "v4l2loopback" ];    
