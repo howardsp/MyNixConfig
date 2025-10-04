@@ -34,6 +34,7 @@
         programs.virt-manager.enable = true;
         virtualisation.spiceUSBRedirection.enable = true;        
         users.groups.libvirtd.members = [ "${username}" ];
+        
         networking.firewall.trustedInterfaces = [ "virbr0" ];
 
         environment.systemPackages = with pkgs; [                       
