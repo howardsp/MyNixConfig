@@ -13,9 +13,7 @@
   
   boot.kernelParams = [ "zswap.enabled=1"  "amd_pstate=active" "mitigations=off" ];
   
-  networking.firewall.allowedTCPPorts = [ 8123 ];
   
-    
   powerManagement.cpuFreqGovernor = "performance";
 
 }

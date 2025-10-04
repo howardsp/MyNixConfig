@@ -14,4 +14,13 @@
   boot.kernelParams = [ "zswap.enabled=1"  "amd_pstate=active" "mitigations=off" ];
   
   powerManagement.cpuFreqGovernor = "performance";
+
+
+  networking.firewall.allowedTCPPorts = [ 8123 ];
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;        
+  users.groups.libvirtd.members = [ "${username}" ];
+  networking.firewall.trustedInterfaces = [ "virbr0" ];
+
 }

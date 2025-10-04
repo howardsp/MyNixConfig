@@ -30,18 +30,6 @@
             extraGroups = [ "networkmanager" "wheel" "video" "media" "qemu-libvirtd" "libvirtd" "docker" "lxd"]; 
         };
         
-        virtualisation.libvirtd.enable = config.__qemu.enable;            
-        programs.virt-manager.enable = true;
-        virtualisation.spiceUSBRedirection.enable = true;        
-        users.groups.libvirtd.members = [ "${username}" ];
-        
-        virtualisation.virtualbox.guest.enable = config.__qemu.enable;
-        virtualisation.virtualbox.guest.dragAndDrop = config.__qemu.enable;
-        virtualisation.virtualbox.host.enable = config.__qemu.enable;
-        virtualisation.virtualbox.host.enableExtensionPack = config.__qemu.enable;
-        users.extraGroups.vboxusers.members = [ "${username}" ];
-
-        networking.firewall.trustedInterfaces = [ "virbr0" ];
 
         environment.systemPackages = with pkgs; [                       
             stacer                
