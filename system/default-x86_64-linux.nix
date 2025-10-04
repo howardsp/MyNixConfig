@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-stable, host, username, fullname, ... }:
+ { config, lib, pkgs, pkgs-stable, host, username, fullname, ... }:
 {
     imports =[   
         ./common/fonts
@@ -35,6 +35,12 @@
         virtualisation.spiceUSBRedirection.enable = true;        
         users.groups.libvirtd.members = [ "${username}" ];
         
+        virtualisation.virtualbox.guest.enable = config.__qemu.enable;
+        virtualisation.virtualbox.guest.dragAndDrop = config.__qemu.enable;
+        virtualisation.virtualbox.host.enable = config.__qemu.enable;
+        virtualisation.virtualbox.host.enableExtensionPack = config.__qemu.enable;
+        users.extraGroups.vboxusers.members = [ "${username}" ];
+
         networking.firewall.trustedInterfaces = [ "virbr0" ];
 
         environment.systemPackages = with pkgs; [                       
