@@ -17,7 +17,7 @@
         system.stateVersion = "25.05"; 
         
         networking.hostName = "${host}";         # Define your hostname.
-        networking.networkmanager.enable = true; # Use networkmanager  
+        networking.networkmanager.enable = true; # Use networkmanager          
         services.flatpak.enable = true;    
 
         fonts.enableDefaultPackages = true; 

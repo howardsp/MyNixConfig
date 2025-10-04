@@ -18,7 +18,7 @@
             };
           };
 
-        networking.firewall.allowedTCPPortRanges = [ { from = 8123; to = 8123; } ];
+        networking.firewall.allowedTCPPortRanges = [ { from = 8123; to = 8123; } ];        
 
       };
 }
