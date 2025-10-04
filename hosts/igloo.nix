@@ -19,8 +19,7 @@
   networking.firewall.allowedTCPPorts = [ 8123 ];
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
-  virtualisation.spiceUSBRedirection.enable = true;        
-  users.groups.libvirtd.members = [ "${username}" ];
+  virtualisation.spiceUSBRedirection.enable = true;          
   networking.firewall.trustedInterfaces = [ "virbr0" ];
 
 }

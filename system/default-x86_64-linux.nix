@@ -25,6 +25,7 @@
         fonts.enableGhostscriptFonts = true; 
 
         # User account on Linux
+        users.groups.libvirtd.members = [ "${username}" ];
         users.users.${username} = {
             isNormalUser = true;
             extraGroups = [ "networkmanager" "wheel" "video" "media" "qemu-libvirtd" "libvirtd" "docker" "lxd"]; 
