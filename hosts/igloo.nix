@@ -14,7 +14,4 @@
   boot.kernelParams = [ "zswap.enabled=1"  "amd_pstate=active" "mitigations=off" ];
   
   powerManagement.cpuFreqGovernor = "performance";
-
-  networking.firewall.trustedInterfaces = [ "virbr0" ];
-
 }

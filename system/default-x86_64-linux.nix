@@ -30,7 +30,10 @@
             extraGroups = [ "networkmanager" "wheel" "video" "media" "qemu-libvirtd" "libvirtd" "docker" "lxd"]; 
         };
         
-        virtualisation.libvirtd.enable = config.__qemu.enable;              
+        virtualisation.libvirtd.enable = config.__qemu.enable;    
+        programs.virt-manager.enable = true;
+        virtualisation.spiceUSBRedirection.enable = true;        
+        users.groups.libvirtd.members = [ "${username}" ];
 
         environment.systemPackages = with pkgs; [                       
             stacer                
