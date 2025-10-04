@@ -22,7 +22,7 @@
   virtualisation.spiceUSBRedirection.enable = true;          
   networking.firewall.trustedInterfaces = [ "virbr0" ];
 
-{
+
   nixpkgs.config.permittedInsecurePackages = [
     "openssl-1.1.1w"
   ];
@@ -40,6 +40,4 @@
       default_config = {};
     };
   };
-}
-
 }
