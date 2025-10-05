@@ -22,22 +22,23 @@
   virtualisation.spiceUSBRedirection.enable = true;          
   networking.firewall.trustedInterfaces = [ "virbr0" ];
 
+  virtualisation.docker.enable = true;
+  users.users.howardsp.extraGroups = [ "docker" ];
+  users.extraGroups.docker.members = [ "howardsp" ];
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "openssl-1.1.1w"
-  ];
-  services.home-assistant = {
-    enable = true;
-    extraComponents = [
-      # Components required to complete the onboarding
-      "esphome"
-      "met"
-      "radio_browser"
+  # Home Assistant
+  virtualisation.oci-containers.containers."homeassistant" = {
+    autoStart = true;
+    image = "ghcr.io/home-assistant/home-assistant:stable";
+    volumes = [
+      "/home/ricky/HomeAssistant:/config"
+      "/etc/localtime:/etc/localtime:ro"
     ];
-    config = {
-      # Includes dependencies for a basic setup
-      # https://www.home-assistant.io/integrations/default_config/
-      default_config = {};
-    };
-  };
+    extraOptions = [
+      "--device=/dev/ttyUSB0"
+      "--network=host"
+      "--privileged"
+    ];
+  };  
+  
 }
