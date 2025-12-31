@@ -5,9 +5,9 @@
   #__qemu.enable = true;
   __synergy-server.enable = true;  
 
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_19;
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_18;
   boot.kernelModules = [ "kvm-amd" "cpufreq_performance" "v4l2loopback" ];    
-  boot.extraModulePackages = [ pkgs.linuxKernel.packages.linux_6_19.v4l2loopback ];
+  boot.extraModulePackages = [ pkgs.linuxKernel.packages.linux_6_18.v4l2loopback ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;  
   

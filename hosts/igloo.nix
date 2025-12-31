@@ -5,9 +5,9 @@
  __qemu.enable = true;
  
 
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_17;
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_18;
   boot.kernelModules = [ "kvm-amd" "cpufreq_performance" "v4l2loopback" ];    
-  boot.extraModulePackages = [ pkgs.linuxKernel.packages.linux_6_17.v4l2loopback ];
+  boot.extraModulePackages = [ pkgs.linuxKernel.packages.linux_6_18.v4l2loopback ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;  
   
