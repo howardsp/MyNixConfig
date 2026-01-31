@@ -3,7 +3,6 @@
 	fonts = {
         packages = with pkgs; [		        
                 meslo-lgs-nf            
-            #nerdfonts
                 nerd-fonts.jetbrains-mono                
                 nerd-fonts._3270
                 nerd-fonts.agave

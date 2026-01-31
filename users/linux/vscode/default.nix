@@ -9,7 +9,8 @@
         bbenoist.nix
         yzhang.markdown-all-in-one
         streetsidesoftware.code-spell-checker
-      ];
+      ]
+      ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace ;
     };  
 }
 
